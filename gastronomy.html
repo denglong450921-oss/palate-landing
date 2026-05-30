@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Gastronomy | THE PALATE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        
+        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
+        .logo { height: 28px; display: block; }
+        .logo-footer { height: 28px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+        .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        .nav-links a:hover, .nav-links a.active { color: #149C3D; border-bottom: 2px solid #E5BA73; padding-bottom: 4px; }
+        .lang-toggle { font-size: 12px; letter-spacing: 1px; font-weight: 700; cursor: pointer; padding: 4px 10px; border: 1px solid #ddd; border-radius: 3px; background: transparent; text-transform: uppercase; }
+        .lang-toggle.active { background: #149C3D; color: #fff; border-color: #149C3D; }
+        .lang-toggle:hover { border-color: #149C3D; }
+
+        .inner-hero { 
+            padding: 220px 8% 120px 8%; 
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.95)), url('images/hero-michelin-kitchen.png') no-repeat center center/cover;
+            border-bottom: 1px solid #f0f0f0; 
+            animation: fadeIn 1s ease; 
+        }
+        .page-indicator { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #149C3D; font-weight: 700; margin-bottom: 20px; display: block; }
+        .inner-hero h1 { font-size: 44px; font-weight: 400; color: #111111; max-width: 850px; margin-bottom: 25px; line-height: 1.3; }
+        .inner-hero h1 b { color: #149C3D; font-weight: 800; }
+        .inner-hero p { font-size: 16px; color: #555555; max-width: 700px; line-height: 1.8; }
+
+        .solutions-section { padding: 120px 8%; background-color: #ffffff; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; margin-top: 60px; }
+        .solution-card { padding: 40px; background-color: #fcfdfe; border-top: 3px solid #149C3D; }
+        .solution-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: #111111; }
+        .solution-card p { font-size: 14px; color: #666666; line-height: 1.7; }
+
+        .manifesto-section { padding: 120px 8%; display: flex; justify-content: space-between; gap: 80px; background-color: #149C3D; color: #ffffff; }
+        .manifesto-left { width: 40%; font-size: 26px; font-weight: 600; line-height: 1.5; border-left: 4px solid #E5BA73; padding-left: 25px; align-self: flex-start; }
+        .manifesto-right { width: 60%; display: flex; flex-direction: column; gap: 45px; }
+        .criteria-block h4 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #E5BA73; letter-spacing: 0.5px; }
+        .criteria-block p { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.8; font-weight: 300; }
+
+        .showcase-section { padding: 120px 8%; background-color: #ffffff; text-align: center; }
+        .showcase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; text-align: left; }
+        .showcase-card { border: 1px solid #f0f0f0; border-radius: 4px; overflow: hidden; }
+        .showcase-img { height: 300px; background-color: #eef5ef; position: relative; }
+        .showcase-info { padding: 30px; background-color: #ffffff; }
+        .showcase-info h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #149C3D; }
+        .showcase-info p { font-size: 14px; color: #666666; line-height: 1.7; }
+
+        footer { background-color: #111111; color: #ffffff; padding: 90px 8% 40px 8%; display: flex; flex-direction: column; gap: 60px; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-desc { max-width: 380px; color: #aaaaaa; font-size: 14px; line-height: 1.8; }
+        .footer-desc .logo-footer { margin-bottom: 20px; }
+        .footer-links { display: flex; gap: 80px; }
+        .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; margin-bottom: 25px; font-weight: 700; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 14px; color: #cccccc; }
+        .footer-col ul a:hover { color: #E5BA73; padding-left: 5px; }
+        .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #777777; border-top: 1px solid #222222; padding-top: 30px; letter-spacing: 1px; }
+
+        .section-title { font-size: 32px; font-weight: 700; color: #111111; margin-bottom: 20px; }
+        .section-title span { color: #149C3D; }
+        .section-subtitle { font-size: 15px; color: #666666; margin-bottom: 60px; letter-spacing: 1px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img class="logo" src="images/logo.png" alt="THE PALATE">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="brands.html">For Brands</a></li>
+            <li><a href="gastronomy.html" class="active">For Gastronomy</a></li>
+            <li><a href="inquiry.html">Inquiry</a></li>
+            <li>
+                <button class="lang-toggle active" data-lang="en" onclick="switchLang('en')">EN</button>
+                <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')">PT</button>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="inner-hero">
+        <span class="page-indicator">Culinary Visionaries & Chefs</span>
+        <h1>
+            <span class="lang-en">The Invisible <b>Curator of Taste</b>.</span>
+            <span class="lang-pt" hidden>O <b>Curador Invisível</b> do Sabor.</span>
+        </h1>
+        <p>
+            <span class="lang-en">We serve as the exclusive global food hunter for premium dining chefs and managers. Deeply customised ingredient sourcing that bypasses conventional supply networks — continuously delivering rare terroir treasures that are nearly impossible to find on the open market.</span>
+            <span class="lang-pt" hidden>Atuamos como o caçador global exclusivo de alimentos para chefs e gestores de restaurantes premium. Fornecimento de ingredientes profundamente personalizado que contorna as redes convencionais — entregando continuamente tesouros raros de terroir quase impossíveis de encontrar no mercado aberto.</span>
+        </p>
+    </section>
+
+    <section class="solutions-section">
+        <h3 class="section-title" style="text-align:center;">
+            <span class="lang-en">Custom <span>Solutions</span></span>
+            <span class="lang-pt" hidden>Soluções <span>Personalizadas</span></span>
+        </h3>
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <h4>
+                    <span class="lang-en">1. Elite Scouting</span>
+                    <span class="lang-pt" hidden>1. Busca de Elite</span>
+                </h4>
+                <p>
+                    <span class="lang-en">Our global flavour hunters source single-origin ingredients for your upcoming menu — wild island spices, ultra-premium fermented dairy, vintage terroir products — exclusively from our network of signed partner farms.</span>
+                    <span class="lang-pt" hidden>Nossos caçadores globais de sabores fornecem ingredientes de origem única para seu próximo menu — especiarias selvagens de ilhas, laticínios fermentados ultra-premium, produtos de terroir vintage — exclusivamente de nossa rede de fazendas parceiras.</span>
+                </p>
+            </div>
+            <div class="solution-card">
+                <h4>
+                    <span class="lang-en">2. The Palette Lab</span>
+                    <span class="lang-pt" hidden>2. O Laboratório do Paladar</span>
+                </h4>
+                <p>
+                    <span class="lang-en">Fully equipped flavour test kitchens in Paris and Shanghai. We regularly invite partner chefs to conduct R&D with pre-market innovative foods and avant-garde functional ingredients, helping you lock in next-season trends early.</span>
+                    <span class="lang-pt" hidden>Cozinhas de teste de sabor totalmente equipadas em Paris e Xangai. Convidamos regularmente chefs parceiros para realizar P&D com alimentos inovadores pré-mercado e ingredientes funcionais de vanguarda, ajudando você a garantir tendências da próxima temporada antecipadamente.</span>
+                </p>
+            </div>
+            <div class="solution-card">
+                <h4>
+                    <span class="lang-en">3. Chain Control</span>
+                    <span class="lang-pt" hidden>3. Controle da Cadeia</span>
+                </h4>
+                <p>
+                    <span class="lang-en">All recommended ingredients are tracked through a high-standard digital traceability system. International logistics with dedicated fast customs clearance — ensuring delicate premium raw materials arrive at your kitchen in peak condition.</span>
+                    <span class="lang-pt" hidden>Todos os ingredientes recomendados são rastreados por um sistema digital de alta qualidade. Logística internacional com desembaraço aduaneiro rápido dedicado — garantindo que matérias-primas delicadas cheguem à sua cozinha em condições ideais.</span>
+                </p>
+            </div>
+            <div class="solution-card">
+                <h4>
+                    <span class="lang-en">4. Digital Traceability</span>
+                    <span class="lang-pt" hidden>4. Rastreabilidade Digital</span>
+                </h4>
+                <p>
+                    <span class="lang-en">Through our blockchain traceability system, chefs access precise environmental metrics per batch — soil pH, harvest humidity, average sunlight hours — providing irrefutable data to support your menu storytelling to guests.</span>
+                    <span class="lang-pt" hidden>Através do nosso sistema de rastreabilidade blockchain, chefs acessam métricas ambientais precisas por lote — pH do solo, umidade da colheita, horas médias de luz solar — fornecendo dados irrefutáveis para apoiar a narrativa do seu menu aos hóspedes.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifesto-section">
+        <div class="manifesto-left">
+            <span class="lang-en">"Every ingredient in our directory must possess the power to redefine a menu — or profoundly inspire a chef's artistic creation."</span>
+            <span class="lang-pt" hidden>"Cada ingrediente em nosso diretório deve possuir o poder de redefinir um menu — ou inspirar profundamente a criação artística de um chef."</span>
+        </div>
+        <div class="manifesto-right">
+            <div class="criteria-block">
+                <h4>01 / Terroir Obsession</h4>
+                <p>
+                    <span class="lang-en">We completely reject industrial-scale, standardised products. Every item we recommend must possess strong regional climate characteristics and irreplaceable local craftsmanship.</span>
+                    <span class="lang-pt" hidden>Rejeitamos completamente produtos industrializados padronizados. Cada item que recomendamos deve possuir fortes características climáticas regionais e artesanato local insubstituível.</span>
+                </p>
+            </div>
+            <div class="criteria-block">
+                <h4>02 / Avant-Garde Palette</h4>
+                <p>
+                    <span class="lang-en">Rigorous blind testing by our international panel of flavour experts. Only products that astonish across breadth, depth, and texture of flavour are selected.</span>
+                    <span class="lang-pt" hidden>Testes cegos rigorosos por nosso painel internacional de especialistas em sabor. Apenas produtos que surpreendem em amplitude, profundidade e textura de sabor são selecionados.</span>
+                </p>
+            </div>
+            <div class="criteria-block">
+                <h4>03 / Absolute Rarity</h4>
+                <p>
+                    <span class="lang-en">We bypass multi-tier distribution systems entirely. Direct access to exclusive source estates with limited global production, highly confidential techniques, or cutting-edge production technology.</span>
+                    <span class="lang-pt" hidden>Contornamos totalmente os sistemas de distribuição em múltiplos níveis. Acesso direto a propriedades-fonte exclusivas com produção global limitada, técnicas altamente confidenciais ou tecnologia de produção de ponta.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase-section">
+        <h3 class="section-title">
+            <span class="lang-en">Sourcing <span>Case Studies</span></span>
+            <span class="lang-pt" hidden>Estudos de <span>Caso</span></span>
+        </h3>
+        <p class="section-subtitle">
+            <span class="lang-en">Discover real commercial success stories born from rare ingredients and culinary excellence</span>
+            <span class="lang-pt" hidden>Descubra histórias reais de sucesso comercial nascidas de ingredientes raros e excelência culinária</span>
+        </p>
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <div class="showcase-img" style="background: url('images/showcase-truffle-plating.png') no-repeat center center/cover;"></div>
+                <div class="showcase-info">
+                    <h4>
+                        <span class="lang-en">Case 1: Black Pearl's "Terroir Metaphor"</span>
+                        <span class="lang-pt" hidden>Caso 1: A "Metáfora do Terroir"</span>
+                    </h4>
+                    <p>
+                        <span class="lang-en">Over 3 months, we sourced a hand-harvested rare rock honey from the southern Himalayas for a high-end Chinese dining team. Used as the hidden core of their signature roast duck sauce, it boosted per-table spending by 35% in the launch month.</span>
+                        <span class="lang-pt" hidden>Em 3 meses, fornecemos um raro mel de rocha colhido à mão do sul do Himalaia para uma equipe de alta gastronomia chinesa. Usado como núcleo oculto de seu molho de pato assado, aumentou o gasto por mesa em 35% no mês de lançamento.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <div class="showcase-img" style="background: url('images/showcase-dessert-art.png') no-repeat center center/cover;"></div>
+                <div class="showcase-info">
+                    <h4>
+                        <span class="lang-en">Case 2: Luxury Hotel's Future Vegetarian Menu</span>
+                        <span class="lang-pt" hidden>Caso 2: Menu Vegetariano do Futuro</span>
+                    </h4>
+                    <p>
+                        <span class="lang-en">We partnered with an international 5-star hotel group's Greater China kitchen to introduce cutting-edge mycelium fermentation protein. Together we developed a fully plant-based, gluten-free luxury afternoon tea series — setting a new green luxury dining benchmark.</span>
+                        <span class="lang-pt" hidden>Fizemos parceria com a cozinha da Grande China de um grupo hoteleiro 5 estrelas para introduzir proteína de fermentação de micélio de ponta. Juntos, desenvolvemos uma série de chá da tarde de luxo 100% vegetal e sem glúten — estabelecendo um novo padrão de gastronomia verde.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-desc">
+                <img class="logo-footer" src="images/logo-white.png" alt="THE PALATE">
+                <p>
+                    <span class="lang-en">Curating global excellence with uncompromising taste. We are more than a bridge — we define the next generation of luxury dining standards alongside the world's culinary pioneers.</span>
+                    <span class="lang-pt" hidden>Curando a excelência global com gosto implacável. Somos mais que uma ponte — definimos a próxima geração de padrões de gastronomia de luxo junto com os pioneiros culinários do mundo.</span>
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="brands.html">For Brands</a></li>
+                        <li><a href="gastronomy.html">For Gastronomy</a></li>
+                        <li><a href="inquiry.html">Inquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Atelier</h4>
+                    <ul>
+                        <li>Inquiry@thepalateglobal.com</li>
+                        <li>Private Line: +852 2345 6789</li>
+                        <li>
+                            <span class="lang-en">Global Hubs: Paris | Tokyo | Shanghai</span>
+                            <span class="lang-pt" hidden>Centros Globais: Paris | Tóquio | Xangai</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 THE PALATE GLOBAL. All Rights Reserved.</p>
+            <p>
+                <span class="lang-en">Designed for Global Culinary Excellence</span>
+                <span class="lang-pt" hidden>Projetado para a Excelência Culinária Global</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+</body>
+</html>

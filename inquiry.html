@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry | THE PALATE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        
+        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
+        .logo { height: 28px; display: block; }
+        .logo-footer { height: 28px; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+        .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        .nav-links a:hover, .nav-links a.active { color: #149C3D; border-bottom: 2px solid #E5BA73; padding-bottom: 4px; }
+        .lang-toggle { font-size: 12px; letter-spacing: 1px; font-weight: 700; cursor: pointer; padding: 4px 10px; border: 1px solid #ddd; border-radius: 3px; background: transparent; text-transform: uppercase; }
+        .lang-toggle.active { background: #149C3D; color: #fff; border-color: #149C3D; }
+        .lang-toggle:hover { border-color: #149C3D; }
+
+        .page-banner { 
+            height: 45vh; 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('images/banner-consultation-room.png') no-repeat center center/cover;
+            margin-top: 80px; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 8%; 
+            color: #ffffff; 
+        }
+        .page-banner-text h1 { font-size: 42px; font-weight: 700; color: #ffffff; letter-spacing: 1px; }
+        .page-banner-text h1 span { color: #E5BA73; }
+
+        .form-section-wrapper { display: flex; min-height: 80vh; background-color: #ffffff; }
+        
+        .form-sidebar { width: 35%; background-color: #149C3D; color: #ffffff; padding: 80px 5%; display: flex; flex-direction: column; justify-content: flex-start; position: relative; }
+        .form-sidebar h2 { font-size: 28px; font-weight: 700; margin-bottom: 25px; color: #E5BA73; line-height: 1.3; }
+        .form-sidebar p { font-size: 14px; line-height: 1.8; opacity: 0.9; font-weight: 300; margin-bottom: 40px; }
+        
+        .hub-info { display: flex; flex-direction: column; gap: 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 30px; }
+        .hub-city { font-weight: 700; color: #E5BA73; text-transform: uppercase; letter-spacing: 1px; }
+
+        .form-content-area { width: 65%; padding: 80px 8%; background-color: #ffffff; }
+        .main-form { display: flex; flex-direction: column; gap: 35px; }
+        .form-group { display: flex; flex-direction: column; gap: 12px; }
+        .form-group label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 2px solid #eef3ef; background: transparent; font-size: 15px; color: #111111; outline: none; transition: border-color 0.3s ease; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-bottom-color: #149C3D; }
+        
+        .radio-group { display: flex; gap: 40px; margin-top: 5px; }
+        .radio-label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333333; cursor: pointer; font-weight: 500; }
+        .radio-label input { width: auto; accent-color: #149C3D; }
+
+        .submit-btn { padding: 20px; background-color: #149C3D; color: #ffffff; border: none; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; border-radius: 4px; }
+        .submit-btn:hover { background-color: #111111; color: #E5BA73; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .faq-section { padding: 100px 8%; background-color: #fcfdfe; border-top: 1px solid #f0f0f0; }
+        .faq-title { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 50px; }
+        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .faq-item h5 { font-size: 16px; font-weight: 700; color: #149C3D; margin-bottom: 12px; }
+        .faq-item p { font-size: 14px; color: #666666; line-height: 1.7; }
+
+        footer { background-color: #111111; color: #ffffff; padding: 90px 8% 40px 8%; display: flex; flex-direction: column; gap: 60px; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-desc { max-width: 380px; color: #aaaaaa; font-size: 14px; line-height: 1.8; }
+        .footer-desc .logo-footer { margin-bottom: 20px; }
+        .footer-links { display: flex; gap: 80px; }
+        .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; margin-bottom: 25px; font-weight: 700; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 14px; color: #cccccc; }
+        .footer-col ul a:hover { color: #E5BA73; padding-left: 5px; }
+        .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #777777; border-top: 1px solid #222222; padding-top: 30px; letter-spacing: 1px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img class="logo" src="images/logo.png" alt="THE PALATE">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="brands.html">For Brands</a></li>
+            <li><a href="gastronomy.html">For Gastronomy</a></li>
+            <li><a href="inquiry.html" class="active">Inquiry</a></li>
+            <li>
+                <button class="lang-toggle active" data-lang="en" onclick="switchLang('en')">EN</button>
+                <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')">PT</button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="page-banner">
+        <div class="page-banner-text">
+            <h1>
+                <span class="lang-en">Initiate <span>Conversations</span></span>
+                <span class="lang-pt" hidden>Inicie <span>Conversas</span></span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="form-section-wrapper">
+        <div class="form-sidebar">
+            <h2>
+                <span class="lang-en">Private Connection with Our Global Advisors</span>
+                <span class="lang-pt" hidden>Conexão Privada com Nossos Consultores Globais</span>
+            </h2>
+            <p>
+                <span class="lang-en">We partner exclusively with those who pursue the extraordinary. Due to the scarcity of our services, we operate a strict vetting system. Submit your core needs and our team will contact you within 48 hours through a dedicated channel.</span>
+                <span class="lang-pt" hidden">Fazemos parceria exclusivamente com aqueles que buscam o extraordinário. Devido à escassez de nossos serviços, operamos um sistema rigoroso de seleção. Envie suas necessidades e nossa equipe entrará em contato em 48 horas por um canal dedicado.</span>
+            </p>
+            
+            <div class="hub-info">
+                <div>
+                    <span class="hub-city">
+                        <span class="lang-en">Europe Hub</span>
+                        <span class="lang-pt" hidden>Sede Europa</span>
+                    </span>
+                    <p>Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
+                </div>
+                <div>
+                    <span class="hub-city">
+                        <span class="lang-en">Asia-Pacific Hub</span>
+                        <span class="lang-pt" hidden>Sede Ásia-Pacífico</span>
+                    </span>
+                    <p>Bund Finance Center, Zhongshan East 2nd Rd, Shanghai, China</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-content-area">
+            <form class="main-form" onsubmit="event.preventDefault(); alert('Your inquiry has been submitted. Thank you for your trust. / Sua consulta foi enviada. Obrigado pela confiança.');">
+                <div class="form-group">
+                    <label>
+                        <span class="lang-en">Your Name & Title</span>
+                        <span class="lang-pt" hidden>Seu Nome e Cargo</span>
+                    </label>
+                    <input type="text" required placeholder="e.g., Alexander Morgan">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="lang-en">Company or Establishment</span>
+                        <span class="lang-pt" hidden>Empresa ou Estabelecimento</span>
+                    </label>
+                    <input type="text" required placeholder="e.g., Le Palate Restaurant Group">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="lang-en">I am a...</span>
+                        <span class="lang-pt" hidden">Eu sou...</span>
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="identity" value="brand" checked required>
+                            <span class="lang-en">Global Food Brand</span>
+                            <span class="lang-pt" hidden>Marca Alimentícia Global</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="identity" value="chef">
+                            <span class="lang-en">Chef & Restaurateur</span>
+                            <span class="lang-pt" hidden>Chef & Restaurador</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="lang-en">Website / Digital Link</span>
+                        <span class="lang-pt" hidden>Site / Link Digital</span>
+                    </label>
+                    <input type="url" placeholder="e.g., https://example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="lang-en">Brief Inquiry</span>
+                        <span class="lang-pt" hidden>Sua Consulta</span>
+                    </label>
+                    <textarea rows="4" required
+                        placeholder="Please briefly describe your premium food introduction plan or ingredient sourcing needs...">
+                    </textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="lang-en">Submit Inquiry</span>
+                    <span class="lang-pt" hidden>Enviar Consulta</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <h4 class="faq-title">
+            <span class="lang-en">Frequently Asked Questions</span>
+            <span class="lang-pt" hidden>Perguntas Frequentes</span>
+        </h4>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h5>
+                    <span class="lang-en">Q: Is there a fee for the initial assessment?</span>
+                    <span class="lang-pt" hidden>P: Há taxa para a avaliação inicial?</span>
+                </h5>
+                <p>
+                    <span class="lang-en">A: Our preliminary blind tasting and sensory review are completely free. Commercial contracts are only discussed after your product passes our 1% stringent test for full channel promotion.</span>
+                    <span class="lang-pt" hidden>R: Nossa degustação cega preliminar e revisão sensorial são totalmente gratuitas. Contratos comerciais são discutidos apenas após seu produto passar pelo rigoroso teste dos 1% para promoção completa em canais.</span>
+                </p>
+            </div>
+            <div class="faq-item">
+                <h5>
+                    <span class="lang-en">Q: What are the MOQ requirements for sourcing?</span>
+                    <span class="lang-pt" hidden>P: Quais são os requisitos de MOQ?</span>
+                </h5>
+                <p>
+                    <span class="lang-en">A: We understand the scarcity of rare terroir ingredients. THE PALATE does not impose commodity-style minimums. Instead, we operate a precise allocation system based on the estate's annual yield and the chef's seasonal consumption.</span>
+                    <span class="lang-pt" hidden>R: Entendemos a escassez de ingredientes raros de terroir. A THE PALATE não impõe mínimos no estilo commodity. Operamos um sistema preciso de alocação baseado na produção anual da fazenda e no consumo sazonal do chef.</span>
+                </p>
+            </div>
+            <div class="faq-item">
+                <h5>
+                    <span class="lang-en">Q: Will every applicant receive a response?</span>
+                    <span class="lang-pt" hidden>P: Todos os candidatos recebem resposta?</span>
+                </h5>
+                <p>
+                    <span class="lang-en">A: To maintain the highest quality of advisory service, our team manually reviews company credentials and needs alignment. If shortlisted, a brand or culinary consultant will initiate private contact within 48 hours.</span>
+                    <span class="lang-pt" hidden>R: Para manter a mais alta qualidade do serviço consultivo, nossa equipe analisa manualmente as credenciais e a adequação das necessidades. Se selecionado, um consultor de marca ou culinário iniciará contato privado em 48 horas.</span>
+                </p>
+            </div>
+            <div class="faq-item">
+                <h5>
+                    <span class="lang-en">Q: Can small independent workshops apply?</span>
+                    <span class="lang-pt" hidden>P: Pequenas oficinas independentes podem se candidatar?</span>
+                </h5>
+                <p>
+                    <span class="lang-en">A: Absolutely, if your product demonstrates exceptional flavour, purity and craftsmanship. Our long-running "Flavor Ark" charity fund was created specifically to discover and protect small-scale artisanal makers.</span>
+                    <span class="lang-pt" hidden>R: Absolutamente, se seu produto demonstrar sabor, pureza e artesanato excepcionais. Nosso fundo beneficente "Arca do Sabor" foi criado especificamente para descobrir e proteger pequenos produtores artesanais.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-desc">
+                <img class="logo-footer" src="images/logo-white.png" alt="THE PALATE">
+                <p>
+                    <span class="lang-en">Curating global excellence with uncompromising taste. We are more than a bridge — we define the next generation of luxury dining standards alongside the world's culinary pioneers.</span>
+                    <span class="lang-pt" hidden>Curando a excelência global com gosto implacável. Somos mais que uma ponte — definimos a próxima geração de padrões de gastronomia de luxo junto com os pioneiros culinários do mundo.</span>
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="brands.html">For Brands</a></li>
+                        <li><a href="gastronomy.html">For Gastronomy</a></li>
+                        <li><a href="inquiry.html">Inquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Atelier</h4>
+                    <ul>
+                        <li>Inquiry@thepalateglobal.com</li>
+                        <li>Private Line: +852 2345 6789</li>
+                        <li>
+                            <span class="lang-en">Global Hubs: Paris | Tokyo | Shanghai</span>
+                            <span class="lang-pt" hidden>Centros Globais: Paris | Tóquio | Xangai</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 THE PALATE GLOBAL. All Rights Reserved.</p>
+            <p>
+                <span class="lang-en">Designed for Global Culinary Excellence</span>
+                <span class="lang-pt" hidden>Projetado para a Excelência Culinária Global</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+</body>
+</html>
