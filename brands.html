@@ -77,22 +77,11 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-    <nav>
-        <img class="logo" src="images/logo.png" alt="THE PALATE">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="brands.html" class="active">For Brands</a></li>
-            <li><a href="gastronomy.html">For Gastronomy</a></li>
-            <li><a href="inquiry.html">Inquiry</a></li>
-            <li>
-                <button class="lang-toggle active" data-lang="en" onclick="switchLang('en')">EN</button>
-                <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')">PT</button>
-            </li>
-        </ul>
-    </nav>
+    <site-header></site-header>
 
     <section class="inner-hero">
         <span class="page-indicator">Global Food Pioneers</span>
@@ -259,47 +248,9 @@
         </a>
     </section>
 
-    <footer>
-        <div class="footer-main">
-            <div class="footer-desc">
-                <img class="logo-footer" src="images/logo-white.png" alt="THE PALATE">
-                <p>
-                    <span class="lang-en">Curating global excellence with uncompromising taste. We are more than a bridge — we define the next generation of luxury dining standards alongside the world's culinary pioneers.</span>
-                    <span class="lang-pt" hidden>Curando a excelência global com gosto implacável. Somos mais que uma ponte — definimos a próxima geração de padrões de gastronomia de luxo junto com os pioneiros culinários do mundo.</span>
-                </p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="brands.html">For Brands</a></li>
-                        <li><a href="gastronomy.html">For Gastronomy</a></li>
-                        <li><a href="inquiry.html">Inquiry</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Atelier</h4>
-                    <ul>
-                        <li>Inquiry@thepalateglobal.com</li>
-                        <li>Private Line: +852 2345 6789</li>
-                        <li>
-                            <span class="lang-en">Global Hubs: Paris | Tokyo | Shanghai</span>
-                            <span class="lang-pt" hidden>Centros Globais: Paris | Tóquio | Xangai</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 THE PALATE GLOBAL. All Rights Reserved.</p>
-            <p>
-                <span class="lang-en">Designed for Global Culinary Excellence</span>
-                <span class="lang-pt" hidden>Projetado para a Excelência Culinária Global</span>
-            </p>
-        </div>
-    </footer>
+    <site-footer></site-footer>
 
     <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
 </body>
 </html>
