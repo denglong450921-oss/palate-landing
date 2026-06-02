@@ -1,42 +1,64 @@
 class SiteHeader extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
     <nav>
-        <img class="logo" src="images/logo.png" alt="THE PALATE">
-        <ul class="nav-links">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="images/logo.png" alt="THE PALATE">
+        </a>
+        <div class="menu-toggle" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="brands.html">For Brands</a></li>
             <li><a href="gastronomy.html">For Gastronomy</a></li>
             <li><a href="inquiry.html">Inquiry</a></li>
-            <li>
+            <li class="lang-switcher">
                 <button class="lang-toggle active" data-lang="en" onclick="switchLang('en')">EN</button>
                 <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')">PT</button>
             </li>
         </ul>
     </nav>
 `;
-        
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const links = this.querySelectorAll('.nav-links a');
-        links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPath) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-        
-        if (typeof window.switchLang === 'function' && typeof window.getCurrentLang === 'function') {
-            window.switchLang(window.getCurrentLang());
-        }
+
+    const currentPath =
+      window.location.pathname.split("/").pop() || "index.html";
+    const links = this.querySelectorAll(".nav-links a");
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href === currentPath) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+    // Mobile Menu Toggle Logic
+    const menuToggle = this.querySelector("#mobile-menu-toggle");
+    const navLinks = this.querySelector("#nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("nav-active");
+      });
     }
+
+    if (
+      typeof window.switchLang === "function" &&
+      typeof window.getCurrentLang === "function"
+    ) {
+      window.switchLang(window.getCurrentLang());
+    }
+  }
 }
 
 class SiteFooter extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
     <footer>
         <div class="footer-main">
             <div class="footer-desc">
@@ -78,11 +100,14 @@ class SiteFooter extends HTMLElement {
         </div>
     </footer>
 `;
-        if (typeof window.switchLang === 'function' && typeof window.getCurrentLang === 'function') {
-            window.switchLang(window.getCurrentLang());
-        }
+    if (
+      typeof window.switchLang === "function" &&
+      typeof window.getCurrentLang === "function"
+    ) {
+      window.switchLang(window.getCurrentLang());
     }
+  }
 }
 
-customElements.define('site-header', SiteHeader);
-customElements.define('site-footer', SiteFooter);
+customElements.define("site-header", SiteHeader);
+customElements.define("site-footer", SiteFooter);
