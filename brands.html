@@ -76,7 +76,26 @@
         .section-subtitle { font-size: 15px; color: #666666; margin-bottom: 60px; letter-spacing: 1px; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+        @media (max-width: 960px) {
+            .inner-hero h1 { font-size: 36px; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .content-grid { grid-template-columns: repeat(2, 1fr); padding: 80px 5%; }
+            .charity-section { flex-direction: column; padding: 80px 5%; }
+            .charity-img, .charity-content { width: 100%; }
+            .charity-img { height: 300px; }
+        }
+        @media (max-width: 720px) {
+            .inner-hero { padding-top: 140px; padding-bottom: 60px; }
+            .inner-hero h1 { font-size: 32px; }
+            .values-section { padding: 60px 5%; }
+            .values-grid { grid-template-columns: 1fr; gap: 40px; }
+            .content-grid { grid-template-columns: 1fr; }
+            .process-section { padding: 60px 5%; }
+            .process-steps { flex-direction: column; gap: 40px; }
+            .step-block { width: 100%; }
+            .action-banner { padding: 60px 5%; }
+        }
+        </style>
     <link rel="stylesheet" href="css/components.css">
 </head>
 <body>

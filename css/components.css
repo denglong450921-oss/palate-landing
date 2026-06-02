@@ -33,7 +33,7 @@ nav {
 }
 .nav-links a:hover,
 .nav-links a.active {
-  color: #111111;
+  color: #149c3d;
   border-bottom: 2px solid #e5ba73;
   padding-bottom: 4px;
 }
@@ -49,12 +49,12 @@ nav {
   text-transform: uppercase;
 }
 .lang-toggle.active {
-  background: #111111;
+  background: #149c3d;
   color: #fff;
-  border-color: #111111;
+  border-color: #149c3d;
 }
 .lang-toggle:hover {
-  border-color: #111111;
+  border-color: #149c3d;
 }
 
 .menu-toggle {
@@ -103,7 +103,7 @@ footer {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #111111;
+  color: #149c3d;
   margin-bottom: 25px;
   font-weight: 700;
 }

@@ -65,7 +65,21 @@
         .section-subtitle { font-size: 15px; color: #666666; margin-bottom: 60px; letter-spacing: 1px; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+        @media (max-width: 960px) {
+            .inner-hero h1 { font-size: 36px; }
+            .manifesto-section { flex-direction: column; padding: 80px 5%; }
+            .manifesto-left, .manifesto-right { width: 100%; }
+            .manifesto-left { border-left: none; border-bottom: 4px solid #E5BA73; padding-left: 0; padding-bottom: 25px; margin-bottom: 20px; }
+        }
+        @media (max-width: 720px) {
+            .inner-hero { padding-top: 140px; padding-bottom: 60px; }
+            .inner-hero h1 { font-size: 32px; }
+            .solutions-section { padding: 60px 5%; }
+            .solutions-grid { grid-template-columns: 1fr; gap: 30px; }
+            .showcase-section { padding: 60px 5%; }
+            .showcase-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+        </style>
     <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
