@@ -1,807 +1,455 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>News | THE PALATE</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Us | THE PALATE</title>
 <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background-color: #ffffff;
-        color: #111111;
-        line-height: 1.6;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-        transition: all 0.3s ease;
-      }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 25px 8%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        border-bottom: 1px solid #f0f0f0;
-      }
-      .logo {
-        height: 28px;
-        display: block;
-      }
-      .logo-footer {
-        height: 28px;
-        display: block;
-      }
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 40px;
-        align-items: center;
-      }
-      .nav-links a {
-        font-size: 13px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-weight: 600;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: #149c3d;
-        border-bottom: 2px solid #e5ba73;
-        padding-bottom: 4px;
-      }
-      .lang-toggle {
-        font-size: 12px;
-        letter-spacing: 1px;
-        font-weight: 700;
-        cursor: pointer;
-        padding: 4px 10px;
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        background: transparent;
-        text-transform: uppercase;
-      }
-      .lang-toggle.active {
-        background: #149c3d;
-        color: #fff;
-        border-color: #149c3d;
-      }
-      .lang-toggle:hover {
-        border-color: #149c3d;
-      }
+.container-1200 {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
 
-      .inner-hero {
-        padding: 220px 8% 110px 8%;
-        background:
-          linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.94)),
-          url("images/hero-gastronomy-artistic.png") no-repeat center
-            center/cover;
-        border-bottom: 1px solid #f0f0f0;
-        animation: fadeIn 1s ease;
-      }
-      .page-indicator {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: #149c3d;
-        font-weight: 700;
-        margin-bottom: 20px;
-        display: block;
-      }
-      .inner-hero h1 {
-        font-size: 44px;
-        font-weight: 400;
-        color: #111111;
-        max-width: 860px;
-        margin-bottom: 24px;
-        line-height: 1.25;
-      }
-      .inner-hero h1 b {
-        color: #149c3d;
-        font-weight: 800;
-      }
-      .inner-hero p {
-        font-size: 16px;
-        color: #555555;
-        max-width: 760px;
-        line-height: 1.8;
-      }
+.inner-hero {
+  padding: 220px 8% 110px 8%;
+  background: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.95)), url("images/about-hero-bg.png") no-repeat center center/cover;
+  border-bottom: 1px solid #f0f0f0;
+  animation: fadeIn 1s ease;
+}
+.page-indicator {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #149c3d;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: block;
+}
+.inner-hero h1 {
+  font-size: 44px;
+  font-weight: 400;
+  color: #111111;
+  max-width: 900px;
+  margin-bottom: 24px;
+  line-height: 1.25;
+}
+.inner-hero h1 b { color: #149c3d; font-weight: 800; }
+.inner-hero p {
+  font-size: 16px;
+  color: #555555;
+  max-width: 800px;
+  line-height: 1.8;
+}
 
-      .news-section {
-        padding: 110px 8%;
-        background-color: #ffffff;
-      }
-      .section-heading {
-        text-align: center;
-        margin-bottom: 60px;
-      }
-      .section-heading h2 {
-        font-size: 34px;
-        font-weight: 700;
-        margin-bottom: 16px;
-      }
-      .section-heading h2 span {
-        color: #149c3d;
-      }
-      .section-heading p {
-        font-size: 15px;
-        color: #666666;
-        letter-spacing: 0.5px;
-      }
-      .news-list {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-      }
-      .news-item-container {
-        display: flex;
-        flex-direction: column;
-      }
-      .news-card {
-        position: relative;
-        height: 450px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border: 1px solid #edf1ed;
-        background: #111111;
-        box-shadow: 0 16px 42px rgba(17, 17, 17, 0.06);
-        overflow: hidden;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-      .news-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 16px 30px rgba(20, 156, 61, 0.15);
-      }
-      .news-card-bg {
-        position: absolute;
-        inset: 0;
-        background-size: cover;
-        background-position: center;
-        z-index: 1;
-        transition: transform 0.6s ease;
-      }
-      .news-card:hover .news-card-bg {
-        transform: scale(1.03);
-      }
-      .news-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(17, 17, 17, 0.95) 0%,
-          rgba(17, 17, 17, 0.7) 40%,
-          rgba(17, 17, 17, 0.3) 100%
-        );
-        z-index: 2;
-      }
-      .news-card-content {
-        position: relative;
-        z-index: 3;
-        padding: 40px 60px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .news-kicker {
-        font-size: 13px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: #e5ba73;
-        font-weight: 700;
-        display: block;
-        margin-bottom: 16px;
-      }
-      .news-card h3 {
-        font-size: 44px;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 20px;
-        line-height: 1.25;
-      }
-      .news-summary {
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.8;
-        margin-bottom: 24px;
-        max-width: 800px;
-      }
-      .news-toggle {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        width: fit-content;
-        border: none;
-        background: transparent;
-        color: #149c3d;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        cursor: pointer;
-        padding: 0;
-      }
-      .news-toggle:hover {
-        color: #e5ba73;
-      }
-      .news-toggle::after {
-        content: "+";
-        font-size: 18px;
-        line-height: 1;
-      }
-      .news-toggle[aria-expanded="true"]::after {
-        content: "-";
-      }
-      .news-detail-wrapper {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        margin-top: 0;
-        transition:
-          max-height 0.4s ease,
-          opacity 0.3s ease,
-          margin-top 0.3s ease;
-      }
-      .news-detail-wrapper[hidden] {
-        display: none;
-      }
-      .news-detail-wrapper.open {
-        max-height: 1200px;
-        opacity: 1;
-        margin-top: 20px;
-      }
-      .news-detail-inner {
-        padding: 30px;
-        background: #fcfcfc;
-        border-left: 4px solid #149c3d;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .news-detail-wrapper p {
-        font-size: 15px;
-        color: #444444;
-        line-height: 1.85;
-      }
+.news-section {
+  padding: 110px 8%;
+  background-color: #ffffff;
+}
+.section-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.section-heading h2 { font-size: 34px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+.section-heading h2 span { color: #149c3d; }
+.section-heading p { font-size: 15px; color: #666666; letter-spacing: 0.5px; }
 
-      .news-cta {
-        background-color: #f4fcf6;
-        padding: 80px 8%;
-        text-align: center;
-        border-top: 1px solid #e2f3e7;
-      }
-      .news-cta h4 {
-        font-size: 24px;
-        color: #111111;
-        margin-bottom: 20px;
-      }
-      .news-cta h4 span {
-        color: #149c3d;
-      }
-      .news-btn {
-        display: inline-block;
-        padding: 15px 35px;
-        background-color: #149c3d;
-        color: #ffffff;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        border-radius: 4px;
-      }
-      .news-btn:hover {
-        background-color: #111111;
-        color: #e5ba73;
-      }
+.news-list { display: flex; flex-direction: column; gap: 45px; }
 
-      footer {
-        background-color: #111111;
-        color: #ffffff;
-        padding: 90px 8% 40px 8%;
-        display: flex;
-        flex-direction: column;
-        gap: 60px;
-      }
-      .footer-main {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 40px;
-      }
-      .footer-desc {
-        max-width: 380px;
-        color: #aaaaaa;
-        font-size: 14px;
-        line-height: 1.8;
-      }
-      .footer-desc .logo-footer {
-        margin-bottom: 20px;
-      }
-      .footer-links {
-        display: flex;
-        gap: 80px;
-      }
-      .footer-col h4 {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #149c3d;
-        margin-bottom: 25px;
-        font-weight: 700;
-      }
-      .footer-col ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        font-size: 14px;
-        color: #cccccc;
-      }
-      .footer-col ul a:hover {
-        color: #e5ba73;
-        padding-left: 5px;
-      }
-      .footer-bottom {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #777777;
-        border-top: 1px solid #222222;
-        padding-top: 30px;
-        letter-spacing: 1px;
-      }
+.news-grid-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
 
-      @media (max-width: 960px) {
-        nav {
-          padding: 20px 6%;
-        }
-        .nav-links {
-          gap: 18px;
-          flex-wrap: wrap;
-          justify-content: flex-end;
-        }
-        .inner-hero {
-          padding: 180px 6% 84px 6%;
-        }
-        .news-section,
-        .news-cta,
-        footer {
-          padding-left: 6%;
-          padding-right: 6%;
-        }
-        .news-card {
-          height: auto;
-          min-height: 380px;
-        }
-        .news-card-content {
-          padding: 30px;
-        }
-        .footer-links {
-          gap: 40px;
-        }
-      }
+.news-item-container { display: flex; flex-direction: column; }
 
-      @media (max-width: 720px) {
-        nav {
-          padding: 18px 5%;
-        }
-        .nav-links a {
-          font-size: 11px;
-          letter-spacing: 1.4px;
-        }
-        .inner-hero {
-          padding: 130px 5% 50px 5%;
-        }
-        .inner-hero h1 {
-          font-size: 32px;
-        }
-        .inner-hero p,
-        .news-summary,
-        .news-detail-wrapper p {
-          font-size: 14px;
-          line-height: 1.6;
-        }
-        .news-summary {
-          margin-bottom: 20px;
-        }
-        .section-heading h2 {
-          font-size: 26px;
-        }
-        .section-heading {
-          margin-bottom: 30px;
-        }
-        .news-section,
-        .news-cta,
-        footer {
-          padding-left: 5%;
-          padding-right: 5%;
-        }
-        .news-section {
-          padding-top: 60px;
-          padding-bottom: 60px;
-        }
-        .news-list {
-          gap: 20px;
-        }
-        .news-card {
-          height: auto;
-          min-height: 340px;
-        }
-        .news-card-content {
-          padding: 24px 20px;
-        }
-        .news-card h3 {
-          font-size: 24px;
-          margin-bottom: 12px;
-        }
-        .news-kicker {
-          margin-bottom: 10px;
-        }
-        .news-detail-inner {
-          padding: 20px 15px;
-          gap: 12px;
-        }
-        .news-toggle {
-          width: 100%;
-          justify-content: flex-start;
-          min-height: 44px;
-        }
-        .footer-main,
-        .footer-bottom,
-        .footer-links {
-          flex-direction: column;
-          gap: 24px;
-        }
-      }
+.news-card {
+  position: relative;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #edf1ed;
+  background: #111111;
+  box-shadow: 0 16px 42px rgba(17,17,17,0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.news-grid-row .news-card {
+  height: 400px;
+}
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(20,156,61,0.12);
+}
+.news-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  transition: transform 0.6s ease;
+}
+.news-card:hover .news-card-bg { transform: scale(1.03); }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    </style>
-<link href="css/components.css" rel="stylesheet"/>
+.news-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(17,17,17,0.3);
+  z-index: 2;
+}
+
+.news-card-content {
+  position: relative;
+  z-index: 3;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.news-grid-row .news-card-content {
+  padding: 30px 40px;
+}
+.news-kicker {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e5ba73;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16px;
+}
+.news-card h3 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+.news-grid-row .news-card h3 {
+  font-size: 26px;
+}
+.news-summary {
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 850px;
+}
+.news-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border: none;
+  background: transparent;
+  color: #149c3d;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+.news-toggle:hover { color: #e5ba73; }
+.news-toggle::after { content: "+"; font-size: 18px; line-height: 1; }
+.news-toggle[aria-expanded="true"]::after { content: "-"; }
+
+.news-detail-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+.news-detail-wrapper[hidden] { display: none; }
+.news-detail-wrapper.open { max-height: 2000px; opacity: 1; margin-top: 15px; }
+.news-detail-inner { padding: 35px; background: #fcfcfc; border-left: 4px solid #149c3d; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid #edf1ed; border-bottom: 1px solid #edf1ed; }
+.news-detail-wrapper p { font-size: 15px; color: #444444; line-height: 1.85; text-align: justify; }
+
+.news-cta {
+  background-color: #f4fcf6;
+  padding: 80px 8%;
+  text-align: center;
+  border-top: 1px solid #e2f3e7;
+}
+.news-cta h4 { font-size: 24px; color: #111111; margin-bottom: 20px; }
+.news-cta h4 span { color: #149c3d; }
+.news-btn {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: #149c3d;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+.news-btn:hover { background-color: #111111; color: #e5ba73; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 1240px) {
+  .container-1200 { padding: 0 20px; }
+}
+@media (max-width: 960px) {
+  .inner-hero { padding: 180px 6% 84px 6%; }
+  .news-section, .news-cta, footer { padding-left: 6%; padding-right: 6%; }
+  .news-grid-row { grid-template-columns: 1fr; gap: 30px; }
+  .news-card { height: auto; min-height: 380px; }
+  .news-grid-row .news-card { height: auto; min-height: 380px; }
+  .news-card-content { padding: 30px; }
+  .news-card h3 { font-size: 30px; }
+}
+@media (max-width: 768px) {
+  .inner-hero h1 { font-size: 32px; }
+  .inner-hero p, .news-summary, .news-detail-wrapper p { font-size: 14px; line-height: 1.6; }
+  .news-list { gap: 20px; }
+  .news-card-content { padding: 24px 20px; }
+  .news-toggle { width: 100%; justify-content: flex-start; min-height: 44px; }
+}
+</style>
+<link href="css/components.css" rel="stylesheet">
 </head>
 <body>
-<site-header id="news_site-header_1"></site-header>
-<section class="inner-hero" id="news_section_inner-hero_1">
-<span class="page-indicator" id="news_span_page-indicator_1">
-<span class="lang-en" id="news_span_lang-en_2">Global News &amp; Insights</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_3">Noticias e Perspectivas Globais</span>
-</span>
-<h1 id="news_h1_1">
-<span class="lang-en" id="news_span_lang-en_4">Tracking the <b id="news_b_1">future of taste</b> through mission, responsibility,
-          and global growth.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_5">Acompanhando o <b id="news_b_2">futuro do sabor</b> por meio de missao,
-          responsabilidade e crescimento global.</span>
-</h1>
-<p id="news_p_1">
-<span class="lang-en" id="news_span_lang-en_6">Discover how TPG frames its global mission, culinary expansion
-          strategy, and long-term social commitments through a curated editorial
-          format aligned with THE PALATE's premium site language.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_7">Descubra como a TPG apresenta sua missao global, estrategia de
-          expansao culinaria e compromissos sociais de longo prazo em um formato
-          editorial alinhado a linguagem premium do site THE PALATE.</span>
-</p>
+
+<site-header></site-header>
+
+<section class="inner-hero">
+  <div class="container-1200">
+    <span class="page-indicator">
+      <span class="lang-en">Global Core Identity</span>
+      <span class="lang-pt" hidden>Identidade Central Global</span>
+    </span>
+    <h1>
+      <span class="lang-en">Tracking the <b>future of taste</b> through mission, responsibility, and global growth.</span>
+      <span class="lang-pt" hidden>Acompanhando o <b>futuro do sabor</b> por meio de missao, responsabilidade e crescimento global.</span>
+    </h1>
+    <p>
+      <span class="lang-en">Discover how THE PALATE frames its global mission, culinary expansion strategy, and long-term social commitments through a curated editorial format aligned with our premium brand standards.</span>
+      <span class="lang-pt" hidden>Descubra como a THE PALATE apresenta sua missao global, estrategia de expansao culinaria e compromissos sociais de longo prazo em um formato editorial alinhado aos nossos padroes de marca premium.</span>
+    </p>
+  </div>
 </section>
-<section class="news-section" id="news_section_news-section_2">
-<div class="section-heading" id="news_section-heading">
-<h2 id="news_h2_1">
-<span class="lang-en" id="news_span_lang-en_8">Editorial <span id="news_span_9">Highlights</span></span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_10">Destaques <span id="news_span_11">Editoriais</span></span>
-</h2>
-<p id="news_p_2">
-<span class="lang-en" id="news_span_lang-en_12">A native newsroom interpretation of TPG's public mission, expansion
-            strategy, and social commitments.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_13">Uma interpretacao nativa de newsroom sobre a missao publica, a
-            estrategia de expansao e os compromissos sociais da TPG.</span>
-</p>
-</div>
-<div class="news-list" id="news_news-list">
-<div class="news-item-container" id="news_news-item-container">
-<article class="news-card" id="news_article_news-card_1">
-<div class="news-card-bg" id="news_news-card-bg" style='background-image: url("images/news-mission.png")'></div>
-<div class="news-card-content" id="news_news-card-content">
-<span class="news-kicker" id="news_span_news-kicker_14">OUR MISSION</span>
-<h3 id="news_h3_1">
-<span class="lang-en" id="news_span_lang-en_15">Promoting Globalization and Social Responsibility</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_16">Promovendo Globalizacao e Responsabilidade Social</span>
-</h3>
-<p class="news-summary" id="news_p_news-summary_3">
-<span class="lang-en" id="news_span_lang-en_17">TPG is not just a culinary evaluation company; it presents
-                  itself as a practitioner of global social responsibility
-                  focused on opportunity, inclusion, and meaningful culinary
-                  journeys.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_18">A TPG nao e apenas uma empresa de avaliacao culinaria; ela se
-                  apresenta como uma praticante da responsabilidade social
-                  global focada em oportunidade, inclusao e jornadas culinarias
-                  significativas.</span>
-</p>
-<button aria-controls="news-detail-1" aria-expanded="false" class="news-toggle" data-less-en="Show less" data-less-pt="Mostrar menos" data-more-en="View more" data-more-pt="Ver mais" id="news_button_news-toggle_1" onclick="toggleNewsDetail(this, 'news-detail-1')" type="button">
-<span class="lang-en" id="news_span_lang-en_19">View more</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_20">Ver mais</span>
-</button>
-</div>
-</article>
-<div class="news-detail-wrapper" hidden="" id="news-detail-1">
-<div class="news-detail-inner" id="news_news-detail-inner">
-<p id="news_p_4">
-<span class="lang-en" id="news_span_lang-en_21">TPG is not just a culinary evaluation company; we are also
-                  practitioners of global social responsibility. We are
-                  committed to promoting the process of globalization and
-                  actively responding to the increasingly prominent issue of
-                  global unemployment by providing effective solutions for
-                  various countries.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_22">A TPG nao e apenas uma empresa de avaliacao culinaria; tambem
-                  somos praticantes da responsabilidade social global. Estamos
-                  comprometidos em promover o processo de globalizacao e
-                  responder ativamente ao crescente problema do desemprego
-                  global por meio de solucoes eficazes para varios paises.</span>
-</p>
-<p id="news_p_5">
-<span class="lang-en" id="news_span_lang-en_23">Through our platform, we hope to help everyone find their own
-                  culinary journey.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_24">Por meio de nossa plataforma, esperamos ajudar cada pessoa a
-                  encontrar sua propria jornada culinaria.</span>
-</p>
-</div>
-</div>
-</div>
-<div class="news-item-container" id="news_news-item-container_1">
-<article class="news-card" id="news_article_news-card_2">
-<div class="news-card-bg" id="news_news-card-bg_1" style='
-                background-image: url("images/news-strategy.png");
-              '></div>
-<div class="news-card-content" id="news_news-card-content_1">
-<span class="news-kicker" id="news_span_news-kicker_25">GLOBAL STRATEGY</span>
-<h3 id="news_h3_2">
-<span class="lang-en" id="news_span_lang-en_26">Connecting Global Cuisine</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_27">Conectando a Culinaria Global</span>
-</h3>
-<p class="news-summary" id="news_p_news-summary_6">
-<span class="lang-en" id="news_span_lang-en_28">By late 2025, TPG describes an international operating
-                  footprint that combines offices, talent, and digital systems
-                  to scale culinary evaluation across markets.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_29">No fim de 2025, a TPG descreve uma presenca operacional
-                  internacional que combina escritorios, talentos e sistemas
-                  digitais para ampliar a avaliacao culinaria em varios
-                  mercados.</span>
-</p>
-<button aria-controls="news-detail-2" aria-expanded="false" class="news-toggle" data-less-en="Show less" data-less-pt="Mostrar menos" data-more-en="Read more" data-more-pt="Ler mais" id="news_button_news-toggle_2" onclick="toggleNewsDetail(this, 'news-detail-2')" type="button">
-<span class="lang-en" id="news_span_lang-en_30">Read more</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_31">Ler mais</span>
-</button>
-</div>
-</article>
-<div class="news-detail-wrapper" hidden="" id="news-detail-2">
-<div class="news-detail-inner" id="news_news-detail-inner_1">
-<p id="news_p_7">
-<span class="lang-en" id="news_span_lang-en_32">As of December 2025, TPG has established a comprehensive
-                  international business network, with over 18 offices
-                  worldwide, covering countries such as Germany, Brazil, Canada,
-                  the UAE, and Spain.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_33">Em dezembro de 2025, a TPG estabeleceu uma rede internacional
-                  de negocios abrangente, com mais de 18 escritorios em todo o
-                  mundo, cobrindo paises como Alemanha, Brasil, Canada, Emirados
-                  Arabes Unidos e Espanha.</span>
-</p>
-<p id="news_p_8">
-<span class="lang-en" id="news_span_lang-en_34">We employ more than 13,000 professionals globally. With our
-                  rigorous evaluation standards and exceptional digital service
-                  system, we provide precise and unique culinary insights to
-                  food lovers around the world, continuously driving the
-                  innovation and upgrading of global dining evaluation
-                  standards.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_35">Empregamos mais de 13.000 profissionais globalmente. Com
-                  nossos rigorosos padroes de avaliacao e um sistema digital de
-                  servico excepcional, fornecemos perspectivas culinarias
-                  precisas e unicas para amantes da gastronomia em todo o mundo,
-                  impulsionando continuamente a inovacao e a elevacao dos
-                  padroes globais de avaliacao gastronomica.</span>
-</p>
-</div>
-</div>
-</div>
-<div class="news-item-container" id="news_news-item-container_2">
-<article class="news-card" id="news_article_news-card_3">
-<div class="news-card-bg" id="news_news-card-bg_2" style='
-                background-image: url("images/news-responsibility.png");
-              '></div>
-<div class="news-card-content" id="news_news-card-content_2">
-<span class="news-kicker" id="news_span_news-kicker_36">SOCIAL RESPONSIBILITY</span>
-<h3 id="news_h3_3">
-<span class="lang-en" id="news_span_lang-en_37">Building a Better Future</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_38">Construindo um Futuro Melhor</span>
-</h3>
-<p class="news-summary" id="news_p_news-summary_9">
-<span class="lang-en" id="news_span_lang-en_39">TPG positions social impact as part of its public identity,
-                  highlighting partnerships, charitable funding, and long-term
-                  support for education, poverty relief, and community
-                  infrastructure.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_40">A TPG posiciona o impacto social como parte de sua identidade
-                  publica, destacando parcerias, financiamento beneficente e
-                  apoio de longo prazo a educacao, alivio da pobreza e
-                  infraestrutura comunitaria.</span>
-</p>
-<button aria-controls="news-detail-3" aria-expanded="false" class="news-toggle" data-less-en="Show less" data-less-pt="Mostrar menos" data-more-en="View more" data-more-pt="Ver mais" id="news_button_news-toggle_3" onclick="toggleNewsDetail(this, 'news-detail-3')" type="button">
-<span class="lang-en" id="news_span_lang-en_41">View more</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_42">Ver mais</span>
-</button>
-</div>
-</article>
-<div class="news-detail-wrapper" hidden="" id="news-detail-3">
-<div class="news-detail-inner" id="news_news-detail-inner_2">
-<p id="news_p_10">
-<span class="lang-en" id="news_span_lang-en_43">TPG has established strong partnerships with several globally
-                  recognized charitable organizations, including UNICEF, the
-                  World Food Programme, and Charity: Water. We actively give
-                  back to society through charitable work across education,
-                  poverty alleviation, and health.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_44">A TPG estabeleceu fortes parcerias com varias organizacoes
-                  beneficentes reconhecidas globalmente, incluindo UNICEF,
-                  Programa Mundial de Alimentos e Charity: Water. Retribuimos
-                  ativamente a sociedade por meio de trabalho beneficente nas
-                  areas de educacao, alivio da pobreza e saude.</span>
-</p>
-<p id="news_p_11">
-<span class="lang-en" id="news_span_lang-en_45">In addition, TPG collaborates with internationally recognized
-                  organizations to launch inclusive charitable products aligned
-                  with local cultural and legal principles. We also allocate
-                  part of our operational profits to fund schools, community
-                  centers, mosques, religious sites, educational assistance, and
-                  livelihood support.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_46">Adicionalmente, a TPG colabora com organizacoes
-                  internacionalmente reconhecidas para lancar produtos
-                  beneficentes inclusivos alinhados aos principios culturais e
-                  legais locais. Tambem direcionamos parte de nossos lucros
-                  operacionais para financiar escolas, centros comunitarios,
-                  mesquitas, locais religiosos, assistencia educacional e apoio
-                  ao sustento.</span>
-</p>
-<p id="news_p_12">
-<span class="lang-en" id="news_span_lang-en_47">We recognize the importance of charitable endeavors and call
-                  on every employee to participate in meaningful action beyond
-                  food.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_48">Reconhecemos a importancia das acoes beneficentes e
-                  convidamos cada colaborador a participar de iniciativas
-                  significativas para alem da comida.</span>
-</p>
-</div>
-</div>
-</div>
-<div class="news-item-container" id="news_news-item-container_3">
-<article class="news-card" id="news_article_news-card_4">
-<div class="news-card-bg" id="news_news-card-bg_3" style='background-image: url("images/news-outlook.png")'></div>
-<div class="news-card-content" id="news_news-card-content_3">
-<span class="news-kicker" id="news_span_news-kicker_49">FUTURE OUTLOOK</span>
-<h3 id="news_h3_4">
-<span class="lang-en" id="news_span_lang-en_50">Localization Drives Culinary Innovation</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_51">A Localizacao Impulsiona a Inovacao Culinaria</span>
-</h3>
-<p class="news-summary" id="news_p_news-summary_13">
-<span class="lang-en" id="news_span_lang-en_52">TPG's future-facing narrative centers on localized ordering
-                  experiences, data-informed recommendations, and stronger
-                  support for regional food businesses.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_53">A narrativa de futuro da TPG se concentra em experiencias
-                  localizadas de pedido, recomendacoes orientadas por dados e
-                  apoio mais forte para negocios alimentares regionais.</span>
-</p>
-<button aria-controls="news-detail-4" aria-expanded="false" class="news-toggle" data-less-en="Show less" data-less-pt="Mostrar menos" data-more-en="Read more" data-more-pt="Ler mais" id="news_button_news-toggle_4" onclick="toggleNewsDetail(this, 'news-detail-4')" type="button">
-<span class="lang-en" id="news_span_lang-en_54">Read more</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_55">Ler mais</span>
-</button>
-</div>
-</article>
-<div class="news-detail-wrapper" hidden="" id="news-detail-4">
-<div class="news-detail-inner" id="news_news-detail-inner_3">
-<p id="news_p_14">
-<span class="lang-en" id="news_span_lang-en_56">By 2035, we will launch our food ordering platform in over
-                  five countries worldwide, providing local communities with
-                  precise culinary recommendations and personalized dining
-                  experiences.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_57">Até 2035, lancaremos nossa plataforma de pedidos de comida em
-                  mais de cinco paises, oferecendo as comunidades locais
-                  recomendacoes culinarias precisas e experiencias gastronomicas
-                  personalizadas.</span>
-</p>
-<p id="news_p_15">
-<span class="lang-en" id="news_span_lang-en_58">Through this platform, we will integrate the unique offerings
-                  of local food businesses and user feedback, helping these
-                  businesses achieve efficient operations and targeted
-                  marketing.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_59">Por meio dessa plataforma, integraremos as ofertas unicas de
-                  negocios alimentares locais e o feedback dos usuarios,
-                  ajudando essas empresas a alcancar operacoes eficientes e
-                  marketing direcionado.</span>
-</p>
-<p id="news_p_16">
-<span class="lang-en" id="news_span_lang-en_60">TPG looks forward to further consolidating its leadership
-                  position in the global culinary evaluation market while
-                  creating a richer and more diverse food experience for diners
-                  worldwide.</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_61">A TPG espera consolidar ainda mais sua posicao de lideranca
-                  no mercado global de avaliacao culinaria, ao mesmo tempo em
-                  que cria uma experiencia gastronomica mais rica e diversa para
-                  consumidores do mundo inteiro.</span>
-</p>
-</div>
-</div>
-</div>
-</div>
+
+<section class="news-section">
+  <div class="container-1200">
+    <div class="section-heading">
+      <h2>
+        <span class="lang-en">Corporate <span>Foundations</span></span>
+        <span class="lang-pt" hidden>Pilares <span>Corporativos</span></span>
+      </h2>
+      <p>
+        <span class="lang-en">A native interpretation of THE PALATE's public mission, expansion strategy, and long-term social commitments.</span>
+        <span class="lang-pt" hidden>Uma interpretacao nativa sobre a missao publica, estrategia de expansao e compromissos sociais da THE PALATE.</span>
+      </p>
+    </div>
+
+    <div class="news-list">
+
+      <!-- CARD 1: MISSION -->
+      <div class="news-item-container">
+        <article class="news-card">
+          <div class="news-card-bg" style="background-image: url('images/about-card-mission.png')"></div>
+          <div class="news-card-content">
+            <span class="news-kicker">OUR MISSION</span>
+            <h3>
+              <span class="lang-en">Promoting Globalization and Social Responsibility</span>
+              <span class="lang-pt" hidden>Promovendo Globalizacao e Responsabilidade Social</span>
+            </h3>
+            <p class="news-summary">
+              <span class="lang-en">Promoting Globalization and Social Responsibility</span>
+              <span class="lang-pt" hidden>Promovendo Globalizacao e Responsabilidade Social</span>
+            </p>
+            <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-detail-1" data-more-en="View more" data-less-en="Show less" data-more-pt="Ver mais" data-less-pt="Mostrar menos" onclick="toggleNewsDetail(this, 'news-detail-1')">
+              <span class="lang-en">View more</span>
+              <span class="lang-pt" hidden>Ver mais</span>
+            </button>
+          </div>
+        </article>
+        <div class="news-detail-wrapper" id="news-detail-1" hidden>
+          <div class="news-detail-inner">
+            <p>
+              <strong style="display: block; margin-bottom: 8px; color: #149c3d;">OUR MISSION</strong>
+              <strong style="display: block; margin-bottom: 12px; font-size: 16px;">Promoting Globalization and Social Responsibility</strong>
+              <span class="lang-en">THE PALATE is not just a culinary curation company; we are also practitioners of global social responsibility. We are committed to promoting the process of globalization and actively responding to the increasingly prominent issue of global unemployment by providing effective solutions for various countries. Through our platform, we hope to help everyone find their own culinary journey.</span>
+              <span class="lang-pt" hidden>A THE PALATE nao e apenas uma empresa de curadoria culinaria; tambem somos praticantes da responsabilidade social global. Estamos comprometidos em promover o processo de globalizacao e responder ativamente ao crescente problema do desemprego global por meio de solucoes eficazes para varios paises. Por meio de nossa plataforma, esperamos ajudar cada pessoa a encontrar sua propria jornada culinaria.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID ROW: CARD 2 + CARD 3 -->
+      <div class="news-grid-row">
+
+        <div class="news-item-container">
+          <article class="news-card">
+            <div class="news-card-bg" style="background-image: url('images/about-card-strategy.png')"></div>
+            <div class="news-card-content">
+              <span class="news-kicker">GLOBAL STRATEGY</span>
+              <h3>
+                <span class="lang-en">Connecting Global Cuisine</span>
+                <span class="lang-pt" hidden>Conectando a Culinaria Global</span>
+              </h3>
+              <p class="news-summary">
+                <span class="lang-en">Connecting Global Cuisine</span>
+                <span class="lang-pt" hidden>Conectando a Culinaria Global</span>
+              </p>
+              <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-detail-2" data-more-en="Read more" data-less-en="Show less" data-more-pt="Ler mais" data-less-pt="Mostrar menos" onclick="toggleNewsDetail(this, 'news-detail-2')">
+                <span class="lang-en">Read more</span>
+                <span class="lang-pt" hidden>Ler mais</span>
+              </button>
+            </div>
+          </article>
+          <div class="news-detail-wrapper" id="news-detail-2" hidden>
+            <div class="news-detail-inner">
+              <p>
+                <strong style="display: block; margin-bottom: 8px; color: #149c3d;">GLOBAL STRATEGY</strong>
+                <strong style="display: block; margin-bottom: 12px; font-size: 16px;">Connecting Global Cuisine</strong>
+                <span class="lang-en">As of 2026, THE PALATE has established a comprehensive international business network, with offices spanning multiple continents. With our rigorous curation standards and exceptional digital service system, we provide precise and unique culinary insights to food lovers around the world, continuously driving the innovation and upgrading of global dining evaluation standards.</span>
+                <span class="lang-pt" hidden>A THE PALATE estabeleceu uma rede internacional de negocios abrangente, abrangendo diversos paises. Com nossos rigorosos padroes de curadoria e sistema digital de servico excepcional, fornecemos insights culinarios precisos e unicos para amantes da gastronomia em todo o mundo.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-item-container">
+          <article class="news-card">
+            <div class="news-card-bg" style="background-image: url('images/about-card-responsibility.png')"></div>
+            <div class="news-card-content">
+              <span class="news-kicker">SOCIAL RESPONSIBILITY</span>
+              <h3>
+                <span class="lang-en">Building a Better Future</span>
+                <span class="lang-pt" hidden>Construindo um Futuro Melhor</span>
+              </h3>
+              <p class="news-summary">
+                <span class="lang-en">Building a Better Future</span>
+                <span class="lang-pt" hidden>Construindo um Futuro Melhor</span>
+              </p>
+              <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-detail-3" data-more-en="View more" data-less-en="Show less" data-more-pt="Ver mais" data-less-pt="Mostrar menos" onclick="toggleNewsDetail(this, 'news-detail-3')">
+                <span class="lang-en">View more</span>
+                <span class="lang-pt" hidden>Ver mais</span>
+              </button>
+            </div>
+          </article>
+          <div class="news-detail-wrapper" id="news-detail-3" hidden>
+            <div class="news-detail-inner">
+              <p>
+                <strong style="display: block; margin-bottom: 8px; color: #149c3d;">SOCIAL RESPONSIBILITY</strong>
+                <strong style="display: block; margin-bottom: 12px; font-size: 16px;">Building a Better Future</strong>
+                <span class="lang-en" style="display: block; margin-bottom: 12px;">THE PALATE has established strong partnerships with globally recognized charitable organizations. We actively give back to society through charitable activities worldwide, covering areas such as education, poverty alleviation, and health.</span>
+                <span class="lang-en" style="display: block; margin-bottom: 12px;">We collaborate with internationally recognized organizations to launch inclusive charitable products that align with local cultural and legal principles. We allocate a portion of our operational profits to fund schools, community centers, and provide ongoing assistance for vulnerable groups.</span>
+                <span class="lang-en">We recognize the importance of charitable endeavors. As a socially responsible company, we call on every partner to participate in meaningful action beyond food.</span>
+                <span class="lang-pt" hidden>A THE PALATE estabeleceu parcerias com organizacoes globais reconhecidas. Dedicamos parte dos lucros para financiar escolas, centros comunitarios e fornecer assistencia para grupos vulneraveis em todo o mundo.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CARD 4: FUTURE OUTLOOK -->
+      <div class="news-item-container" style="margin-top: 15px;">
+        <article class="news-card">
+          <div class="news-card-bg" style="background-image: url('images/about-card-outlook.png')"></div>
+          <div class="news-card-content">
+            <span class="news-kicker">FUTURE OUTLOOK</span>
+            <h3>
+              <span class="lang-en">Localization Drives Culinary Innovation</span>
+              <span class="lang-pt" hidden>A Localizacao Impulsiona a Inovacao Culinaria</span>
+            </h3>
+            <p class="news-summary">
+              <span class="lang-en">Localization Drives Culinary Innovation</span>
+              <span class="lang-pt" hidden>A Localizacao Impulsiona a Inovacao Culinaria</span>
+            </p>
+            <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-detail-4" data-more-en="Read more" data-less-en="Show less" data-more-pt="Ler mais" data-less-pt="Mostrar menos" onclick="toggleNewsDetail(this, 'news-detail-4')">
+              <span class="lang-en">Read more</span>
+              <span class="lang-pt" hidden>Ler mais</span>
+            </button>
+          </div>
+        </article>
+        <div class="news-detail-wrapper" id="news-detail-4" hidden>
+          <div class="news-detail-inner">
+            <p>
+              <strong style="display: block; margin-bottom: 8px; color: #149c3d;">FUTURE OUTLOOK</strong>
+              <strong style="display: block; margin-bottom: 12px; font-size: 16px;">Localization Drives Culinary Innovation</strong>
+              <span class="lang-en">THE PALATE looks forward to further consolidating its leadership position in the global culinary curation market while creating a richer and more diverse food experience for diners worldwide. Through our platform, we integrate the unique offerings of local food businesses and user feedback to drive culinary innovation across markets.</span>
+              <span class="lang-pt" hidden>A THE PALATE espera consolidar ainda mais sua posicao de lideranca no mercado global de curadoria culinaria, criando uma experiencia gastronomica mais rica e diversa para consumidores do mundo inteiro.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
-<section class="news-cta" id="news_section_news-cta_3">
-<h4 id="news_h4_1">
-<span class="lang-en" id="news_span_lang-en_62">Want to continue the conversation through a
-          <span id="news_span_63">private inquiry</span>?</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_64">Quer continuar a conversa por meio de uma
-          <span id="news_span_65">consulta privada</span>?</span>
-</h4>
-<a class="news-btn" href="inquiry.html" id="news_a_news-btn_1">
-<span class="lang-en" id="news_span_lang-en_66">Open Inquiry Channel</span>
-<span class="lang-pt" hidden="" id="news_span_lang-pt_67">Abrir Canal de Consulta</span>
-</a>
+
+<section class="news-cta">
+  <div class="container-1200">
+    <h4>
+      <span class="lang-en">Want to continue the conversation through a <span>private inquiry</span>?</span>
+      <span class="lang-pt" hidden>Quer continuar a conversa por meio de uma <span>consulta privada</span>?</span>
+    </h4>
+    <a href="inquiry.html" class="news-btn">
+      <span class="lang-en">Open Inquiry Channel</span>
+      <span class="lang-pt" hidden>Abrir Canal de Consulta</span>
+    </a>
+  </div>
 </section>
-<site-footer id="news_site-footer_1"></site-footer>
+
+<site-footer></site-footer>
+
 <script>
-      /**
-       * Toggles one news detail panel without collapsing sibling panels.
-       * Keeps labels and accessibility state aligned with the visible panel.
-       */
-      var DETAIL_CLOSE_DELAY_MS = 250;
+var DETAIL_CLOSE_DELAY_MS = 250;
 
-      function toggleNewsDetail(button, detailId) {
-        var detail = document.getElementById(detailId);
-        var isOpen = detail.classList.contains("open");
-        var nextState = !isOpen;
-        var langEn = button.querySelector(".lang-en");
-        var langPt = button.querySelector(".lang-pt");
+function toggleNewsDetail(button, detailId) {
+  var detail = document.getElementById(detailId);
+  var isOpen = detail.classList.contains("open");
+  var nextState = !isOpen;
+  var langEn = button.querySelector(".lang-en");
+  var langPt = button.querySelector(".lang-pt");
 
-        if (nextState) {
-          detail.hidden = false;
-          requestAnimationFrame(function () {
-            detail.classList.add("open");
-          });
-        } else {
-          detail.classList.remove("open");
-          window.setTimeout(function () {
-            if (!detail.classList.contains("open")) {
-              detail.hidden = true;
-            }
-          }, DETAIL_CLOSE_DELAY_MS);
-        }
-
-        button.setAttribute("aria-expanded", String(nextState));
-
-        if (langEn) {
-          langEn.textContent = nextState
-            ? button.getAttribute("data-less-en")
-            : button.getAttribute("data-more-en");
-        }
-        if (langPt) {
-          langPt.textContent = nextState
-            ? button.getAttribute("data-less-pt")
-            : button.getAttribute("data-more-pt");
-        }
+  if (nextState) {
+    detail.hidden = false;
+    requestAnimationFrame(function () {
+      detail.classList.add("open");
+    });
+  } else {
+    detail.classList.remove("open");
+    window.setTimeout(function () {
+      if (!detail.classList.contains("open")) {
+        detail.hidden = true;
       }
-    </script>
+    }, DETAIL_CLOSE_DELAY_MS);
+  }
+
+  button.setAttribute("aria-expanded", String(nextState));
+
+  if (langEn) {
+    langEn.textContent = nextState
+      ? button.getAttribute("data-less-en")
+      : button.getAttribute("data-more-en");
+  }
+  if (langPt) {
+    langPt.textContent = nextState
+      ? button.getAttribute("data-less-pt")
+      : button.getAttribute("data-more-pt");
+  }
+}
+</script>
 <script src="js/i18n.js"></script>
 <script src="js/components.js"></script>
 </body>
