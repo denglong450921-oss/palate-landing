@@ -20,16 +20,12 @@ ZIP_NAME="${PROJECT_NAME}_website_${TIMESTAMP}.zip"
 echo "正在准备压缩网站文件..."
 
 # 执行压缩
-# -r: 递归包含目录
-# -x: 排除指定的文件或目录
-zip -r "$ZIP_NAME" . \
-    -x "*.git*" \
-    -x ".gitignore" \
-    -x "convert_svgs.sh" \
-    -x "zip_project.sh" \
-    -x "*.zip" \
-    -x ".DS_Store" \
-    -x "README.md"
+# 这里我们只包含项目运行所必需的文件和文件夹
+zip -r "$ZIP_NAME" \
+    *.html \
+    css/ \
+    js/ \
+    images/
 
 if [ $? -eq 0 ]; then
     echo "------------------------------------------------"

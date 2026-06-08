@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiry | THE PALATE</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inquiry | THE PALATE</title>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
@@ -21,7 +22,7 @@
 
         .page-banner { 
             height: 45vh; 
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('images/banner-consultation-room.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('images/hero-inquiry-bg.png') no-repeat center center/cover;
             margin-top: 80px; 
             display: flex; 
             align-items: center; 
@@ -85,165 +86,151 @@
             .radio-group { flex-direction: column; gap: 15px; }
         }
         </style>
-    <link rel="stylesheet" href="css/components.css">
+<link href="css/components.css" rel="stylesheet"/>
 </head>
 <body>
-
-    <site-header></site-header>
-
-    <div class="page-banner">
-        <div class="page-banner-text">
-            <h1>
-                <span class="lang-en">Initiate <span>Conversations</span></span>
-                <span class="lang-pt" hidden>Inicie <span>Conversas</span></span>
-            </h1>
-        </div>
-    </div>
-
-    <div class="form-section-wrapper">
-        <div class="form-sidebar">
-            <h2>
-                <span class="lang-en">Private Connection with Our Global Advisors</span>
-                <span class="lang-pt" hidden>Conexão Privada com Nossos Consultores Globais</span>
-            </h2>
-            <p>
-                <span class="lang-en">We partner exclusively with those who pursue the extraordinary. Due to the scarcity of our services, we operate a strict vetting system. Submit your core needs and our team will contact you within 48 hours through a dedicated channel.</span>
-                <span class="lang-pt" hidden">Fazemos parceria exclusivamente com aqueles que buscam o extraordinário. Devido à escassez de nossos serviços, operamos um sistema rigoroso de seleção. Envie suas necessidades e nossa equipe entrará em contato em 48 horas por um canal dedicado.</span>
-            </p>
-            
-            <div class="hub-info">
-                <div>
-                    <span class="hub-city">
-                        <span class="lang-en">Europe Hub</span>
-                        <span class="lang-pt" hidden>Sede Europa</span>
-                    </span>
-                    <p>Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
-                </div>
-                <div>
-                    <span class="hub-city">
-                        <span class="lang-en">Asia-Pacific Hub</span>
-                        <span class="lang-pt" hidden>Sede Ásia-Pacífico</span>
-                    </span>
-                    <p>Bund Finance Center, Zhongshan East 2nd Rd, Shanghai, China</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-content-area">
-            <form class="main-form" onsubmit="event.preventDefault(); alert('Your inquiry has been submitted. Thank you for your trust. / Sua consulta foi enviada. Obrigado pela confiança.');">
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Your Name & Title</span>
-                        <span class="lang-pt" hidden>Seu Nome e Cargo</span>
-                    </label>
-                    <input type="text" required placeholder="e.g., Alexander Morgan">
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Company or Establishment</span>
-                        <span class="lang-pt" hidden>Empresa ou Estabelecimento</span>
-                    </label>
-                    <input type="text" required placeholder="e.g., Le Palate Restaurant Group">
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">I am a...</span>
-                        <span class="lang-pt" hidden">Eu sou...</span>
-                    </label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="identity" value="brand" checked required>
-                            <span class="lang-en">Global Food Brand</span>
-                            <span class="lang-pt" hidden>Marca Alimentícia Global</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="identity" value="chef">
-                            <span class="lang-en">Chef & Restaurateur</span>
-                            <span class="lang-pt" hidden>Chef & Restaurador</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Website / Digital Link</span>
-                        <span class="lang-pt" hidden>Site / Link Digital</span>
-                    </label>
-                    <input type="url" placeholder="e.g., https://example.com">
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span class="lang-en">Brief Inquiry</span>
-                        <span class="lang-pt" hidden>Sua Consulta</span>
-                    </label>
-                    <textarea rows="4" required
-                        placeholder="Please briefly describe your premium food introduction plan or ingredient sourcing needs...">
+<site-header id="inquiry_site-header_1"></site-header>
+<div class="page-banner" id="inquiry_page-banner">
+<div class="page-banner-text" id="inquiry_page-banner-text">
+<h1 id="inquiry_h1_1">
+<span class="lang-en" id="inquiry_span_lang-en_1">Initiate <span id="inquiry_span_2">Conversations</span></span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_3">Inicie <span id="inquiry_span_4">Conversas</span></span>
+</h1>
+</div>
+</div>
+<div class="form-section-wrapper" id="inquiry_form-section-wrapper">
+<div class="form-sidebar" id="inquiry_form-sidebar">
+<h2 id="inquiry_h2_1">
+<span class="lang-en" id="inquiry_span_lang-en_5">Private Connection with Our Global Advisors</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_6">Conexão Privada com Nossos Consultores Globais</span>
+</h2>
+<p id="inquiry_p_1">
+<span class="lang-en" id="inquiry_span_lang-en_7">We partner exclusively with those who pursue the extraordinary. Due to the scarcity of our services, we operate a strict vetting system. Submit your core needs and our team will contact you within 48 hours through a dedicated channel.</span>
+<span class="lang-pt" hidden"="" id="inquiry_span_lang-pt_8">Fazemos parceria exclusivamente com aqueles que buscam o extraordinário. Devido à escassez de nossos serviços, operamos um sistema rigoroso de seleção. Envie suas necessidades e nossa equipe entrará em contato em 48 horas por um canal dedicado.</span>
+</p>
+<div class="hub-info" id="inquiry_hub-info">
+<div id="inquiry_hub-info_1">
+<span class="hub-city" id="inquiry_span_hub-city_9">
+<span class="lang-en" id="inquiry_span_lang-en_10">Europe Hub</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_11">Sede Europa</span>
+</span>
+<p id="inquiry_p_2">Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
+</div>
+<div id="inquiry_hub-info_2">
+<span class="hub-city" id="inquiry_span_hub-city_12">
+<span class="lang-en" id="inquiry_span_lang-en_13">Asia-Pacific Hub</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_14">Sede Ásia-Pacífico</span>
+</span>
+<p id="inquiry_p_3">Bund Finance Center, Zhongshan East 2nd Rd, Shanghai, China</p>
+</div>
+</div>
+</div>
+<div class="form-content-area" id="inquiry_form-content-area">
+<form class="main-form" id="inquiry_form_main-form_1" onsubmit="event.preventDefault(); alert('Your inquiry has been submitted. Thank you for your trust. / Sua consulta foi enviada. Obrigado pela confiança.');">
+<div class="form-group" id="inquiry_form-group">
+<label id="inquiry_label_1">
+<span class="lang-en" id="inquiry_span_lang-en_15">Your Name &amp; Title</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_16">Seu Nome e Cargo</span>
+</label>
+<input id="inquiry_input_1" placeholder="e.g., Alexander Morgan" required="" type="text"/>
+</div>
+<div class="form-group" id="inquiry_form-group_1">
+<label id="inquiry_label_2">
+<span class="lang-en" id="inquiry_span_lang-en_17">Company or Establishment</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_18">Empresa ou Estabelecimento</span>
+</label>
+<input id="inquiry_input_2" placeholder="e.g., Le Palate Restaurant Group" required="" type="text"/>
+</div>
+<div class="form-group" id="inquiry_form-group_2">
+<label id="inquiry_label_3">
+<span class="lang-en" id="inquiry_span_lang-en_19">I am a...</span>
+<span class="lang-pt" hidden"="" id="inquiry_span_lang-pt_20">Eu sou...</span>
+</label>
+<div class="radio-group" id="inquiry_radio-group">
+<label class="radio-label" id="inquiry_label_radio-label_4">
+<input checked="" id="inquiry_input_3" name="identity" required="" type="radio" value="brand"/>
+<span class="lang-en" id="inquiry_span_lang-en_21">Global Food Brand</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_22">Marca Alimentícia Global</span>
+</label>
+<label class="radio-label" id="inquiry_label_radio-label_5">
+<input id="inquiry_input_4" name="identity" type="radio" value="chef"/>
+<span class="lang-en" id="inquiry_span_lang-en_23">Chef &amp; Restaurateur</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_24">Chef &amp; Restaurador</span>
+</label>
+</div>
+</div>
+<div class="form-group" id="inquiry_form-group_3">
+<label id="inquiry_label_6">
+<span class="lang-en" id="inquiry_span_lang-en_25">Website / Digital Link</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_26">Site / Link Digital</span>
+</label>
+<input id="inquiry_input_5" placeholder="e.g., https://example.com" type="url"/>
+</div>
+<div class="form-group" id="inquiry_form-group_4">
+<label id="inquiry_label_7">
+<span class="lang-en" id="inquiry_span_lang-en_27">Brief Inquiry</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_28">Sua Consulta</span>
+</label>
+<textarea id="inquiry_textarea_1" placeholder="Please briefly describe your premium food introduction plan or ingredient sourcing needs..." required="" rows="4">
                     </textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    <span class="lang-en">Submit Inquiry</span>
-                    <span class="lang-pt" hidden>Enviar Consulta</span>
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <section class="faq-section">
-        <h4 class="faq-title">
-            <span class="lang-en">Frequently Asked Questions</span>
-            <span class="lang-pt" hidden>Perguntas Frequentes</span>
-        </h4>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <h5>
-                    <span class="lang-en">Q: Is there a fee for the initial assessment?</span>
-                    <span class="lang-pt" hidden>P: Há taxa para a avaliação inicial?</span>
-                </h5>
-                <p>
-                    <span class="lang-en">A: Our preliminary blind tasting and sensory review are completely free. Commercial contracts are only discussed after your product passes our 1% stringent test for full channel promotion.</span>
-                    <span class="lang-pt" hidden>R: Nossa degustação cega preliminar e revisão sensorial são totalmente gratuitas. Contratos comerciais são discutidos apenas após seu produto passar pelo rigoroso teste dos 1% para promoção completa em canais.</span>
-                </p>
-            </div>
-            <div class="faq-item">
-                <h5>
-                    <span class="lang-en">Q: What are the MOQ requirements for sourcing?</span>
-                    <span class="lang-pt" hidden>P: Quais são os requisitos de MOQ?</span>
-                </h5>
-                <p>
-                    <span class="lang-en">A: We understand the scarcity of rare terroir ingredients. THE PALATE does not impose commodity-style minimums. Instead, we operate a precise allocation system based on the estate's annual yield and the chef's seasonal consumption.</span>
-                    <span class="lang-pt" hidden>R: Entendemos a escassez de ingredientes raros de terroir. A THE PALATE não impõe mínimos no estilo commodity. Operamos um sistema preciso de alocação baseado na produção anual da fazenda e no consumo sazonal do chef.</span>
-                </p>
-            </div>
-            <div class="faq-item">
-                <h5>
-                    <span class="lang-en">Q: Will every applicant receive a response?</span>
-                    <span class="lang-pt" hidden>P: Todos os candidatos recebem resposta?</span>
-                </h5>
-                <p>
-                    <span class="lang-en">A: To maintain the highest quality of advisory service, our team manually reviews company credentials and needs alignment. If shortlisted, a brand or culinary consultant will initiate private contact within 48 hours.</span>
-                    <span class="lang-pt" hidden>R: Para manter a mais alta qualidade do serviço consultivo, nossa equipe analisa manualmente as credenciais e a adequação das necessidades. Se selecionado, um consultor de marca ou culinário iniciará contato privado em 48 horas.</span>
-                </p>
-            </div>
-            <div class="faq-item">
-                <h5>
-                    <span class="lang-en">Q: Can small independent workshops apply?</span>
-                    <span class="lang-pt" hidden>P: Pequenas oficinas independentes podem se candidatar?</span>
-                </h5>
-                <p>
-                    <span class="lang-en">A: Absolutely, if your product demonstrates exceptional flavour, purity and craftsmanship. Our long-running "Flavor Ark" charity fund was created specifically to discover and protect small-scale artisanal makers.</span>
-                    <span class="lang-pt" hidden>R: Absolutamente, se seu produto demonstrar sabor, pureza e artesanato excepcionais. Nosso fundo beneficente "Arca do Sabor" foi criado especificamente para descobrir e proteger pequenos produtores artesanais.</span>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <site-footer></site-footer>
-
-    <script src="js/i18n.js"></script>
-    <script src="js/components.js"></script>
+</div>
+<button class="submit-btn" id="inquiry_button_submit-btn_1" type="submit">
+<span class="lang-en" id="inquiry_span_lang-en_29">Submit Inquiry</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_30">Enviar Consulta</span>
+</button>
+</form>
+</div>
+</div>
+<section class="faq-section" id="inquiry_section_faq-section_1">
+<h4 class="faq-title" id="inquiry_h4_faq-title_1">
+<span class="lang-en" id="inquiry_span_lang-en_31">Frequently Asked Questions</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_32">Perguntas Frequentes</span>
+</h4>
+<div class="faq-grid" id="inquiry_faq-grid">
+<div class="faq-item" id="inquiry_faq-item">
+<h5 id="inquiry_h5_1">
+<span class="lang-en" id="inquiry_span_lang-en_33">Q: Is there a fee for the initial assessment?</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_34">P: Há taxa para a avaliação inicial?</span>
+</h5>
+<p id="inquiry_p_4">
+<span class="lang-en" id="inquiry_span_lang-en_35">A: Our preliminary blind tasting and sensory review are completely free. Commercial contracts are only discussed after your product passes our 1% stringent test for full channel promotion.</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_36">R: Nossa degustação cega preliminar e revisão sensorial são totalmente gratuitas. Contratos comerciais são discutidos apenas após seu produto passar pelo rigoroso teste dos 1% para promoção completa em canais.</span>
+</p>
+</div>
+<div class="faq-item" id="inquiry_faq-item_1">
+<h5 id="inquiry_h5_2">
+<span class="lang-en" id="inquiry_span_lang-en_37">Q: What are the MOQ requirements for sourcing?</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_38">P: Quais são os requisitos de MOQ?</span>
+</h5>
+<p id="inquiry_p_5">
+<span class="lang-en" id="inquiry_span_lang-en_39">A: We understand the scarcity of rare terroir ingredients. THE PALATE does not impose commodity-style minimums. Instead, we operate a precise allocation system based on the estate's annual yield and the chef's seasonal consumption.</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_40">R: Entendemos a escassez de ingredientes raros de terroir. A THE PALATE não impõe mínimos no estilo commodity. Operamos um sistema preciso de alocação baseado na produção anual da fazenda e no consumo sazonal do chef.</span>
+</p>
+</div>
+<div class="faq-item" id="inquiry_faq-item_2">
+<h5 id="inquiry_h5_3">
+<span class="lang-en" id="inquiry_span_lang-en_41">Q: Will every applicant receive a response?</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_42">P: Todos os candidatos recebem resposta?</span>
+</h5>
+<p id="inquiry_p_6">
+<span class="lang-en" id="inquiry_span_lang-en_43">A: To maintain the highest quality of advisory service, our team manually reviews company credentials and needs alignment. If shortlisted, a brand or culinary consultant will initiate private contact within 48 hours.</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_44">R: Para manter a mais alta qualidade do serviço consultivo, nossa equipe analisa manualmente as credenciais e a adequação das necessidades. Se selecionado, um consultor de marca ou culinário iniciará contato privado em 48 horas.</span>
+</p>
+</div>
+<div class="faq-item" id="inquiry_faq-item_3">
+<h5 id="inquiry_h5_4">
+<span class="lang-en" id="inquiry_span_lang-en_45">Q: Can small independent workshops apply?</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_46">P: Pequenas oficinas independentes podem se candidatar?</span>
+</h5>
+<p id="inquiry_p_7">
+<span class="lang-en" id="inquiry_span_lang-en_47">A: Absolutely, if your product demonstrates exceptional flavour, purity and craftsmanship. Our long-running "Flavor Ark" charity fund was created specifically to discover and protect small-scale artisanal makers.</span>
+<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_48">R: Absolutamente, se seu produto demonstrar sabor, pureza e artesanato excepcionais. Nosso fundo beneficente "Arca do Sabor" foi criado especificamente para descobrir e proteger pequenos produtores artesanais.</span>
+</p>
+</div>
+</div>
+</section>
+<site-footer id="inquiry_site-footer_1"></site-footer>
+<script src="js/i18n.js"></script>
+<script src="js/components.js"></script>
 </body>
 </html>
