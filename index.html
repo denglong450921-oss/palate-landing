@@ -32,6 +32,14 @@
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75); 
         }
         .hero h1 b { font-weight: 800; color: #149C3D; border-bottom: 3px solid #E5BA73; }
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.4;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+        }
         .hero p { 
             font-size: 18px; 
             color: #ffffff; 
@@ -99,7 +107,8 @@
         .author-info p { font-size: 12px; color: #777777; }
 
         @media (max-width: 960px) {
-            .hero h1 { font-size: 42px; }
+            .hero h1 { font-size: 36px; }
+            .hero h2 { font-size: 22px; }
             .split-card { padding: 80px 5%; }
             .reviews-grid { grid-template-columns: repeat(2, 1fr); }
             .manifesto-banner { flex-direction: column; text-align: center; padding: 80px 5%; }
@@ -107,8 +116,10 @@
         }
         @media (max-width: 720px) {
             .hero-banner { padding-top: 80px; }
-            .hero h1 { font-size: 36px; }
-            .hero p { font-size: 16px; }
+            .hero h1 { font-size: 30px; }
+            .hero h2 { font-size: 20px; }
+            .hero p { font-size: 15px; }
+            .badge { height: 20px; margin-bottom: 10px; }
             .stats-section { flex-direction: column; gap: 40px; padding: 60px 5%; }
             .stat-card { width: 100%; }
             .split-section { flex-direction: column; }
@@ -127,12 +138,16 @@
 <div class="hero-content" id="index_hero-content">
 <img alt="THE PALATE Badge" class="badge" id="index_badge" src="images/badge.png"/>
 <h1 id="index_hero-title">
-<span class="lang-en" id="index_hero-title-en">Defining the Future <b id="index_hero-title-bold">Landscape of Taste</b>.</span>
-<span class="lang-pt" hidden="" id="index_hero-title-pt">Definindo o Futuro da <b id="index_hero-title-bold-pt">Paisagem do Sabor</b>.</span>
+<span class="lang-en" id="index_hero-title-en">The Flavory Global Ltd (FG) Makes the World More Delicious.</span>
+<span class="lang-pt" hidden="" id="index_hero-title-pt">The Flavory Global Ltd (FG) Torna o Mundo Mais Saboroso.</span>
 </h1>
+<h2 id="index_hero-subtitle">
+<span class="lang-en" id="index_hero-subtitle-en">A Bridge Connecting Consumers with Quality Dining.</span>
+<span class="lang-pt" hidden="" id="index_hero-subtitle-pt">Uma Ponte Conectando Consumidores a Gastronomia de Qualidade.</span>
+</h2>
 <p id="index_hero-desc">
-<span class="lang-en" id="index_hero-desc-en">We connect the world's finest food pioneers with the most prestigious gastronomic destinations. Our discerning sensory standards unearth exceptional ingredients, empowering modern high-end dining with compelling brand narratives and commercial growth.</span>
-<span class="lang-pt" hidden="" id="index_hero-desc-pt">Conectamos os melhores produtores de alimentos do mundo aos destinos gastronomicos mais prestigiados. Nossos rigorosos padroes sensoriais revelam ingredientes excepcionais, impulsionando a alta gastronomia com narrativas de marca marcantes e crescimento comercial.</span>
+<span class="lang-en" id="index_hero-desc-en">FG (The Flavory Global Ltd) was established on December 7, 2020. By integrating user feedback and professional reviews from around the world, FG not only helps consumers discover quality dining options but also provides valuable market insights and improvement suggestions for restaurants.</span>
+<span class="lang-pt" hidden="" id="index_hero-desc-pt">A FG (The Flavory Global Ltd) foi fundada em 7 de dezembro de 2020. Integrando feedback de usuarios e avaliacoes profissionais de todo o mundo, a FG nao apenas ajuda consumidores a descobrir opcoes gastronomicas de qualidade, mas tambem fornece insights valiosos de mercado e sugestoes de melhoria para restaurantes.</span>
 </p>
 <a class="cta-btn" href="inquiry.html" id="index_cta-btn">
 <span class="lang-en" id="index_cta-en">Enterprise Entrance</span>
@@ -140,7 +155,7 @@
 </a>
 </div>
 </section>
-<section class="stats-section" id="index_stats">
+<section class="stats-section" id="index_stats" style="display:none">
 <div class="stat-card" id="index_stat-card-1">
 <div class="stat-num" id="index_stat-num-1">45<span id="index_stat-plus-1">+</span></div>
 <div class="stat-label" id="index_stat-label-1">

@@ -216,11 +216,16 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
   .news-card h3 { font-size: 30px; }
 }
 @media (max-width: 768px) {
-  .inner-hero h1 { font-size: 32px; }
+  .inner-hero { padding: 140px 5% 60px 5%; }
+  .inner-hero h1 { font-size: 28px; }
   .inner-hero p, .news-summary, .news-detail-wrapper p { font-size: 14px; line-height: 1.6; }
+  .news-section { padding: 60px 5%; }
   .news-list { gap: 20px; }
+  .news-card { height: auto; min-height: 320px; }
   .news-card-content { padding: 24px 20px; }
+  .news-card h3 { font-size: 24px; }
   .news-toggle { width: 100%; justify-content: flex-start; min-height: 44px; }
+  .news-cta { padding: 50px 5%; }
 }
 </style>
 <link href="css/components.css" rel="stylesheet"/>
@@ -261,7 +266,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 <article class="news-card" id="aboutUs_news-card">
 <div class="news-card-bg" id="aboutUs_news-card-bg" style="background-image: url('images/about-card-mission.png')"></div>
 <div class="news-card-content" id="aboutUs_news-card-content">
-<span class="news-kicker" id="aboutUs_news-kicker">OUR MISSION</span>
+<span class="news-kicker" id="aboutUs_news-kicker"><span class="lang-en">OUR MISSION</span><span class="lang-pt" hidden>NOSSA MISSAO</span></span>
 <h3 id="aboutUs_h3">
 <span class="lang-en" id="aboutUs_lang-en_6">Promoting Globalization and Social Responsibility</span>
 <span class="lang-pt" hidden="" id="aboutUs_lang-pt_6">Promovendo Globalizacao e Responsabilidade Social</span>
@@ -293,7 +298,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 <article class="news-card" id="aboutUs_news-card_2">
 <div class="news-card-bg" id="aboutUs_news-card-bg_2" style="background-image: url('images/about-card-strategy.png')"></div>
 <div class="news-card-content" id="aboutUs_news-card-content_2">
-<span class="news-kicker" id="aboutUs_news-kicker_2">GLOBAL STRATEGY</span>
+<span class="news-kicker" id="aboutUs_news-kicker_2"><span class="lang-en">GLOBAL STRATEGY</span><span class="lang-pt" hidden>ESTRATEGIA GLOBAL</span></span>
 <h3 id="aboutUs_h3_2">
 <span class="lang-en" id="aboutUs_lang-en_10">Connecting Global Cuisine</span>
 <span class="lang-pt" hidden="" id="aboutUs_lang-pt_10">Conectando a Culinaria Global</span>
@@ -323,7 +328,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 <article class="news-card" id="aboutUs_news-card_3">
 <div class="news-card-bg" id="aboutUs_news-card-bg_3" style="background-image: url('images/about-card-responsibility.png')"></div>
 <div class="news-card-content" id="aboutUs_news-card-content_3">
-<span class="news-kicker" id="aboutUs_news-kicker_3">SOCIAL RESPONSIBILITY</span>
+<span class="news-kicker" id="aboutUs_news-kicker_3"><span class="lang-en">SOCIAL RESPONSIBILITY</span><span class="lang-pt" hidden>RESPONSABILIDADE SOCIAL</span></span>
 <h3 id="aboutUs_h3_3">
 <span class="lang-en" id="aboutUs_lang-en_14">Building a Better Future</span>
 <span class="lang-pt" hidden="" id="aboutUs_lang-pt_14">Construindo um Futuro Melhor</span>
@@ -357,7 +362,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 <article class="news-card" id="aboutUs_news-card_4">
 <div class="news-card-bg" id="aboutUs_news-card-bg_4" style="background-image: url('images/about-card-outlook.png')"></div>
 <div class="news-card-content" id="aboutUs_news-card-content_4">
-<span class="news-kicker" id="aboutUs_news-kicker_4">FUTURE OUTLOOK</span>
+<span class="news-kicker" id="aboutUs_news-kicker_4"><span class="lang-en">FUTURE OUTLOOK</span><span class="lang-pt" hidden>PERSPECTIVAS FUTURAS</span></span>
 <h3 id="aboutUs_h3_4">
 <span class="lang-en" id="aboutUs_lang-en_20">Localization Drives Culinary Innovation</span>
 <span class="lang-pt" hidden="" id="aboutUs_lang-pt_18">A Localizacao Impulsiona a Inovacao Culinaria</span>

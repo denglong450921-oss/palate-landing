@@ -70,7 +70,7 @@ class SiteFooter extends HTMLElement {
             </div>
             <div class="footer-links" id="site-footer_footer-links">
                 <div class="footer-col" id="site-footer_col-nav">
-                    <h4 id="site-footer_heading-nav">Navigation</h4>
+                    <h4 id="site-footer_heading-nav"><span class="lang-en">Navigation</span><span class="lang-pt" hidden>Navegacao</span></h4>
                     <ul id="site-footer_nav-list">
                         <li id="site-footer_li-home"><a href="index.html" id="site-footer_link-home">Home</a></li>
                         <li id="site-footer_li-brands"><a href="brands.html" id="site-footer_link-brands">For Brands</a></li>
@@ -80,7 +80,7 @@ class SiteFooter extends HTMLElement {
                     </ul>
                 </div>
                 <div class="footer-col" id="site-footer_col-email">
-                    <h4 id="site-footer_heading-email">EMAIL US</h4>
+                    <h4 id="site-footer_heading-email"><span class="lang-en">EMAIL US</span><span class="lang-pt" hidden>ENVIE-NOS EMAIL</span></h4>
                     <ul id="site-footer_email-list">
                         <li id="site-footer_li-hello"><a href="mailto:HELLO@THEPALATE.COM" id="site-footer_email-hello">HELLO@THEPALATE.COM</a></li>
                         <li id="site-footer_li-jobs"><a href="mailto:JOBS@THEPALATE.COM" id="site-footer_email-jobs">JOBS@THEPALATE.COM</a></li>
@@ -89,7 +89,7 @@ class SiteFooter extends HTMLElement {
                     </ul>
                 </div>
                 <div class="footer-col" id="site-footer_col-address" style="max-width:300px;">
-                    <h4 id="site-footer_heading-find">FIND US</h4>
+                    <h4 id="site-footer_heading-find"><span class="lang-en">FIND US</span><span class="lang-pt" hidden>ENCONTRE-NOS</span></h4>
                     <ul class="address-list" id="site-footer_address-list" style="gap:18px;">
                         <li id="site-footer_address-us">
                             <small style="color:#149C3D;font-weight:700;font-size:11px;letter-spacing:0.5px;display:block;margin-bottom:2px;">US HEADQUARTERS ADDRESS:</small>
@@ -104,11 +104,7 @@ class SiteFooter extends HTMLElement {
             </div>
         </div>
         <div class="footer-bottom" id="site-footer_footer-bottom">
-            <p id="site-footer_copyright">&copy; 2026 THE PALATE Global. All Rights Reserved. &nbsp;|&nbsp; Privacy Policy and Cookie Notice</p>
-            <p id="site-footer_tagline">
-                <span class="lang-en" id="site-footer_tagline-en">Designed for Global Culinary Excellence</span>
-                <span class="lang-pt" hidden id="site-footer_tagline-pt">Projetado para a Excelencia Culinaria Global</span>
-            </p>
+            <p id="site-footer_tagline">&copy; The FlavoryGlobal(TFG) 2020</p>
         </div>
     </footer>
 `;
