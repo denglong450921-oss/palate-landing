@@ -1,236 +1,151 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Inquiry | THE PALATE</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry | THE PALATE</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         
-        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
-        .logo { height: 28px; display: block; }
-        .logo-footer { height: 28px; display: block; }
-        .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
-        .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        .nav-links a:hover, .nav-links a.active { color: #149C3D; border-bottom: 2px solid #E5BA73; padding-bottom: 4px; }
-        .lang-toggle { font-size: 12px; letter-spacing: 1px; font-weight: 700; cursor: pointer; padding: 4px 10px; border: 1px solid #ddd; border-radius: 3px; background: transparent; text-transform: uppercase; }
-        .lang-toggle.active { background: #149C3D; color: #fff; border-color: #149C3D; }
-        .lang-toggle:hover { border-color: #149C3D; }
-
-        .page-banner { 
-            height: 45vh; 
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('images/hero-inquiry-bg.png') no-repeat center center/cover;
-            margin-top: 80px; 
-            display: flex; 
-            align-items: center; 
-            padding: 0 8%; 
+        .inner-hero { 
+            padding: 180px 8% 100px 8%; 
+            background: url('images/hero-inquiry-bg.png') no-repeat center center/cover; 
             color: #ffffff; 
+            animation: fadeIn 1s ease; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;  
         }
-        .page-banner-text h1 { font-size: 42px; font-weight: 700; color: #ffffff; letter-spacing: 1px; }
-        .page-banner-text h1 span { color: #E5BA73; }
+        .page-indicator { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #E5BA73; font-weight: 700; margin-bottom: 20px; display: block; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .inner-hero h1 { font-size: 46px; font-weight: 700; max-width: 850px; margin-bottom: 25px; line-height: 1.3; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); }
+        .inner-hero p { font-size: 17px; max-width: 750px; color: rgba(255,255,255,0.9); line-height: 1.8; font-weight: 300; text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); }
 
-        .form-section-wrapper { display: flex; min-height: 80vh; background-color: #ffffff; }
+        .form-section { padding: 120px 8%; background-color: #ffffff; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+        .info-sidebar h3 { font-size: 28px; font-weight: 700; color: #111111; margin-bottom: 25px; }
+        .info-sidebar h3 span { color: #149C3D; }
+        .info-sidebar p { font-size: 15px; color: #555555; line-height: 1.8; margin-bottom: 40px; }
         
-        .form-sidebar { width: 35%; background-color: #149C3D; color: #ffffff; padding: 80px 5%; display: flex; flex-direction: column; justify-content: flex-start; position: relative; }
-        .form-sidebar h2 { font-size: 28px; font-weight: 700; margin-bottom: 25px; color: #E5BA73; line-height: 1.3; }
-        .form-sidebar p { font-size: 14px; line-height: 1.8; opacity: 0.9; font-weight: 300; margin-bottom: 40px; }
+        .contact-methods { display: flex; flex-direction: column; gap: 30px; }
+        .method-item h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #999999; margin-bottom: 8px; font-weight: 700; }
+        .method-item p { font-size: 16px; color: #111111; font-weight: 600; margin-bottom: 0; }
+        .method-item a:hover { color: #149C3D; }
+
+        .inquiry-form { background: #f7fbf8; padding: 50px; border-radius: 4px; border: 1px solid #eaf5ed; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-bottom: 30px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full-width { grid-column: span 2; }
         
-        .hub-info { display: flex; flex-direction: column; gap: 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 30px; }
-        .hub-city { font-weight: 700; color: #E5BA73; text-transform: uppercase; letter-spacing: 1px; }
-
-        .form-content-area { width: 65%; padding: 80px 8%; background-color: #ffffff; }
-        .main-form { display: flex; flex-direction: column; gap: 35px; }
-        .form-group { display: flex; flex-direction: column; gap: 12px; }
-        .form-group label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 2px solid #eef3ef; background: transparent; font-size: 15px; color: #111111; outline: none; transition: border-color 0.3s ease; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-bottom-color: #149C3D; }
+        .form-group label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #333333; }
+        .form-group input, .form-group select, .form-group textarea { padding: 14px 18px; border: 1px solid #ddd; background: #ffffff; border-radius: 4px; font-size: 14px; font-family: inherit; color: #111111; transition: all 0.3s ease; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #149C3D; outline: none; box-shadow: 0 0 0 3px rgba(20,156,61,0.05); }
         
-        .radio-group { display: flex; gap: 40px; margin-top: 5px; }
-        .radio-label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333333; cursor: pointer; font-weight: 500; }
-        .radio-label input { width: auto; accent-color: #149C3D; }
+        .submit-btn { width: 100%; padding: 16px; background-color: #149C3D; color: #ffffff; border: none; font-size: 14px; font-weight: 600; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .submit-btn:hover { background-color: #111111; color: #E5BA73; }
 
-        .submit-btn { padding: 20px; background-color: #149C3D; color: #ffffff; border: none; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; border-radius: 4px; }
-        .submit-btn:hover { background-color: #111111; color: #E5BA73; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        .faq-section { padding: 100px 8%; background-color: #fcfdfe; border-top: 1px solid #f0f0f0; }
-        .faq-title { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 50px; }
-        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-        .faq-item h5 { font-size: 16px; font-weight: 700; color: #149C3D; margin-bottom: 12px; }
-        .faq-item p { font-size: 14px; color: #666666; line-height: 1.7; }
-
-        footer { background-color: #111111; color: #ffffff; padding: 90px 8% 40px 8%; display: flex; flex-direction: column; gap: 60px; }
-        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-desc { max-width: 380px; color: #aaaaaa; font-size: 14px; line-height: 1.8; }
-        .footer-desc .logo-footer { margin-bottom: 20px; }
-        .footer-links { display: flex; gap: 80px; }
-        .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; margin-bottom: 25px; font-weight: 700; }
-        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 14px; color: #cccccc; }
-        .footer-col ul a:hover { color: #E5BA73; padding-left: 5px; }
-        .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #777777; border-top: 1px solid #222222; padding-top: 30px; letter-spacing: 1px; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @media (max-width: 960px) {
-            .form-section-wrapper { flex-direction: column; }
-            .form-sidebar, .form-content-area { width: 100%; }
-            .form-sidebar { padding: 60px 5%; }
-            .form-content-area { padding: 60px 5%; }
+            .form-section { grid-template-columns: 1fr; gap: 50px; }
+            .inner-hero { padding: 160px 6% 80px 6%; }
+            .inner-hero h1 { font-size: 36px; }
         }
         @media (max-width: 720px) {
-            .page-banner { padding-top: 120px; padding-bottom: 60px; margin-top: 60px; }
-            .page-banner-text h1 { font-size: 32px; }
-            .faq-section { padding: 60px 5%; }
-            .faq-grid { grid-template-columns: 1fr; }
-            .radio-group { flex-direction: column; gap: 15px; }
+            .form-section { padding: 80px 5%; }
+            .inner-hero h1 { font-size: 32px; }
+            .inquiry-form { padding: 30px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
         }
-        </style>
-<link href="css/components.css" rel="stylesheet"/>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-<site-header id="inquiry_site-header_1"></site-header>
-<div class="page-banner" id="inquiry_page-banner">
-<div class="page-banner-text" id="inquiry_page-banner-text">
-<h1 id="inquiry_h1_1">
-<span class="lang-en" id="inquiry_span_lang-en_1">Initiate <span id="inquiry_span_2">Conversations</span></span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_3">Inicie <span id="inquiry_span_4">Conversas</span></span>
-</h1>
-</div>
-</div>
-<div class="form-section-wrapper" id="inquiry_form-section-wrapper">
-<div class="form-sidebar" id="inquiry_form-sidebar">
-<h2 id="inquiry_h2_1">
-<span class="lang-en" id="inquiry_span_lang-en_5">Private Connection with Our Global Advisors</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_6">Conexão Privada com Nossos Consultores Globais</span>
-</h2>
-<p id="inquiry_p_1">
-<span class="lang-en" id="inquiry_span_lang-en_7">We partner exclusively with those who pursue the extraordinary. Due to the scarcity of our services, we operate a strict vetting system. Submit your core needs and our team will contact you within 48 hours through a dedicated channel.</span>
-<span class="lang-pt" hidden"="" id="inquiry_span_lang-pt_8">Fazemos parceria exclusivamente com aqueles que buscam o extraordinário. Devido à escassez de nossos serviços, operamos um sistema rigoroso de seleção. Envie suas necessidades e nossa equipe entrará em contato em 48 horas por um canal dedicado.</span>
-</p>
-<div class="hub-info" id="inquiry_hub-info">
-<div id="inquiry_hub-info_1">
-<span class="hub-city" id="inquiry_span_hub-city_9">
-<span class="lang-en" id="inquiry_span_lang-en_10">Europe Hub</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_11">Sede Europa</span>
-</span>
-<p id="inquiry_p_2">Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
-</div>
-<div id="inquiry_hub-info_2">
-<span class="hub-city" id="inquiry_span_hub-city_12">
-<span class="lang-en" id="inquiry_span_lang-en_13">Asia-Pacific Hub</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_14">Sede Ásia-Pacífico</span>
-</span>
-<p id="inquiry_p_3">Bund Finance Center, Zhongshan East 2nd Rd, Shanghai, China</p>
-</div>
-</div>
-</div>
-<div class="form-content-area" id="inquiry_form-content-area">
-<form class="main-form" id="inquiry_form_main-form_1" onsubmit="event.preventDefault(); alert('Your inquiry has been submitted. Thank you for your trust. / Sua consulta foi enviada. Obrigado pela confiança.');">
-<div class="form-group" id="inquiry_form-group">
-<label id="inquiry_label_1">
-<span class="lang-en" id="inquiry_span_lang-en_15">Your Name &amp; Title</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_16">Seu Nome e Cargo</span>
-</label>
-<input id="inquiry_input_1" placeholder="e.g., Alexander Morgan" required="" type="text"/>
-</div>
-<div class="form-group" id="inquiry_form-group_1">
-<label id="inquiry_label_2">
-<span class="lang-en" id="inquiry_span_lang-en_17">Company or Establishment</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_18">Empresa ou Estabelecimento</span>
-</label>
-<input id="inquiry_input_2" placeholder="e.g., Le Palate Restaurant Group" required="" type="text"/>
-</div>
-<div class="form-group" id="inquiry_form-group_2">
-<label id="inquiry_label_3">
-<span class="lang-en" id="inquiry_span_lang-en_19">I am a...</span>
-<span class="lang-pt" hidden"="" id="inquiry_span_lang-pt_20">Eu sou...</span>
-</label>
-<div class="radio-group" id="inquiry_radio-group">
-<label class="radio-label" id="inquiry_label_radio-label_4">
-<input checked="" id="inquiry_input_3" name="identity" required="" type="radio" value="brand"/>
-<span class="lang-en" id="inquiry_span_lang-en_21">Global Food Brand</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_22">Marca Alimentícia Global</span>
-</label>
-<label class="radio-label" id="inquiry_label_radio-label_5">
-<input id="inquiry_input_4" name="identity" type="radio" value="chef"/>
-<span class="lang-en" id="inquiry_span_lang-en_23">Chef &amp; Restaurateur</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_24">Chef &amp; Restaurador</span>
-</label>
-</div>
-</div>
-<div class="form-group" id="inquiry_form-group_3">
-<label id="inquiry_label_6">
-<span class="lang-en" id="inquiry_span_lang-en_25">Website / Digital Link</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_26">Site / Link Digital</span>
-</label>
-<input id="inquiry_input_5" placeholder="e.g., https://example.com" type="url"/>
-</div>
-<div class="form-group" id="inquiry_form-group_4">
-<label id="inquiry_label_7">
-<span class="lang-en" id="inquiry_span_lang-en_27">Brief Inquiry</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_28">Sua Consulta</span>
-</label>
-<textarea id="inquiry_textarea_1" placeholder="Please briefly describe your premium food introduction plan or ingredient sourcing needs..." required="" rows="4">
-                    </textarea>
-</div>
-<button class="submit-btn" id="inquiry_button_submit-btn_1" type="submit">
-<span class="lang-en" id="inquiry_span_lang-en_29">Submit Inquiry</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_30">Enviar Consulta</span>
-</button>
-</form>
-</div>
-</div>
-<section class="faq-section" id="inquiry_section_faq-section_1">
-<h4 class="faq-title" id="inquiry_h4_faq-title_1">
-<span class="lang-en" id="inquiry_span_lang-en_31">Frequently Asked Questions</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_32">Perguntas Frequentes</span>
-</h4>
-<div class="faq-grid" id="inquiry_faq-grid">
-<div class="faq-item" id="inquiry_faq-item">
-<h5 id="inquiry_h5_1">
-<span class="lang-en" id="inquiry_span_lang-en_33">Q: Is there a fee for the initial assessment?</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_34">P: Há taxa para a avaliação inicial?</span>
-</h5>
-<p id="inquiry_p_4">
-<span class="lang-en" id="inquiry_span_lang-en_35">A: Our preliminary blind tasting and sensory review are completely free. Commercial contracts are only discussed after your product passes our 1% stringent test for full channel promotion.</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_36">R: Nossa degustação cega preliminar e revisão sensorial são totalmente gratuitas. Contratos comerciais são discutidos apenas após seu produto passar pelo rigoroso teste dos 1% para promoção completa em canais.</span>
-</p>
-</div>
-<div class="faq-item" id="inquiry_faq-item_1">
-<h5 id="inquiry_h5_2">
-<span class="lang-en" id="inquiry_span_lang-en_37">Q: What are the MOQ requirements for sourcing?</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_38">P: Quais são os requisitos de MOQ?</span>
-</h5>
-<p id="inquiry_p_5">
-<span class="lang-en" id="inquiry_span_lang-en_39">A: We understand the scarcity of rare terroir ingredients. THE PALATE does not impose commodity-style minimums. Instead, we operate a precise allocation system based on the estate's annual yield and the chef's seasonal consumption.</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_40">R: Entendemos a escassez de ingredientes raros de terroir. A THE PALATE não impõe mínimos no estilo commodity. Operamos um sistema preciso de alocação baseado na produção anual da fazenda e no consumo sazonal do chef.</span>
-</p>
-</div>
-<div class="faq-item" id="inquiry_faq-item_2">
-<h5 id="inquiry_h5_3">
-<span class="lang-en" id="inquiry_span_lang-en_41">Q: Will every applicant receive a response?</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_42">P: Todos os candidatos recebem resposta?</span>
-</h5>
-<p id="inquiry_p_6">
-<span class="lang-en" id="inquiry_span_lang-en_43">A: To maintain the highest quality of advisory service, our team manually reviews company credentials and needs alignment. If shortlisted, a brand or culinary consultant will initiate private contact within 48 hours.</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_44">R: Para manter a mais alta qualidade do serviço consultivo, nossa equipe analisa manualmente as credenciais e a adequação das necessidades. Se selecionado, um consultor de marca ou culinário iniciará contato privado em 48 horas.</span>
-</p>
-</div>
-<div class="faq-item" id="inquiry_faq-item_3">
-<h5 id="inquiry_h5_4">
-<span class="lang-en" id="inquiry_span_lang-en_45">Q: Can small independent workshops apply?</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_46">P: Pequenas oficinas independentes podem se candidatar?</span>
-</h5>
-<p id="inquiry_p_7">
-<span class="lang-en" id="inquiry_span_lang-en_47">A: Absolutely, if your product demonstrates exceptional flavour, purity and craftsmanship. Our long-running "Flavor Ark" charity fund was created specifically to discover and protect small-scale artisanal makers.</span>
-<span class="lang-pt" hidden="" id="inquiry_span_lang-pt_48">R: Absolutamente, se seu produto demonstrar sabor, pureza e artesanato excepcionais. Nosso fundo beneficente "Arca do Sabor" foi criado especificamente para descobrir e proteger pequenos produtores artesanais.</span>
-</p>
-</div>
-</div>
-</section>
-<site-footer id="inquiry_site-footer_1"></site-footer>
-<script src="js/i18n.js"></script>
-<script src="js/components.js"></script>
+
+    <site-header></site-header>
+
+    <section class="inner-hero" id="inquiry_hero">
+        <span class="page-indicator" id="inquiry_page-indicator">Initiate Collaboration</span>
+        <h1 id="inquiry_hero-title">
+            <span class="lang-en" id="inquiry_hero-title-en">Connect with the Sourcing Atelier.</span>
+            <span class="lang-pt" hidden id="inquiry_hero-title-pt">Conecte-se com o Atelie de Origens.</span>
+        </h1>
+        <p id="inquiry_hero-desc">
+            <span class="lang-en" id="inquiry_hero-desc-en">Whether you are an ambitious brand looking to scale globally or a Michelin-starred kitchen seeking unreplicable ingredients, our private network is ready to assist. Please complete the dossier below.</span>
+            <span class="lang-pt" hidden id="inquiry_hero-desc-pt">Seja voce uma marca ambiciosa buscando escala global ou uma cozinha estrelada procurando ingredientes inigualaveis, nossa rede privada esta pronta para ajudar. Por favor, preencha o dossier abaixo.</span>
+        </p>
+    </section>
+
+    <section class="form-section" id="inquiry_form-section">
+        <div class="info-sidebar" id="inquiry_info-sidebar">
+            <h3 id="inquiry_info-title">
+                <span class="lang-en" id="inquiry_info-title-en">Direct <span id="inquiry_info-title-highlight">Channels</span></span>
+                <span class="lang-pt" hidden id="inquiry_info-title-pt">Canais <span id="inquiry_info-title-highlight-pt">Diretos</span></span>
+            </h3>
+            <p id="inquiry_info-desc">
+                <span class="lang-en" id="inquiry_info-desc-en">For urgent requests or secure private communication, you may contact our regional offices directly via secure mail or concierge lines.</span>
+                <span class="lang-pt" hidden id="inquiry_info-desc-pt">Para solicitacoes urgentes ou comunicacao privada segura, voce pode contatar nossos escritorios regionais diretamente via e-mail seguro ou linhas de concierge.</span>
+            </p>
+            
+            <div class="contact-methods" id="inquiry_contact-methods">
+                <div class="method-item" id="inquiry_method-general">
+                    <h5 id="inquiry_method-general-label">General Briefings</h5>
+                    <p id="inquiry_method-general-value"><a href="mailto:HELLO@THEPALATE.COM" id="inquiry_email-general">HELLO@THEPALATE.COM</a></p>
+                </div>
+                <div class="method-item" id="inquiry_method-legal">
+                    <h5 id="inquiry_method-legal-label">Legal Department</h5>
+                    <p id="inquiry_method-legal-value"><a href="mailto:LEGAL@THEPALATE.COM" id="inquiry_email-legal">LEGAL@THEPALATE.COM</a></p>
+                </div>
+                <div class="method-item" id="inquiry_method-hq">
+                    <h5 id="inquiry_method-hq-label">Global Headquarters</h5>
+                    <p id="inquiry_method-hq-value">
+                        <span class="lang-en" id="inquiry_hq-address">1500 N GRANT ST STE R, DENVER, CO 80203, UNITED STATES</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="inquiry-form" id="inquiry_form-container">
+            <form action="#" method="POST" id="inquiry_form">
+                <div class="form-grid" id="inquiry_form-grid">
+                    <div class="form-group" id="inquiry_field-name">
+                        <label for="name">Full Name / Nome Completo</label>
+                        <input type="text" id="inquiry_input-name" required placeholder="e.g., Alexander Mercer">
+                    </div>
+                    <div class="form-group" id="inquiry_field-email">
+                        <label for="email">Corporate Email / E-mail Corporativo</label>
+                        <input type="email" id="inquiry_input-email" required placeholder="name@company.com">
+                    </div>
+                    <div class="form-group" id="inquiry_field-company">
+                        <label for="company">Organization / Organizacao</label>
+                        <input type="text" id="inquiry_input-company" required placeholder="e.g., Luxury Gastronomy Group">
+                    </div>
+                    <div class="form-group" id="inquiry_field-partnership">
+                        <label for="partnership-type">Partnership Type / Tipo de Parceria</label>
+                        <select id="inquiry_input-partnership" required>
+                            <option value="" disabled selected>Select an option...</option>
+                            <option value="brand">For Brands (Global Growth)</option>
+                            <option value="gastronomy">For Gastronomy (Michelin Sourcing)</option>
+                            <option value="other">Other Bespoke Collaboration</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width" id="inquiry_field-message">
+                        <label for="message">Collaboration Dossier Brief / Resumo do Dossier de Colaboracao</label>
+                        <textarea id="inquiry_input-message" rows="6" required placeholder="Please describe your current project, menu vision, or market scalability requirements..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn" id="inquiry_submit-btn">
+                    <span class="lang-en" id="inquiry_submit-en">Submit Secure Dossier →</span>
+                    <span class="lang-pt" hidden id="inquiry_submit-pt">Enviar Dossier Seguro →</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <site-footer></site-footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
 </body>
 </html>
