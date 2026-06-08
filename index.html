@@ -50,14 +50,14 @@
         .manifesto-accent { font-size: 120px; font-weight: 800; color: rgba(255,255,255,0.1); font-family: Georgia, serif; line-height: 1; }
 
         .split-section { display: flex; width: 100%; border-top: 1px solid #f0f0f0; }
-        .split-card { width: 50%; padding: 120px 8%; display: flex; flex-direction: column; justify-content: center; position: relative; transition: all 0.4s ease; background-color: #ffffff; }
-        .split-card:first-child { border-right: 1px solid #f0f0f0; }
-        .split-card:last-child { background-color: #f7fbf8; border-top: 4px solid #149C3D; }
-        .split-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); z-index: 2; }
-        .split-card h2 { font-size: 34px; font-weight: 400; margin-bottom: 25px; line-height: 1.3; }
-        .split-card h2 span { color: #149C3D; font-weight: 800; }
-        .split-card p { color: #555555; margin-bottom: 35px; font-size: 15px; max-width: 480px; line-height: 1.8; }
-        .arrow-link { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #149C3D; display: inline-flex; align-items: center; gap: 8px; }
+        .split-card { width: 50%; padding: 120px 8%; display: flex; flex-direction: column; justify-content: center; position: relative; transition: all 0.4s ease; background-repeat: no-repeat; background-position: center; background-size: cover; }
+        .split-card:first-child { border-right: 1px solid #222222; background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/home-split-brands-v1.png'); }
+        .split-card:last-child { border-top: 4px solid #149C3D; background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/home-split-gastro-v1.png'); }
+        .split-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); z-index: 2; }
+        .split-card h2 { font-size: 34px; font-weight: 400; margin-bottom: 25px; line-height: 1.3; color: #ffffff; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
+        .split-card h2 span { color: #149C3D; font-weight: 800; text-shadow: none; }
+        .split-card p { color: #e0e0e0; margin-bottom: 35px; font-size: 15px; max-width: 480px; line-height: 1.8; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
+        .arrow-link { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
         .arrow-link:hover { color: #E5BA73; }
 
         .reviews-section { padding: 120px 8%; background-color: #ffffff; text-align: center; }
@@ -190,8 +190,8 @@
 </div>
 <div class="split-card" id="index_split-card_2">
 <h2 id="index_h2_3">
-<span class="lang-en" id="index_span_lang-en_33">For <span id="index_span_34" style="color:#111111;">Gastronomy</span></span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_35">Para a <span id="index_span_36" style="color:#111111;">Gastronomia</span></span>
+<span class="lang-en" id="index_span_lang-en_33">For <span id="index_span_34" style="color:#149C3D;">Gastronomy</span></span>
+<span class="lang-pt" hidden="" id="index_span_lang-pt_35">Para a <span id="index_span_36" style="color:#149C3D;">Gastronomia</span></span>
 </h2>
 <p id="index_p_5">
 <span class="lang-en" id="index_span_lang-en_37">Exclusive sourcing for Michelin-starred restaurants, luxury hotels, and private dining. We are your global palate radar, continuously supplying scarce flavours that build menu differentiation.</span>
