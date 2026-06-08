@@ -12,7 +12,7 @@ class SiteHeader extends HTMLElement {
         </div>
         <ul class="nav-links" id="nav-links">
             <li id="site-header_nav-home"><a href="index.html" id="site-header_link-home">Home</a></li>
-            <li id="site-header_nav-news"><a href="news.html" id="site-header_link-news">News</a></li>
+            <li id="site-header_nav-about"><a href="news.html" id="site-header_link-about">About Us</a></li>
             <li id="site-header_nav-brands"><a href="brands.html" id="site-header_link-brands">For Brands</a></li>
             <li id="site-header_nav-gastronomy"><a href="gastronomy.html" id="site-header_link-gastronomy">For Gastronomy</a></li>
             <li id="site-header_nav-inquiry"><a href="inquiry.html" id="site-header_link-inquiry">Inquiry</a></li>
@@ -76,7 +76,7 @@ class SiteFooter extends HTMLElement {
                     </h4>
                     <ul id="site-footer_platform-list">
                         <li id="site-footer_li-home"><a href="index.html" id="site-footer_link-home">Home</a></li>
-                        <li id="site-footer_li-news"><a href="news.html" id="site-footer_link-news">News</a></li>
+                        <li id="site-footer_li-about"><a href="news.html" id="site-footer_link-about">About Us</a></li>
                         <li id="site-footer_li-brands"><a href="brands.html" id="site-footer_link-brands">For Brands</a></li>
                         <li id="site-footer_li-gastronomy"><a href="gastronomy.html" id="site-footer_link-gastronomy">For Gastronomy</a></li>
                     </ul>
