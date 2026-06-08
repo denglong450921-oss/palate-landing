@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>THE PALATE | Global Food Curator</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE PALATE | Global Food Curator</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         
-        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
-        .logo { height: 28px; display: block; }
-        .logo-footer { height: 28px; display: block; }
-        .badge { height: 28px; display: inline-block; vertical-align: middle; }
-        .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
-        .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        .nav-links a:hover, .nav-links a.active { color: #149C3D; border-bottom: 2px solid #E5BA73; padding-bottom: 4px; }
-        .lang-toggle { font-size: 12px; letter-spacing: 1px; font-weight: 700; cursor: pointer; padding: 4px 10px; border: 1px solid #ddd; border-radius: 3px; background: transparent; text-transform: uppercase; }
-        .lang-toggle.active { background: #149C3D; color: #fff; border-color: #149C3D; }
-        .lang-toggle:hover { border-color: #149C3D; }
+        .badge { height: 28px; display: inline-block; vertical-align: middle; margin-bottom: 15px; }
 
         .hero-banner { 
             height: 100vh; 
             display: flex; 
             align-items: center; 
             padding: 0 8%; 
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.9)), url('images/home-hero-bg-v1.png') no-repeat center center/cover; 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.35)), url('images/home-hero-bg-v1.png') no-repeat center center/cover; 
             position: relative; 
             animation: fadeIn 1.2s ease; 
         }
         .hero-content { max-width: 850px; }
-        .hero h1 { font-size: 56px; font-weight: 400; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 30px; color: #111111; }
+        .hero h1 { 
+            font-size: 56px; 
+            font-weight: 400; 
+            line-height: 1.2; 
+            letter-spacing: -0.5px; 
+            margin-bottom: 30px; 
+            color: #ffffff; 
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75); 
+        }
         .hero h1 b { font-weight: 800; color: #149C3D; border-bottom: 3px solid #E5BA73; }
-        .hero p { font-size: 18px; color: #444444; max-width: 650px; margin-bottom: 45px; font-weight: 300; line-height: 1.8; }
+        .hero p { 
+            font-size: 18px; 
+            color: #ffffff; 
+            max-width: 650px; 
+            margin-bottom: 45px; 
+            font-weight: 300; 
+            line-height: 1.8; 
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); 
+        }
         .cta-btn { display: inline-block; padding: 18px 40px; background-color: #111111; color: #ffffff; font-size: 13px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; border: 1px solid #111111; }
         .cta-btn:hover { background-color: #149C3D; border-color: #149C3D; color: #ffffff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20,156,61,0.2); }
 
@@ -50,9 +56,26 @@
         .manifesto-accent { font-size: 120px; font-weight: 800; color: rgba(255,255,255,0.1); font-family: Georgia, serif; line-height: 1; }
 
         .split-section { display: flex; width: 100%; border-top: 1px solid #f0f0f0; }
-        .split-card { width: 50%; padding: 120px 8%; display: flex; flex-direction: column; justify-content: center; position: relative; transition: all 0.4s ease; background-repeat: no-repeat; background-position: center; background-size: cover; }
-        .split-card:first-child { border-right: 1px solid #222222; background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/home-split-brands-v1.png'); }
-        .split-card:last-child { border-top: 4px solid #149C3D; background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/home-split-gastro-v1.png'); }
+        .split-card { 
+            width: 50%; 
+            padding: 120px 8%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            position: relative; 
+            transition: all 0.4s ease; 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .split-card:first-child { 
+            border-right: 1px solid #222222; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/home-split-brands-v1.png');
+        }
+        .split-card:last-child { 
+            border-top: 4px solid #149C3D; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/home-split-gastro-v1.png');
+        }
         .split-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); z-index: 2; }
         .split-card h2 { font-size: 34px; font-weight: 400; margin-bottom: 25px; line-height: 1.3; color: #ffffff; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
         .split-card h2 span { color: #149C3D; font-weight: 800; text-shadow: none; }
@@ -74,17 +97,6 @@
         .author-info h5 { font-size: 15px; font-weight: 700; color: #111111; margin-bottom: 3px; }
         .author-info p { font-size: 12px; color: #777777; }
 
-        footer { background-color: #111111; color: #ffffff; padding: 90px 8% 40px 8%; display: flex; flex-direction: column; gap: 60px; }
-        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-desc { max-width: 380px; color: #aaaaaa; font-size: 14px; line-height: 1.8; }
-        .footer-desc .logo-footer { margin-bottom: 20px; }
-        .footer-links { display: flex; gap: 80px; }
-        .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; margin-bottom: 25px; font-weight: 700; }
-        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 14px; color: #cccccc; }
-        .footer-col ul a:hover { color: #E5BA73; padding-left: 5px; }
-        .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #777777; border-top: 1px solid #222222; padding-top: 30px; letter-spacing: 1px; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 960px) {
             .hero h1 { font-size: 42px; }
             .split-card { padding: 80px 5%; }
@@ -104,170 +116,182 @@
             .reviews-section { padding: 60px 5%; }
             .reviews-grid { grid-template-columns: 1fr; }
         }
-        </style>
-<link href="css/components.css" rel="stylesheet"/>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-<site-header id="index_site-header_1"></site-header>
-<section class="hero hero-banner" id="index_section_hero_1">
-<div class="hero-content" id="index_hero-content">
-<img alt="THE PALATE Badge" class="badge" id="index_img_badge_1" src="images/badge.png"/>
-<h1 id="index_h1_1">
-<span class="lang-en" id="index_span_lang-en_1">Defining the Future <b id="index_b_1">Landscape of Taste</b>.</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_2">Definindo o Futuro da <b id="index_b_2">Paisagem do Sabor</b>.</span>
-</h1>
-<p id="index_p_1">
-<span class="lang-en" id="index_span_lang-en_3">We connect the world's finest food pioneers with the most prestigious gastronomic destinations. Our discerning sensory standards unearth exceptional ingredients, empowering modern high-end dining with compelling brand narratives and commercial growth.</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_4">Conectamos os melhores produtores de alimentos do mundo aos destinos gastronômicos mais prestigiados. Nossos rigorosos padrões sensoriais revelam ingredientes excepcionais, impulsionando a alta gastronomia com narrativas de marca marcantes e crescimento comercial.</span>
-</p>
-<a class="cta-btn" href="inquiry.html" id="index_a_cta-btn_1">
-<span class="lang-en" id="index_span_lang-en_5">Enterprise Entrance</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_6">Acesso Corporativo</span>
-</a>
-</div>
-</section>
-<section class="stats-section" id="index_section_stats-section_2">
-<div class="stat-card" id="index_stat-card">
-<div class="stat-num" id="index_stat-num">45<span id="index_span_7">+</span></div>
-<div class="stat-label" id="index_stat-label">
-<span class="lang-en" id="index_span_lang-en_8">Countries &amp; Terroirs Covered</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_9">Países &amp; Territórios Atendidos</span>
-</div>
-</div>
-<div class="stat-card" id="index_stat-card_2">
-<div class="stat-num" id="index_stat-num_2">120<span id="index_span_10">+</span></div>
-<div class="stat-label" id="index_stat-label_2">
-<span class="lang-en" id="index_span_lang-en_11">Michelin-starred Chefs Partnered</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_12">Chefs Estrelados em Parceria</span>
-</div>
-</div>
-<div class="stat-card" id="index_stat-card_3">
-<div class="stat-num" id="index_stat-num_3">300<span id="index_span_13">+</span></div>
-<div class="stat-label" id="index_stat-label_3">
-<span class="lang-en" id="index_span_lang-en_14">Premium Innovative Foods Curated</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_15">Alimentos Inovadores Selecionados</span>
-</div>
-</div>
-<div class="stat-card" id="index_stat-card_4">
-<div class="stat-num" id="index_stat-num_4">98<span id="index_span_16">%</span></div>
-<div class="stat-label" id="index_stat-label_4">
-<span class="lang-en" id="index_span_lang-en_17">Global Brand Retention Rate</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_18">Taxa de Retenção Global</span>
-</div>
-</div>
-</section>
-<section class="manifesto-banner" id="index_section_manifesto-banner_3">
-<div class="manifesto-text" id="index_manifesto-text">
-<h2 id="index_h2_1">
-<span class="lang-en" id="index_span_lang-en_19">The Palette Manifesto</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_20">O Manifesto do Paladar</span>
-</h2>
-<p id="index_p_2">
-<span class="lang-en" id="index_span_lang-en_21">In an era of industrialised food production and fading flavors, we pause for the exceptional 1%. We search the world's estates and origins — not merely to recommend, but to curate a sensory dialogue between terroir and extraordinary craftsmanship for the most ambitious chefs and food purveyors.</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_22">Numa era de produção industrializada e sabores enfraquecidos, paramos para o 1% excepcional. Percorremos fazendas e origens do mundo — não apenas para recomendar, mas para curar um diálogo sensorial entre terroir e artesanato extraordinário para os chefs mais ambiciosos.</span>
-</p>
-<p id="index_p_3">
-<span class="lang-en" id="index_span_lang-en_23">We do not follow existing rules, because we hold the key to the next generation of haute cuisine's flavour frontier.</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_24">Não seguimos regras existentes, pois possuímos a chave para a próxima geração da fronteira de sabores da alta gastronomia.</span>
-</p>
-</div>
-<div class="manifesto-accent" id="index_manifesto-accent">1%</div>
-</section>
-<section class="split-section" id="index_section_split-section_4">
-<div class="split-card" id="index_split-card">
-<h2 id="index_h2_2">
-<span class="lang-en" id="index_span_lang-en_25">For Food <span id="index_span_26">Brands</span></span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_27">Para <span id="index_span_28">Marcas</span> Alimentícias</span>
-</h2>
-<p id="index_p_4">
-<span class="lang-en" id="index_span_lang-en_29">Helping global food brands with unique terroir and craftsmanship stories anchor themselves in the premium dining network, bypassing commodity commoditisation to connect directly with star chefs and luxury retail.</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_30">Ajudamos marcas alimentícias globais com histórias únicas de terroir a se posicionarem na rede gastronômica premium, conectando-se diretamente com chefs estrelados e varejo de luxo.</span>
-</p>
-<a class="arrow-link" href="brands.html" id="index_a_arrow-link_2">
-<span class="lang-en" id="index_span_lang-en_31">Explore Route →</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_32">Explorar Rota →</span>
-</a>
-</div>
-<div class="split-card" id="index_split-card_2">
-<h2 id="index_h2_3">
-<span class="lang-en" id="index_span_lang-en_33">For <span id="index_span_34" style="color:#149C3D;">Gastronomy</span></span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_35">Para a <span id="index_span_36" style="color:#149C3D;">Gastronomia</span></span>
-</h2>
-<p id="index_p_5">
-<span class="lang-en" id="index_span_lang-en_37">Exclusive sourcing for Michelin-starred restaurants, luxury hotels, and private dining. We are your global palate radar, continuously supplying scarce flavours that build menu differentiation.</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_38">Fornecimento exclusivo para restaurantes estrelados, hotéis de luxo e jantares privados. Somos seu radar global de paladar, fornecendo continuamente sabores raros que constroem diferenciação de menu.</span>
-</p>
-<a class="arrow-link" href="gastronomy.html" id="index_a_arrow-link_3">
-<span class="lang-en" id="index_span_lang-en_39">Sourcing Service →</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_40">Serviço de Fornecimento →</span>
-</a>
-</div>
-</section>
-<section class="reviews-section" id="index_section_reviews-section_5">
-<h3 class="section-title" id="index_h3_section-title_1">
-<span class="lang-en" id="index_span_lang-en_41">Voices from the <span id="index_span_42">Global Vanguard</span></span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_43">Vozes da <span id="index_span_44">Vanguarda Global</span></span>
-</h3>
-<p class="section-subtitle" id="index_p_section-subtitle_6">
-<span class="lang-en" id="index_span_lang-en_45">Industry leaders reshaping the flavor landscape with THE PALATE</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_46">Líderes do setor transformando o cenário de sabores com a THE PALATE</span>
-</p>
-<div class="reviews-grid" id="index_reviews-grid">
-<div class="review-card" id="index_review-card">
-<span class="quote-icon" id="index_span_quote-icon_47">"</span>
-<p class="review-text" id="index_p_review-text_7">
-<span class="lang-en" id="index_span_lang-en_48">"THE PALATE found us a wild berry extract from an extreme cold region that completely rewrote our summer tasting menu's dessert logic. They don't trade ingredients — they curate inspiration behind the kitchen."</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_49">"A THE PALATE encontrou um extrato de frutas silvestres de uma região de frio extremo que reescreveu completamente a lógica da sobremesa do nosso menu de verão. Eles não comercializam ingredientes — eles curam a inspiração por trás da cozinha."</span>
-</p>
-<div class="review-author" id="index_review-author">
+
+    <site-header></site-header>
+
+    <section class="hero hero-banner" id="index_hero">
+        <div class="hero-content" id="index_hero-content">
+            <img class="badge" src="images/badge.png" alt="THE PALATE Badge" id="index_badge">
+            <h1 id="index_hero-title">
+                <span class="lang-en" id="index_hero-title-en">Defining the Future <b id="index_hero-title-bold">Landscape of Taste</b>.</span>
+                <span class="lang-pt" hidden id="index_hero-title-pt">Definindo o Futuro da <b id="index_hero-title-bold-pt">Paisagem do Sabor</b>.</span>
+            </h1>
+            <p id="index_hero-desc">
+                <span class="lang-en" id="index_hero-desc-en">We connect the world's finest food pioneers with the most prestigious gastronomic destinations. Our discerning sensory standards unearth exceptional ingredients, empowering modern high-end dining with compelling brand narratives and commercial growth.</span>
+                <span class="lang-pt" hidden id="index_hero-desc-pt">Conectamos os melhores produtores de alimentos do mundo aos destinos gastronomicos mais prestigiados. Nossos rigorosos padroes sensoriais revelam ingredientes excepcionais, impulsionando a alta gastronomia com narrativas de marca marcantes e crescimento comercial.</span>
+            </p>
+            <a href="inquiry.html" class="cta-btn" id="index_cta-btn">
+                <span class="lang-en" id="index_cta-en">Enterprise Entrance</span>
+                <span class="lang-pt" hidden id="index_cta-pt">Acesso Corporativo</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="stats-section" id="index_stats">
+        <div class="stat-card" id="index_stat-card-1">
+            <div class="stat-num" id="index_stat-num-1">45<span id="index_stat-plus-1">+</span></div>
+            <div class="stat-label" id="index_stat-label-1">
+                <span class="lang-en" id="index_stat-label-1-en">Countries & Terroirs Covered</span>
+                <span class="lang-pt" hidden id="index_stat-label-1-pt">Paises & Territorios Atendidos</span>
+            </div>
+        </div>
+        <div class="stat-card" id="index_stat-card-2">
+            <div class="stat-num" id="index_stat-num-2">120<span id="index_stat-plus-2">+</span></div>
+            <div class="stat-label" id="index_stat-label-2">
+                <span class="lang-en" id="index_stat-label-2-en">Michelin-starred Chefs Partnered</span>
+                <span class="lang-pt" hidden id="index_stat-label-2-pt">Chefs Estrelados em Parceria</span>
+            </div>
+        </div>
+        <div class="stat-card" id="index_stat-card-3">
+            <div class="stat-num" id="index_stat-num-3">300<span id="index_stat-plus-3">+</span></div>
+            <div class="stat-label" id="index_stat-label-3">
+                <span class="lang-en" id="index_stat-label-3-en">Premium Innovative Foods Curated</span>
+                <span class="lang-pt" hidden id="index_stat-label-3-pt">Alimentos Inovadores Selecionados</span>
+            </div>
+        </div>
+        <div class="stat-card" id="index_stat-card-4">
+            <div class="stat-num" id="index_stat-num-4">98<span id="index_stat-percent-4">%</span></div>
+            <div class="stat-label" id="index_stat-label-4">
+                <span class="lang-en" id="index_stat-label-4-en">Global Brand Retention Rate</span>
+                <span class="lang-pt" hidden id="index_stat-label-4-pt">Taxa de Retencao Global</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifesto-banner" id="index_manifesto">
+        <div class="manifesto-text" id="index_manifesto-text">
+            <h2 id="index_manifesto-title">
+                <span class="lang-en" id="index_manifesto-title-en">The Palette Manifesto</span>
+                <span class="lang-pt" hidden id="index_manifesto-title-pt">O Manifesto do Paladar</span>
+            </h2>
+            <p id="index_manifesto-p1">
+                <span class="lang-en" id="index_manifesto-p1-en">In an era of industrialised food production and fading flavors, we pause for the exceptional 1%. We search the world's estates and origins — not merely to recommend, but to curate a sensory dialogue between terroir and extraordinary craftsmanship for the most ambitious chefs and food purveyors.</span>
+                <span class="lang-pt" hidden id="index_manifesto-p1-pt">Numa era de producao industrializada e sabores enfraquecidos, paramos para o 1% excepcional. Percorremos fazendas e origens do mundo — nao apenas para recomendar, mas para curar um dialogo sensorial entre terroir e artesanato extraordinario para os chefs mais ambiciosos.</span>
+            </p>
+            <p id="index_manifesto-p2">
+                <span class="lang-en" id="index_manifesto-p2-en">We do not follow existing rules, because we hold the key to the next generation of haute cuisine's flavour frontier.</span>
+                <span class="lang-pt" hidden id="index_manifesto-p2-pt">Nao seguimos regras existentes, pois possuimos a chave para a proxima geracao da fronteira de sabores da alta gastronomia.</span>
+            </p>
+        </div>
+        <div class="manifesto-accent" id="index_manifesto-accent">1%</div>
+    </section>
+
+    <section class="split-section" id="index_split-section">
+        <div class="split-card" id="index_split-card-1">
+            <h2 id="index_split-h2-1">
+                <span class="lang-en" id="index_split-h2-1-en">For Food <span id="index_split-h2-1-highlight">Brands</span></span>
+                <span class="lang-pt" hidden id="index_split-h2-1-pt">Para <span id="index_split-h2-1-highlight-pt">Marcas</span> Alimenticias</span>
+            </h2>
+            <p id="index_split-p-1">
+                <span class="lang-en" id="index_split-p1-en">Helping global food brands with unique terroir and craftsmanship stories anchor themselves in the premium dining network, bypassing commodity commoditisation to connect directly with star chefs and luxury retail.</span>
+                <span class="lang-pt" hidden id="index_split-p1-pt">Ajudamos marcas alimenticias globais com historias unicas de terroir a se posicionarem na rede gastronomica premium, conectando-se diretamente com chefs estrelados e varejo de luxo.</span>
+            </p>
+            <a href="brands.html" class="arrow-link" id="index_split-link-1">
+                <span class="lang-en" id="index_split-link-1-en">Explore Route →</span>
+                <span class="lang-pt" hidden id="index_split-link-1-pt">Explorar Rota →</span>
+            </a>
+        </div>
+        <div class="split-card" id="index_split-card-2">
+            <h2 id="index_split-h2-2">
+                <span class="lang-en" id="index_split-h2-2-en">For <span style="color:#149C3D;" id="index_split-h2-2-highlight">Gastronomy</span></span>
+                <span class="lang-pt" hidden id="index_split-h2-2-pt">Para a <span style="color:#149C3D;" id="index_split-h2-2-highlight-pt">Gastronomia</span></span>
+            </h2>
+            <p id="index_split-p-2">
+                <span class="lang-en" id="index_split-p2-en">Exclusive sourcing for Michelin-starred restaurants, luxury hotels, and private dining. We are your global palate radar, continuously supplying scarce flavours that build menu differentiation.</span>
+                <span class="lang-pt" hidden id="index_split-p2-pt">Fornecimento exclusivo para restaurantes estrelados, hoteis de luxo e jantares privados. Somos seu radar global de paladar, fornecendo continuamente sabores raros que constroem diferenciacao de menu.</span>
+            </p>
+            <a href="gastronomy.html" class="arrow-link" id="index_split-link-2">
+                <span class="lang-en" id="index_split-link-2-en">Sourcing Service →</span>
+                <span class="lang-pt" hidden id="index_split-link-2-pt">Servico de Fornecimento →</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="index_reviews">
+        <h3 class="section-title" id="index_reviews-title">
+            <span class="lang-en" id="index_reviews-title-en">Voices from the <span id="index_reviews-title-highlight">Global Vanguard</span></span>
+            <span class="lang-pt" hidden id="index_reviews-title-pt">Vozes da <span id="index_reviews-title-highlight-pt">Vanguarda Global</span></span>
+        </h3>
+        <p class="section-subtitle" id="index_reviews-subtitle">
+            <span class="lang-en" id="index_reviews-sub-en">Industry leaders reshaping the flavor landscape with THE PALATE</span>
+            <span class="lang-pt" hidden id="index_reviews-sub-pt">Lideres do setor transformando o cenario de sabores com a THE PALATE</span>
+        </p>
+        
+        <div class="reviews-grid" id="index_reviews-grid">
+            <div class="review-card" id="index_review-card-1">
+                <span class="quote-icon" id="index_quote-1">"</span>
+                <p class="review-text" id="index_review-text-1">
+                    <span class="lang-en" id="index_review-1-en">"THE PALATE found us a wild berry extract from an extreme cold region that completely rewrote our summer tasting menu's dessert logic. They don't trade ingredients — they curate inspiration behind the kitchen."</span>
+                    <span class="lang-pt" hidden id="index_review-1-pt">"A THE PALATE encontrou um extrato de frutas silvestres de uma regiao de frio extremo que reescreveu completamente a logica da sobremesa do nosso menu de verao. Eles nao comercializam ingredientes — eles curam a inspiracao por tras da cozinha."</span>
+                </p>
+                <div class="review-author" id="index_review-author-1">
                     <img class="author-avatar-img" src="images/home-avatar-chef-v1.jpg" alt="Chef Jean-Louis M." id="index_avatar-chef">
-                    <div class="author-info" id="index_author-info">
-                        <h5 id="index_h5_1">Jean-Louis M.</h5>
-<p id="index_p_8">
-<span class="lang-en" id="index_span_lang-en_50">Michelin 3-Star Chef / Paris</span>
-<span class="lang-pt" hidden"="" id="index_span_lang-pt_51">Chef 3 Estrelas Michelin / Paris</span>
-</p>
-</div>
-</div>
-</div>
-<div class="review-card" id="index_review-card_2">
-<span class="quote-icon" id="index_span_quote-icon_52">"</span>
-<p class="review-text" id="index_p_review-text_9">
-<span class="lang-en" id="index_span_lang-en_53">"As a pioneering plant-based brand aiming for Asia-Pacific and Europe, breaking into the exclusive chef circle was our biggest hurdle. Through THE PALATE's referral system, we entered 30 top-tier restaurants within 6 months."</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_54">"Como uma marca pioneira de base vegetal com destino à Ásia-Pacífico e Europa, entrar no círculo exclusivo de chefs era nosso maior desafio. Através do sistema de indicação da THE PALATE, entramos em 30 restaurantes de alto nível em 6 meses."</span>
-</p>
-<div class="review-author" id="index_review-author_2">
+                    <div class="author-info" id="index_author-info-1">
+                        <h5 id="index_author-name-1">Jean-Louis M.</h5>
+                        <p id="index_author-role-1">
+                            <span class="lang-en" id="index_author-role-1-en">Michelin 3-Star Chef / Paris</span>
+                            <span class="lang-pt" hidden id="index_author-role-1-pt">Chef 3 Estrelas Michelin / Paris</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card" id="index_review-card-2">
+                <span class="quote-icon" id="index_quote-2">"</span>
+                <p class="review-text" id="index_review-text-2">
+                    <span class="lang-en" id="index_review-2-en">"As a pioneering plant-based brand aiming for Asia-Pacific and Europe, breaking into the exclusive chef circle was our biggest hurdle. Through THE PALATE's referral system, we entered 30 top-tier restaurants within 6 months."</span>
+                    <span class="lang-pt" hidden id="index_review-2-pt">"Como uma marca pioneira de base vegetal com destino a Asia-Pacifico e Europa, entrar no circulo exclusivo de chefs era nosso maior desafio. Atraves do sistema de indicacao da THE PALATE, entramos em 30 restaurantes de alto nivel em 6 meses."</span>
+                </p>
+                <div class="review-author" id="index_review-author-2">
                     <img class="author-avatar-img" src="images/home-avatar-ceo-v1.jpg" alt="CEO Jeffrey Robert Greiber" id="index_avatar-ceo">
-                    <div class="author-info" id="index_author-info_2">
-                        <h5 id="index_h5_2">Jeffrey Robert Greiber</h5>
-<p id="index_p_10">
-<span class="lang-en" id="index_span_lang-en_55">Founder, Advanced Food Tech Brand</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_56">Fundadora, Marca de Tecnologia Alimentar</span>
-</p>
-</div>
-</div>
-</div>
-<div class="review-card" id="index_review-card_3">
-<span class="quote-icon" id="index_span_quote-icon_57">"</span>
-<p class="review-text" id="index_p_review-text_11">
-<span class="lang-en" id="index_span_lang-en_58">"Menu homogenisation is fatal in modern haute cuisine. THE PALATE's sourcing service built an unreplicable flavour moat for our team, making every seasonal menu newsworthy."</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_59">"A homogeneização de menus é fatal na alta gastronomia moderna. O serviço de fornecimento da THE PALATE construiu um fosso de sabor inimitável para nossa equipe, tornando cada menu sazonal digno de nota."</span>
-</p>
-<div class="review-author" id="index_review-author_3">
+                    <div class="author-info" id="index_author-info-2">
+                        <h5 id="index_author-name-2">Jeffrey Robert Greiber</h5>
+                        <p id="index_author-role-2">
+                            <span class="lang-en" id="index_author-role-2-en">Founder, Advanced Food Tech Brand</span>
+                            <span class="lang-pt" hidden id="index_author-role-2-pt">Fundadora, Marca de Tecnologia Alimentar</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card" id="index_review-card-3">
+                <span class="quote-icon" id="index_quote-3">"</span>
+                <p class="review-text" id="index_review-text-3">
+                    <span class="lang-en" id="index_review-3-en">"Menu homogenisation is fatal in modern haute cuisine. THE PALATE's sourcing service built an unreplicable flavour moat for our team, making every seasonal menu newsworthy."</span>
+                    <span class="lang-pt" hidden id="index_review-3-pt">"A homogeneizacao de menus e fatal na alta gastronomia moderna. O servico de fornecimento da THE PALATE construiu um fosso de sabor inimitavel para nossa equipe, tornando cada menu sazonal digno de nota."</span>
+                </p>
+                <div class="review-author" id="index_review-author-3">
                     <img class="author-avatar-img" src="images/home-avatar-critic-v1.jpg" alt="Kenji Sato" id="index_avatar-critic">
-                    <div class="author-info" id="index_author-info_3">
-                        <h5 id="index_h5_3">Kenji Sato</h5>
-<p id="index_p_12">
-<span class="lang-en" id="index_span_lang-en_60">Tokyo Food Critic / W50 Judge</span>
-<span class="lang-pt" hidden="" id="index_span_lang-pt_61">Crítico Gastronômico / Jurado W50</span>
-</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<site-footer id="index_site-footer_1"></site-footer>
-<script src="js/i18n.js"></script>
-<script src="js/components.js"></script>
+                    <div class="author-info" id="index_author-info-3">
+                        <h5 id="index_author-name-3">Kenji Sato</h5>
+                        <p id="index_author-role-3">
+                            <span class="lang-en" id="index_author-role-3-en">Tokyo Food Critic / W50 Judge</span>
+                            <span class="lang-pt" hidden id="index_author-role-3-pt">Critico Gastronomico / Jurado W50</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <site-footer></site-footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
 </body>
 </html>
