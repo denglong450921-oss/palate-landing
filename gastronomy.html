@@ -1,218 +1,253 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>For Gastronomy | THE PALATE</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Gastronomy | THE PALATE</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         
-        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
-        .logo { height: 28px; display: block; }
-        .logo-footer { height: 28px; display: block; }
-        .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
-        .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        .nav-links a:hover, .nav-links a.active { color: #149C3D; border-bottom: 2px solid #E5BA73; padding-bottom: 4px; }
-        .lang-toggle { font-size: 12px; letter-spacing: 1px; font-weight: 700; cursor: pointer; padding: 4px 10px; border: 1px solid #ddd; border-radius: 3px; background: transparent; text-transform: uppercase; }
-        .lang-toggle.active { background: #149C3D; color: #fff; border-color: #149C3D; }
-        .lang-toggle:hover { border-color: #149C3D; }
-
         .inner-hero { 
-            padding: 220px 8% 120px 8%; 
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.95)), url('images/hero-gastronomy-kitchen.png') no-repeat center center/cover;
-            border-bottom: 1px solid #f0f0f0; 
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 140px 8% 80px 8%; 
+            background: url('images/hero-gastronomy-kitchen.png') no-repeat center center/cover; 
+            color: #ffffff; 
             animation: fadeIn 1s ease; 
         }
-        .page-indicator { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #149C3D; font-weight: 700; margin-bottom: 20px; display: block; }
-        .inner-hero h1 { font-size: 44px; font-weight: 400; color: #111111; max-width: 850px; margin-bottom: 25px; line-height: 1.3; }
-        .inner-hero h1 b { color: #149C3D; font-weight: 800; }
-        .inner-hero p { font-size: 16px; color: #555555; max-width: 700px; line-height: 1.8; }
+        .page-indicator { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #E5BA73; font-weight: 700; margin-bottom: 20px; display: block; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .inner-hero h1 { font-size: 46px; font-weight: 700; max-width: 850px; margin-bottom: 25px; line-height: 1.3; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); }
+        .inner-hero p { font-size: 17px; max-width: 750px; color: rgba(255,255,255,0.9); line-height: 1.8; font-weight: 300; text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); }
 
-        .solutions-section { padding: 120px 8%; background-color: #ffffff; }
-        .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; margin-top: 60px; }
-        .solution-card { padding: 40px; background-color: #fcfdfe; border-top: 3px solid #149C3D; }
-        .solution-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: #111111; }
-        .solution-card p { font-size: 14px; color: #666666; line-height: 1.7; }
-
-        .manifesto-section { padding: 120px 8%; display: flex; justify-content: space-between; gap: 80px; background-color: #149C3D; color: #ffffff; }
-        .manifesto-left { width: 40%; font-size: 26px; font-weight: 600; line-height: 1.5; border-left: 4px solid #E5BA73; padding-left: 25px; align-self: flex-start; }
-        .manifesto-right { width: 60%; display: flex; flex-direction: column; gap: 45px; }
-        .criteria-block h4 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #E5BA73; letter-spacing: 0.5px; }
-        .criteria-block p { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.8; font-weight: 300; }
-
-        .showcase-section { padding: 120px 8%; background-color: #ffffff; text-align: center; }
-        .showcase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; text-align: left; }
-        .showcase-card { border: 1px solid #f0f0f0; border-radius: 4px; overflow: hidden; }
-        .showcase-img { height: 300px; background-color: #eef5ef; position: relative; }
-        .showcase-info { padding: 30px; background-color: #ffffff; }
-        .showcase-info h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #149C3D; }
-        .showcase-info p { font-size: 14px; color: #666666; line-height: 1.7; }
-
-        footer { background-color: #111111; color: #ffffff; padding: 90px 8% 40px 8%; display: flex; flex-direction: column; gap: 60px; }
-        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-desc { max-width: 380px; color: #aaaaaa; font-size: 14px; line-height: 1.8; }
-        .footer-desc .logo-footer { margin-bottom: 20px; }
-        .footer-links { display: flex; gap: 80px; }
-        .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; margin-bottom: 25px; font-weight: 700; }
-        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 14px; color: #cccccc; }
-        .footer-col ul a:hover { color: #E5BA73; padding-left: 5px; }
-        .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #777777; border-top: 1px solid #222222; padding-top: 30px; letter-spacing: 1px; }
-
+        .service-intro { padding: 120px 8%; text-align: center; background-color: #ffffff; }
         .section-title { font-size: 32px; font-weight: 700; color: #111111; margin-bottom: 20px; }
         .section-title span { color: #149C3D; }
-        .section-subtitle { font-size: 15px; color: #666666; margin-bottom: 60px; letter-spacing: 1px; }
+        .section-subtitle { font-size: 15px; color: #666666; max-width: 700px; margin: 0 auto 60px auto; line-height: 1.7; letter-spacing: 1px; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; padding: 0 8% 120px 8%; background-color: #ffffff; }
+        .feature-card { display: flex; gap: 25px; padding: 40px; background-color: #f7fbf8; border-radius: 4px; transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(20,156,61,0.06); }
+        .feature-icon { font-size: 32px; color: #E5BA73; font-family: Georgia, serif; font-weight: 700; line-height: 1; }
+        .feature-text h4 { font-size: 20px; font-weight: 700; color: #111111; margin-bottom: 12px; }
+        .feature-text p { font-size: 14px; color: #555555; line-height: 1.7; }
+
+        .gallery-section { padding: 100px 8%; background-color: #111111; color: #ffffff; }
+        .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+        .gallery-header h3 { font-size: 32px; font-weight: 700; }
+        .gallery-header h3 span { color: #149C3D; }
+        .gallery-header p { font-size: 14px; color: #aaaaaa; max-width: 500px; line-height: 1.7; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .gallery-item { height: 450px; background-color: #222222; border-radius: 4px; overflow: hidden; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease; opacity: 0.8; }
+        .gallery-item:hover img { transform: scale(1.05); opacity: 1; }
+        .gallery-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+        .gallery-info span { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #E5BA73; font-weight: 600; }
+        .gallery-info h5 { font-size: 18px; font-weight: 700; margin-top: 5px; margin-bottom: 5px; }
+        .gallery-info p { font-size: 12px; color: #cccccc; font-weight: 300; line-height: 1.5; }
+
+        .client-logos { padding: 80px 0; background-color: #ffffff; border-bottom: 1px solid #f0f0f0; text-align: center; overflow: hidden; position: relative; }
+        .client-logos p { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #999999; margin-bottom: 35px; font-weight: 600; padding: 0 8%; }
+        .marquee-container { width: 100%; overflow: hidden; position: relative; display: flex; }
+        .logo-row { display: flex; gap: 80px; width: max-content; animation: scrollMarquee 25s linear infinite; }
+        .marquee-container:hover .logo-row { animation-play-state: paused; }
+        .logo-row span { font-weight: 700; font-size: 19px; letter-spacing: 3px; color: #111111; opacity: 0.5; white-space: nowrap; transition: opacity 0.3s ease; }
+        .logo-row span:hover { opacity: 0.9; color: #149C3D; }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 40px)); }
+        }
+
+        .action-banner { background-color: #f4fcf6; padding: 80px 8%; text-align: center; border-top: 1px solid #e2f3e7; }
+        .action-banner h4 { font-size: 24px; color: #111111; margin-bottom: 20px; }
+        .action-banner h4 span { color: #149C3D; }
+        .action-btn { display: inline-block; padding: 15px 35px; background-color: #149C3D; color: #ffffff; font-size: 13px; font-weight: 600; letter-spacing: 1px; border-radius: 4px; }
+        .action-btn:hover { background-color: #111111; color: #E5BA73; }
+
         @media (max-width: 960px) {
+            .features-grid { grid-template-columns: 1fr; gap: 30px; padding: 0 5% 80px 5%; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .inner-hero { padding: 180px 6% 60px 6%; }
             .inner-hero h1 { font-size: 36px; }
-            .manifesto-section { flex-direction: column; padding: 80px 5%; }
-            .manifesto-left, .manifesto-right { width: 100%; }
-            .manifesto-left { border-left: none; border-bottom: 4px solid #E5BA73; padding-left: 0; padding-bottom: 25px; margin-bottom: 20px; }
+            .service-intro { padding: 80px 5%; }
+            .section-subtitle { margin-bottom: 40px; }
+            .gallery-section, .action-banner { padding-left: 5%; padding-right: 5%; }
         }
         @media (max-width: 720px) {
-            .inner-hero { padding-top: 140px; padding-bottom: 60px; }
+            .inner-hero { padding-top: 140px; padding-bottom: 50px; }
             .inner-hero h1 { font-size: 32px; }
-            .solutions-section { padding: 60px 5%; }
-            .solutions-grid { grid-template-columns: 1fr; gap: 30px; }
-            .showcase-section { padding: 60px 5%; }
-            .showcase-grid { grid-template-columns: 1fr; gap: 30px; }
+            .gallery-item { height: 350px; }
+            .gallery-item img { opacity: 1; }
         }
-        </style>
-<link href="css/components.css" rel="stylesheet"/>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-<site-header id="gastronomy_site-header_1"></site-header>
-<section class="inner-hero" id="gastronomy_section_inner-hero_1">
-<span class="page-indicator" id="gastronomy_span_page-indicator_1">Culinary Visionaries &amp; Chefs</span>
-<h1 id="gastronomy_h1_1">
-<span class="lang-en" id="gastronomy_span_lang-en_2">The Invisible <b id="gastronomy_b_1">Curator of Taste</b>.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_3">O <b id="gastronomy_b_2">Curador Invisível</b> do Sabor.</span>
-</h1>
-<p id="gastronomy_p_1">
-<span class="lang-en" id="gastronomy_span_lang-en_4">We serve as the exclusive global food hunter for premium dining chefs and managers. Deeply customised ingredient sourcing that bypasses conventional supply networks — continuously delivering rare terroir treasures that are nearly impossible to find on the open market.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_5">Atuamos como o caçador global exclusivo de alimentos para chefs e gestores de restaurantes premium. Fornecimento de ingredientes profundamente personalizado que contorna as redes convencionais — entregando continuamente tesouros raros de terroir quase impossíveis de encontrar no mercado aberto.</span>
-</p>
-</section>
-<section class="solutions-section" id="gastronomy_section_solutions-section_2">
-<h3 class="section-title" id="gastronomy_h3_section-title_1" style="text-align:center;">
-<span class="lang-en" id="gastronomy_span_lang-en_6">Custom <span id="gastronomy_span_7">Solutions</span></span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_8">Soluções <span id="gastronomy_span_9">Personalizadas</span></span>
-</h3>
-<div class="solutions-grid" id="gastronomy_solutions-grid">
-<div class="solution-card" id="gastronomy_solution-card">
-<h4 id="gastronomy_h4_1">
-<span class="lang-en" id="gastronomy_span_lang-en_10">1. Elite Scouting</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_11">1. Busca de Elite</span>
-</h4>
-<p id="gastronomy_p_2">
-<span class="lang-en" id="gastronomy_span_lang-en_12">Our global flavour hunters source single-origin ingredients for your upcoming menu — wild island spices, ultra-premium fermented dairy, vintage terroir products — exclusively from our network of signed partner farms.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_13">Nossos caçadores globais de sabores fornecem ingredientes de origem única para seu próximo menu — especiarias selvagens de ilhas, laticínios fermentados ultra-premium, produtos de terroir vintage — exclusivamente de nossa rede de fazendas parceiras.</span>
-</p>
-</div>
-<div class="solution-card" id="gastronomy_solution-card_1">
-<h4 id="gastronomy_h4_2">
-<span class="lang-en" id="gastronomy_span_lang-en_14">2. The Palette Lab</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_15">2. O Laboratório do Paladar</span>
-</h4>
-<p id="gastronomy_p_3">
-<span class="lang-en" id="gastronomy_span_lang-en_16">Fully equipped flavour test kitchens in Paris and Shanghai. We regularly invite partner chefs to conduct R&amp;D with pre-market innovative foods and avant-garde functional ingredients, helping you lock in next-season trends early.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_17">Cozinhas de teste de sabor totalmente equipadas em Paris e Xangai. Convidamos regularmente chefs parceiros para realizar P&amp;D com alimentos inovadores pré-mercado e ingredientes funcionais de vanguarda, ajudando você a garantir tendências da próxima temporada antecipadamente.</span>
-</p>
-</div>
-<div class="solution-card" id="gastronomy_solution-card_2">
-<h4 id="gastronomy_h4_3">
-<span class="lang-en" id="gastronomy_span_lang-en_18">3. Chain Control</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_19">3. Controle da Cadeia</span>
-</h4>
-<p id="gastronomy_p_4">
-<span class="lang-en" id="gastronomy_span_lang-en_20">All recommended ingredients are tracked through a high-standard digital traceability system. International logistics with dedicated fast customs clearance — ensuring delicate premium raw materials arrive at your kitchen in peak condition.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_21">Todos os ingredientes recomendados são rastreados por um sistema digital de alta qualidade. Logística internacional com desembaraço aduaneiro rápido dedicado — garantindo que matérias-primas delicadas cheguem à sua cozinha em condições ideais.</span>
-</p>
-</div>
-<div class="solution-card" id="gastronomy_solution-card_3">
-<h4 id="gastronomy_h4_4">
-<span class="lang-en" id="gastronomy_span_lang-en_22">4. Digital Traceability</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_23">4. Rastreabilidade Digital</span>
-</h4>
-<p id="gastronomy_p_5">
-<span class="lang-en" id="gastronomy_span_lang-en_24">Through our blockchain traceability system, chefs access precise environmental metrics per batch — soil pH, harvest humidity, average sunlight hours — providing irrefutable data to support your menu storytelling to guests.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_25">Através do nosso sistema de rastreabilidade blockchain, chefs acessam métricas ambientais precisas por lote — pH do solo, umidade da colheita, horas médias de luz solar — fornecendo dados irrefutáveis para apoiar a narrativa do seu menu aos hóspedes.</span>
-</p>
-</div>
-</div>
-</section>
-<section class="manifesto-section" id="gastronomy_section_manifesto-section_3">
-<div class="manifesto-left" id="gastronomy_manifesto-left">
-<span class="lang-en" id="gastronomy_span_lang-en_26">"Every ingredient in our directory must possess the power to redefine a menu — or profoundly inspire a chef's artistic creation."</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_27">"Cada ingrediente em nosso diretório deve possuir o poder de redefinir um menu — ou inspirar profundamente a criação artística de um chef."</span>
-</div>
-<div class="manifesto-right" id="gastronomy_manifesto-right">
-<div class="criteria-block" id="gastronomy_criteria-block">
-<h4 id="gastronomy_h4_5">01 / Terroir Obsession</h4>
-<p id="gastronomy_p_6">
-<span class="lang-en" id="gastronomy_span_lang-en_28">We completely reject industrial-scale, standardised products. Every item we recommend must possess strong regional climate characteristics and irreplaceable local craftsmanship.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_29">Rejeitamos completamente produtos industrializados padronizados. Cada item que recomendamos deve possuir fortes características climáticas regionais e artesanato local insubstituível.</span>
-</p>
-</div>
-<div class="criteria-block" id="gastronomy_criteria-block_1">
-<h4 id="gastronomy_h4_6">02 / Avant-Garde Palette</h4>
-<p id="gastronomy_p_7">
-<span class="lang-en" id="gastronomy_span_lang-en_30">Rigorous blind testing by our international panel of flavour experts. Only products that astonish across breadth, depth, and texture of flavour are selected.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_31">Testes cegos rigorosos por nosso painel internacional de especialistas em sabor. Apenas produtos que surpreendem em amplitude, profundidade e textura de sabor são selecionados.</span>
-</p>
-</div>
-<div class="criteria-block" id="gastronomy_criteria-block_2">
-<h4 id="gastronomy_h4_7">03 / Absolute Rarity</h4>
-<p id="gastronomy_p_8">
-<span class="lang-en" id="gastronomy_span_lang-en_32">We bypass multi-tier distribution systems entirely. Direct access to exclusive source estates with limited global production, highly confidential techniques, or cutting-edge production technology.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_33">Contornamos totalmente os sistemas de distribuição em múltiplos níveis. Acesso direto a propriedades-fonte exclusivas com produção global limitada, técnicas altamente confidenciais ou tecnologia de produção de ponta.</span>
-</p>
-</div>
-</div>
-</section>
-<section class="showcase-section" id="gastronomy_section_showcase-section_4">
-<h3 class="section-title" id="gastronomy_h3_section-title_2">
-<span class="lang-en" id="gastronomy_span_lang-en_34">Sourcing <span id="gastronomy_span_35">Case Studies</span></span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_36">Estudos de <span id="gastronomy_span_37">Caso</span></span>
-</h3>
-<p class="section-subtitle" id="gastronomy_p_section-subtitle_9">
-<span class="lang-en" id="gastronomy_span_lang-en_38">Discover real commercial success stories born from rare ingredients and culinary excellence</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_39">Descubra histórias reais de sucesso comercial nascidas de ingredientes raros e excelência culinária</span>
-</p>
-<div class="showcase-grid" id="gastronomy_showcase-grid">
-<div class="showcase-card" id="gastronomy_showcase-card">
-<div class="showcase-img" id="gastronomy_showcase-img" style="background: url('images/showcase-truffle-plating.png') no-repeat center center/cover;"></div>
-<div class="showcase-info" id="gastronomy_showcase-info">
-<h4 id="gastronomy_h4_8">
-<span class="lang-en" id="gastronomy_span_lang-en_40">Case 1: Black Pearl's "Terroir Metaphor"</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_41">Caso 1: A "Metáfora do Terroir"</span>
-</h4>
-<p id="gastronomy_p_10">
-<span class="lang-en" id="gastronomy_span_lang-en_42">Over 3 months, we sourced a hand-harvested rare rock honey from the southern Himalayas for a high-end Chinese dining team. Used as the hidden core of their signature roast duck sauce, it boosted per-table spending by 35% in the launch month.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_43">Em 3 meses, fornecemos um raro mel de rocha colhido à mão do sul do Himalaia para uma equipe de alta gastronomia chinesa. Usado como núcleo oculto de seu molho de pato assado, aumentou o gasto por mesa em 35% no mês de lançamento.</span>
-</p>
-</div>
-</div>
-<div class="showcase-card" id="gastronomy_showcase-card_1">
-<div class="showcase-img" id="gastronomy_showcase-img_1" style="background: url('images/showcase-dessert-art.png') no-repeat center center/cover;"></div>
-<div class="showcase-info" id="gastronomy_showcase-info_1">
-<h4 id="gastronomy_h4_9">
-<span class="lang-en" id="gastronomy_span_lang-en_44">Case 2: Luxury Hotel's Future Vegetarian Menu</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_45">Caso 2: Menu Vegetariano do Futuro</span>
-</h4>
-<p id="gastronomy_p_11">
-<span class="lang-en" id="gastronomy_span_lang-en_46">We partnered with an international 5-star hotel group's Greater China kitchen to introduce cutting-edge mycelium fermentation protein. Together we developed a fully plant-based, gluten-free luxury afternoon tea series — setting a new green luxury dining benchmark.</span>
-<span class="lang-pt" hidden="" id="gastronomy_span_lang-pt_47">Fizemos parceria com a cozinha da Grande China de um grupo hoteleiro 5 estrelas para introduzir proteína de fermentação de micélio de ponta. Juntos, desenvolvemos uma série de chá da tarde de luxo 100% vegetal e sem glúten — estabelecendo um novo padrão de gastronomia verde.</span>
-</p>
-</div>
-</div>
-</div>
-</section>
-<site-footer id="gastronomy_site-footer_1"></site-footer>
-<script src="js/i18n.js"></script>
-<script src="js/components.js"></script>
+
+    <site-header></site-header>
+
+    <section class="inner-hero" id="gastronomy_hero">
+        <span class="page-indicator" id="gastronomy_page-indicator">Michelin & Luxury Hospitality Sourcing</span>
+        <h1 id="gastronomy_hero-title">
+            <span class="lang-en" id="gastronomy_hero-title-en">The Secret Palette Radar for Master Chefs.</span>
+            <span class="lang-pt" hidden id="gastronomy_hero-title-pt">O Radar Secreto de Paladar para Master Chefs.</span>
+        </h1>
+        <p id="gastronomy_hero-desc">
+            <span class="lang-en" id="gastronomy_hero-desc-en">Menu differentiation is the lifeblood of modern haute cuisine. We provide global ingredient reconnaissance and exclusive supply chains for Michelin-starred kitchens, top-tier luxury boutique hotels, and elite private clubs — delivering the unreplicable competitive edge.</span>
+            <span class="lang-pt" hidden id="gastronomy_hero-desc-pt">A diferenciacao de menu e a alma da alta gastronomia moderna. Oferecemos reconhecimento global de ingredientes e cadeias de suprimentos exclusivas para cozinhas estreladas, hoteis boutique de luxo e clubes privados de elite — entregando uma vantagem competitiva inigualavel.</span>
+        </p>
+    </section>
+
+    <section class="service-intro" id="gastronomy_service-intro">
+        <h3 class="section-title" id="gastronomy_service-title">
+            <span class="lang-en" id="gastronomy_service-title-en">Bespoke Culinary <span id="gastronomy_service-title-highlight">Solutions</span></span>
+            <span class="lang-pt" hidden id="gastronomy_service-title-pt">Solucoes Culinarias <span id="gastronomy_service-title-highlight-pt">Sob Medida</span></span>
+        </h3>
+        <p class="section-subtitle" id="gastronomy_service-subtitle">
+            <span class="lang-en" id="gastronomy_service-sub-en">We do not offer a fixed catalog. We act as your specialized culinary intelligence atelier, aligning rare global terroirs with your upcoming seasonal menu vision.</span>
+            <span class="lang-pt" hidden id="gastronomy_service-sub-pt">Nao oferecemos um catalogo fixo. Atuamos como seu atelie especializado em inteligencia culinaria, alinhando terroirs globais raros com a visao do seu proximo menu sazonal.</span>
+        </p>
+    </section>
+
+    <section class="features-grid" id="gastronomy_features">
+        <div class="feature-card" id="gastronomy_feature-1">
+            <div class="feature-icon" id="gastronomy_feature-1-icon">I</div>
+            <div class="feature-text" id="gastronomy_feature-1-text">
+                <h4 id="gastronomy_feature-1-title">
+                    <span class="lang-en" id="gastronomy_f1-title-en">Scarce Ingredient Allocation</span>
+                    <span class="lang-pt" hidden id="gastronomy_f1-title-pt">Alocacao de Ingredientes Escassos</span>
+                </h4>
+                <p id="gastronomy_feature-1-desc">
+                    <span class="lang-en" id="gastronomy_f1-desc-en">Gain direct access to micro-lot productions, rare wild harvests, and geographically restricted estate goods that never make it to open commercial channels.</span>
+                    <span class="lang-pt" hidden id="gastronomy_f1-desc-pt">Tenha acesso direto a producoes de micro-lotes, colheitas selvagens raras e produtos agricolas de origem restrita que nunca chegam aos canais comerciais abertos.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-card" id="gastronomy_feature-2">
+            <div class="feature-icon" id="gastronomy_feature-2-icon">II</div>
+            <div class="feature-text" id="gastronomy_feature-2-text">
+                <h4 id="gastronomy_feature-2-title">
+                    <span class="lang-en" id="gastronomy_f2-title-en">Cold-Chain Concierge</span>
+                    <span class="lang-pt" hidden id="gastronomy_f2-title-pt">Concierge de Cadeia Fria</span>
+                </h4>
+                <p id="gastronomy_feature-2-desc">
+                    <span class="lang-en" id="gastronomy_f2-desc-en">From high-altitude terroirs straight to your kitchen workspace. Our bespoke logistics ensure precise temperature tracking, preserving critical volatility and subtle aroma integrity.</span>
+                    <span class="lang-pt" hidden id="gastronomy_f2-desc-pt">Dos terroirs de alta altitude direto para a sua cozinha. Nossa logistica sob medida garante um rastreamento preciso de temperatura, preservando a volatilidade critica e a integridade sutil dos aromas.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-card" id="gastronomy_feature-3">
+            <div class="feature-icon" id="gastronomy_feature-3-icon">III</div>
+            <div class="feature-text" id="gastronomy_feature-3-text">
+                <h4 id="gastronomy_feature-3-title">
+                    <span class="lang-en" id="gastronomy_f3-title-en">Menu R&D Intelligence</span>
+                    <span class="lang-pt" hidden id="gastronomy_f3-title-pt">Inteligencia de P&D de Menu</span>
+                </h4>
+                <p id="gastronomy_feature-3-desc">
+                    <span class="lang-en" id="gastronomy_f3-desc-en">We provide detailed sensory profiling, molecular pairing data, and origin documentation for every curated item, empowering your culinary team's narrative mapping.</span>
+                    <span class="lang-pt" hidden id="gastronomy_f3-desc-pt">Fornecemos perfis sensoriais detalhados, dados de harmonizacao molecular e documentacao de origem para cada item selecionado, potencializando o mapeamento narrativo da sua equipe culinaria.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-card" id="gastronomy_feature-4">
+            <div class="feature-icon" id="gastronomy_feature-4-icon">IV</div>
+            <div class="feature-text" id="gastronomy_feature-4-text">
+                <h4 id="gastronomy_feature-4-title">
+                    <span class="lang-en" id="gastronomy_f4-title-en">Strict Quality Immunity</span>
+                    <span class="lang-pt" hidden id="gastronomy_f4-title-pt">Imunidade Rigorosa de Qualidade</span>
+                </h4>
+                <p id="gastronomy_feature-4-desc">
+                    <span class="lang-en" id="gastronomy_f4-desc-en">Every single shipment undergoes independent laboratory multi-toxin screening and sensory verification before dispatch. 100% pure, 0% compromise.</span>
+                    <span class="lang-pt" hidden id="gastronomy_f4-desc-pt">Cada remessa passa por triagem laboratorial independente de multitoxinas e verificacao sensorial antes do envio. 100% puro, 0% de concessao.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gastronomy_gallery">
+        <div class="gallery-header" id="gastronomy_gallery-header">
+            <h3 id="gastronomy_gallery-title">
+                <span class="lang-en" id="gastronomy_gallery-title-en">Bespoke Culinary <span id="gastronomy_gallery-title-highlight">Empowerment</span></span>
+                <span class="lang-pt" hidden id="gastronomy_gallery-title-pt">Empoderamento <span id="gastronomy_gallery-title-highlight-pt">Culinario Sob Medida</span></span>
+            </h3>
+            <p id="gastronomy_gallery-desc">
+                <span class="lang-en" id="gastronomy_gallery-desc-en">We tailor exceptional strategic support for global fine dining partners, converting raw global terroirs into enduring kitchen competitive advantages.</span>
+                <span class="lang-pt" hidden id="gastronomy_gallery-desc-pt">Moldamos um suporte estrategico excepcional para parceiros de alta gastronomia, convertendo terroirs globais em vantagens competitivas de cozinha.</span>
+            </p>
+        </div>
+        
+        <div class="gallery-grid" id="gastronomy_gallery-grid">
+            <div class="gallery-item" id="gastronomy_gallery-item-1">
+                <img src="images/gastro-gallery-botanicals.png" alt="Sourcing Rating System" id="gastronomy_gallery-img-1">
+                <div class="gallery-info" id="gastronomy_gallery-info-1">
+                    <span id="gastronomy_gallery-label-1">SYSTEM NO.01</span>
+                    <h5 id="gastronomy_gallery-title-1">THE PALATE Rating System</h5>
+                    <p id="gastronomy_gallery-desc-1">Um sistema premium de avaliacao de ingredientes e cadeia de suprimentos, projetado para quantificar com precisao o potencial de cada ingrediente.</p>
+                </div>
+            </div>
+            <div class="gallery-item" id="gastronomy_gallery-item-2">
+                <img src="images/gastro-gallery-oil.png" alt="Gastronomic Positioning" id="gastronomy_gallery-img-2">
+                <div class="gallery-info" id="gastronomy_gallery-info-2">
+                    <span id="gastronomy_gallery-label-2">STRATEGY NO.02</span>
+                    <h5 id="gastronomy_gallery-title-2">Gastronomic Positioning</h5>
+                    <p id="gastronomy_gallery-desc-2">Profunda percecao da estetica gastronomica de vanguarda, moldando uma identidade unica para o seu novo menu sazonal.</p>
+                </div>
+            </div>
+            <div class="gallery-item" id="gastronomy_gallery-item-3">
+                <img src="images/gastro-gallery-salt.png" alt="Artisanal Curation & Masterclasses" id="gastronomy_gallery-img-3">
+                <div class="gallery-info" id="gastronomy_gallery-info-3">
+                    <span id="gastronomy_gallery-label-3">EDUCATION NO.03</span>
+                    <h5 id="gastronomy_gallery-title-3">Ingredient Masterclasses</h5>
+                    <p id="gastronomy_gallery-desc-3">Treinamento exclusivo em manuseio de ingredientes, controle de temperatura e harmonizacao molecular para libertar a maxima expressao sensorial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="client-logos" id="gastronomy_clients">
+        <p id="gastronomy_clients-label">Empowering Renowned Kitchens & Hospitality Groups Globally</p>
+        <div class="marquee-container" id="gastronomy_marquee">
+            <div class="logo-row" id="gastronomy_logo-row">
+                <span>ATELIER M.O.</span>
+                <span>L'ETOILE</span>
+                <span>AMBROSIA TOKYO</span>
+                <span>THE CHRONICLE</span>
+                <span>MAISON DU GOÛT</span>
+                <span>VERTIGO MILAN</span>
+                
+                <span>ATELIER M.O.</span>
+                <span>L'ETOILE</span>
+                <span>AMBROSIA TOKYO</span>
+                <span>THE CHRONICLE</span>
+                <span>MAISON DU GOÛT</span>
+                <span>VERTIGO MILAN</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="action-banner" id="gastronomy_cta">
+        <h4 id="gastronomy_cta-title">
+            <span class="lang-en" id="gastronomy_cta-en">Seeking an exclusive flavor profile for your <span id="gastronomy_cta-highlight">upcoming seasonal menu</span>?</span>
+            <span class="lang-pt" hidden id="gastronomy_cta-pt">Buscando um perfil de sabor exclusivo para o seu <span id="gastronomy_cta-highlight-pt">proximo menu sazonal</span>?</span>
+        </h4>
+        <a href="inquiry.html" class="action-btn" id="gastronomy_cta-btn">
+            <span class="lang-en" id="gastronomy_cta-btn-en">Request Sourcing Account Access →</span>
+            <span class="lang-pt" hidden id="gastronomy_cta-btn-pt">Solicitar Acesso a Conta de Fornecimento →</span>
+        </a>
+    </section>
+
+    <site-footer></site-footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
 </body>
 </html>
