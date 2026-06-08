@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiry | THE PALATE</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inquiry | THE PALATE</title>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
@@ -59,93 +60,86 @@
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
-    <link rel="stylesheet" href="css/components.css">
+<link href="css/components.css" rel="stylesheet"/>
 </head>
 <body>
-
-    <site-header></site-header>
-
-    <section class="inner-hero" id="inquiry_hero">
-        <span class="page-indicator" id="inquiry_page-indicator">Initiate Collaboration</span>
-        <h1 id="inquiry_hero-title">
-            <span class="lang-en" id="inquiry_hero-title-en">Connect with the Sourcing Atelier.</span>
-            <span class="lang-pt" hidden id="inquiry_hero-title-pt">Conecte-se com o Atelie de Origens.</span>
-        </h1>
-        <p id="inquiry_hero-desc">
-            <span class="lang-en" id="inquiry_hero-desc-en">Whether you are an ambitious brand looking to scale globally or a Michelin-starred kitchen seeking unreplicable ingredients, our private network is ready to assist. Please complete the dossier below.</span>
-            <span class="lang-pt" hidden id="inquiry_hero-desc-pt">Seja voce uma marca ambiciosa buscando escala global ou uma cozinha estrelada procurando ingredientes inigualaveis, nossa rede privada esta pronta para ajudar. Por favor, preencha o dossier abaixo.</span>
-        </p>
-    </section>
-
-    <section class="form-section" id="inquiry_form-section">
-        <div class="info-sidebar" id="inquiry_info-sidebar">
-            <h3 id="inquiry_info-title">
-                <span class="lang-en" id="inquiry_info-title-en">Direct <span id="inquiry_info-title-highlight">Channels</span></span>
-                <span class="lang-pt" hidden id="inquiry_info-title-pt">Canais <span id="inquiry_info-title-highlight-pt">Diretos</span></span>
-            </h3>
-            <p id="inquiry_info-desc">
-                <span class="lang-en" id="inquiry_info-desc-en">For urgent requests or secure private communication, you may contact our regional offices directly via secure mail or concierge lines.</span>
-                <span class="lang-pt" hidden id="inquiry_info-desc-pt">Para solicitacoes urgentes ou comunicacao privada segura, voce pode contatar nossos escritorios regionais diretamente via e-mail seguro ou linhas de concierge.</span>
-            </p>
-            
-            <div class="contact-methods" id="inquiry_contact-methods">
-                <div class="method-item" id="inquiry_method-general">
-                    <h5 id="inquiry_method-general-label">General Briefings</h5>
-                    <p id="inquiry_method-general-value"><a href="mailto:HELLO@THEPALATE.COM" id="inquiry_email-general">HELLO@THEPALATE.COM</a></p>
-                </div>
-                <div class="method-item" id="inquiry_method-legal">
-                    <h5 id="inquiry_method-legal-label">Legal Department</h5>
-                    <p id="inquiry_method-legal-value"><a href="mailto:LEGAL@THEPALATE.COM" id="inquiry_email-legal">LEGAL@THEPALATE.COM</a></p>
-                </div>
-                <div class="method-item" id="inquiry_method-hq">
-                    <h5 id="inquiry_method-hq-label">Global Headquarters</h5>
-                    <p id="inquiry_method-hq-value">
-                        <span class="lang-en" id="inquiry_hq-address">1500 N GRANT ST STE R, DENVER, CO 80203, UNITED STATES</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="inquiry-form" id="inquiry_form-container">
-            <form action="#" method="POST" id="inquiry_form">
-                <div class="form-grid" id="inquiry_form-grid">
-                    <div class="form-group" id="inquiry_field-name">
-                        <label for="name">Full Name / Nome Completo</label>
-                        <input type="text" id="inquiry_input-name" required placeholder="e.g., Alexander Mercer">
-                    </div>
-                    <div class="form-group" id="inquiry_field-email">
-                        <label for="email">Corporate Email / E-mail Corporativo</label>
-                        <input type="email" id="inquiry_input-email" required placeholder="name@company.com">
-                    </div>
-                    <div class="form-group" id="inquiry_field-company">
-                        <label for="company">Organization / Organizacao</label>
-                        <input type="text" id="inquiry_input-company" required placeholder="e.g., Luxury Gastronomy Group">
-                    </div>
-                    <div class="form-group" id="inquiry_field-partnership">
-                        <label for="partnership-type">Partnership Type / Tipo de Parceria</label>
-                        <select id="inquiry_input-partnership" required>
-                            <option value="" disabled selected>Select an option...</option>
-                            <option value="brand">For Brands (Global Growth)</option>
-                            <option value="gastronomy">For Gastronomy (Michelin Sourcing)</option>
-                            <option value="other">Other Bespoke Collaboration</option>
-                        </select>
-                    </div>
-                    <div class="form-group full-width" id="inquiry_field-message">
-                        <label for="message">Collaboration Dossier Brief / Resumo do Dossier de Colaboracao</label>
-                        <textarea id="inquiry_input-message" rows="6" required placeholder="Please describe your current project, menu vision, or market scalability requirements..."></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="submit-btn" id="inquiry_submit-btn">
-                    <span class="lang-en" id="inquiry_submit-en">Submit Secure Dossier →</span>
-                    <span class="lang-pt" hidden id="inquiry_submit-pt">Enviar Dossier Seguro →</span>
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <site-footer></site-footer>
-
-    <script src="js/i18n.js"></script>
-    <script src="js/components.js"></script>
+<site-header id="inquiry_site-header"></site-header>
+<section class="inner-hero" id="inquiry_hero">
+<span class="page-indicator" id="inquiry_page-indicator">Initiate Collaboration</span>
+<h1 id="inquiry_hero-title">
+<span class="lang-en" id="inquiry_hero-title-en">Connect with the Sourcing Atelier.</span>
+<span class="lang-pt" hidden="" id="inquiry_hero-title-pt">Conecte-se com o Atelie de Origens.</span>
+</h1>
+<p id="inquiry_hero-desc">
+<span class="lang-en" id="inquiry_hero-desc-en">Whether you are an ambitious brand looking to scale globally or a Michelin-starred kitchen seeking unreplicable ingredients, our private network is ready to assist. Please complete the dossier below.</span>
+<span class="lang-pt" hidden="" id="inquiry_hero-desc-pt">Seja voce uma marca ambiciosa buscando escala global ou uma cozinha estrelada procurando ingredientes inigualaveis, nossa rede privada esta pronta para ajudar. Por favor, preencha o dossier abaixo.</span>
+</p>
+</section>
+<section class="form-section" id="inquiry_form-section">
+<div class="info-sidebar" id="inquiry_info-sidebar">
+<h3 id="inquiry_info-title">
+<span class="lang-en" id="inquiry_info-title-en">Direct <span id="inquiry_info-title-highlight">Channels</span></span>
+<span class="lang-pt" hidden="" id="inquiry_info-title-pt">Canais <span id="inquiry_info-title-highlight-pt">Diretos</span></span>
+</h3>
+<p id="inquiry_info-desc">
+<span class="lang-en" id="inquiry_info-desc-en">For urgent requests or secure private communication, you may contact our regional offices directly via secure mail or concierge lines.</span>
+<span class="lang-pt" hidden="" id="inquiry_info-desc-pt">Para solicitacoes urgentes ou comunicacao privada segura, voce pode contatar nossos escritorios regionais diretamente via e-mail seguro ou linhas de concierge.</span>
+</p>
+<div class="contact-methods" id="inquiry_contact-methods">
+<div class="method-item" id="inquiry_method-general">
+<h5 id="inquiry_method-general-label">General Briefings</h5>
+<p id="inquiry_method-general-value"><a href="mailto:HELLO@THEPALATE.COM" id="inquiry_email-general">HELLO@THEPALATE.COM</a></p>
+</div>
+<div class="method-item" id="inquiry_method-legal">
+<h5 id="inquiry_method-legal-label">Legal Department</h5>
+<p id="inquiry_method-legal-value"><a href="mailto:LEGAL@THEPALATE.COM" id="inquiry_email-legal">LEGAL@THEPALATE.COM</a></p>
+</div>
+<div class="method-item" id="inquiry_method-hq">
+<h5 id="inquiry_method-hq-label">Global Headquarters</h5>
+<p id="inquiry_method-hq-value">
+<span class="lang-en" id="inquiry_hq-address">1500 N GRANT ST STE R, DENVER, CO 80203, UNITED STATES</span>
+</p>
+</div>
+</div>
+</div>
+<div class="inquiry-form" id="inquiry_form-container">
+<form action="#" id="inquiry_form" method="POST">
+<div class="form-grid" id="inquiry_form-grid">
+<div class="form-group" id="inquiry_field-name">
+<label for="name" id="inquiry_label">Full Name / Nome Completo</label>
+<input id="inquiry_input-name" placeholder="e.g., Alexander Mercer" required="" type="text"/>
+</div>
+<div class="form-group" id="inquiry_field-email">
+<label for="email" id="inquiry_label_2">Corporate Email / E-mail Corporativo</label>
+<input id="inquiry_input-email" placeholder="name@company.com" required="" type="email"/>
+</div>
+<div class="form-group" id="inquiry_field-company">
+<label for="company" id="inquiry_label_3">Organization / Organizacao</label>
+<input id="inquiry_input-company" placeholder="e.g., Luxury Gastronomy Group" required="" type="text"/>
+</div>
+<div class="form-group" id="inquiry_field-partnership">
+<label for="partnership-type" id="inquiry_label_4">Partnership Type / Tipo de Parceria</label>
+<select id="inquiry_input-partnership" required="">
+<option disabled="" id="inquiry_option" selected="" value="">Select an option...</option>
+<option id="inquiry_option_2" value="brand">For Brands (Global Growth)</option>
+<option id="inquiry_option_3" value="gastronomy">For Gastronomy (Michelin Sourcing)</option>
+<option id="inquiry_option_4" value="other">Other Bespoke Collaboration</option>
+</select>
+</div>
+<div class="form-group full-width" id="inquiry_field-message">
+<label for="message" id="inquiry_label_5">Collaboration Dossier Brief / Resumo do Dossier de Colaboracao</label>
+<textarea id="inquiry_input-message" placeholder="Please describe your current project, menu vision, or market scalability requirements..." required="" rows="6"></textarea>
+</div>
+</div>
+<button class="submit-btn" id="inquiry_submit-btn" type="submit">
+<span class="lang-en" id="inquiry_submit-en">Submit Secure Dossier →</span>
+<span class="lang-pt" hidden="" id="inquiry_submit-pt">Enviar Dossier Seguro →</span>
+</button>
+</form>
+</div>
+</section>
+<site-footer id="inquiry_site-footer"></site-footer>
+<script src="js/i18n.js"></script>
+<script src="js/components.js"></script>
 </body>
 </html>
