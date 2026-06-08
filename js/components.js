@@ -104,7 +104,7 @@ class SiteFooter extends HTMLElement {
             </div>
         </div>
         <div class="footer-bottom" id="site-footer_footer-bottom">
-            <p id="site-footer_tagline">&copy; The FlavoryGlobal(TFG) 2020</p>
+            <p id="site-footer_tagline" style="margin-left:auto;">&copy; The FlavoryGlobal(TFG) 2020</p>
         </div>
     </footer>
 `;
