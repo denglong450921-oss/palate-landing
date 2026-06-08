@@ -25,7 +25,8 @@ zip -r "$ZIP_NAME" \
     *.html \
     css/ \
     js/ \
-    images/
+    images/ \
+    docs/
 
 if [ $? -eq 0 ]; then
     echo "------------------------------------------------"
