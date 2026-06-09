@@ -9,7 +9,7 @@ Each PNG has metadata overlaid at the bottom showing: page usage, dimensions, pu
 | 2 | `images/hero-artisanal-food.png` | 1920×1080 | brands.html | Brands page hero banner |
 | 3 | `images/hero-michelin-kitchen.png` | 1920×1080 | gastronomy.html | Gastronomy page hero banner |
 | 4 | `images/banner-consultation-room.png` | 1920×600 | inquiry.html | Inquiry page banner |
-| 5 | `images/charity-sustainable-farming.png` | 800×600 | brands.html | Charity/Sustainability section image |
+| 5 | `images/charity-sustainable-farming-v2.png` | 800×600 | brands.html | Charity/Sustainability section image |
 | 6 | `images/showcase-truffle-plating.png` | 800×600 | gastronomy.html | Case study 1 image |
 | 7 | `images/showcase-dessert-art.png` | 800×600 | gastronomy.html | Case study 2 image |
 

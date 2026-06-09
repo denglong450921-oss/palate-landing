@@ -22,7 +22,7 @@ IMAGES=(
   "banner-consultation-room.png|banner-consultation-room.svg|inquiry.html (Banner)|1920x600|45vh (~400px)|Inquiry page banner|Replace with consultation room photo"
   "showcase-truffle-plating.png|showcase-truffle-plating.svg|gastronomy.html (Case Study)|800x600|300px height|Case study: truffle plating|Replace with truffle dish photo"
   "showcase-dessert-art.png|showcase-dessert-art.svg|gastronomy.html (Case Study)|800x600|300px height|Case study: dessert art|Replace with dessert art photo"
-  "charity-sustainable-farming.png|charity-sustainable-farming.svg|brands.html (Charity)|800x600|400px height|Charity project image|Replace with farming charity photo"
+  "charity-sustainable-farming-v2.png|charity-sustainable-farming-v2.svg|brands.html (Charity)|800x600|400px height|Charity project image|Replace with farming charity photo"
 )
 
 echo "============================================"
