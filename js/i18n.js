@@ -1,38 +1,24 @@
 /**
- * i18n.js — IP geolocation language switching with localStorage persistence
+ * i18n.js — Language persistence via localStorage
  *
- * System: wrap translatable text in:
+ * Wrapping translatable text:
  *   <span class="lang-en">English</span>
  *   <span class="lang-pt" hidden>Português</span>
  *
- * Add manual toggle in nav:
- *   <button onclick="switchLang('pt')">PT</button>
- *   <button onclick="switchLang('en')">EN</button>
+ * Toggle buttons:
+ *   <button class="lang-toggle" data-lang="en" onclick="switchLang('en')">EN</button>
+ *   <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')">PT</button>
  */
 (function () {
   var STORAGE_KEY = "palate_lang";
-  var currentLang = "en";
-  var fallbackTimer = null;
 
   function getSaved() {
-    try {
-      return localStorage.getItem(STORAGE_KEY);
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function saveLang(l) {
-    try {
-      localStorage.setItem(STORAGE_KEY, l);
-    } catch (e) {
-      /* ignore */
-    }
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
 
   function applyLang(lang) {
     if (lang !== "pt" && lang !== "en") lang = "en";
-    currentLang = lang;
+
     document.documentElement.lang = lang;
 
     // Show/hide content
@@ -49,68 +35,15 @@
       ]("active");
     }
 
-    saveLang(lang);
-    document.dispatchEvent(new CustomEvent("langchange", { detail: lang }));
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
   }
 
-  function detectLang() {
-    var saved = getSaved();
-    if (saved) {
-      applyLang(saved);
-      return;
-    }
-
-    // Fallback: English always works
-    fallbackTimer = setTimeout(function () {
-      applyLang("en");
-      fallbackTimer = null;
-    }, 4000);
-
-    // IP detection via ip-api.com (JSONP, works from file://)
-    window.__ipCallback = function (data) {
-      if (fallbackTimer) {
-        clearTimeout(fallbackTimer);
-        fallbackTimer = null;
-      }
-      applyLang(data && data.countryCode === "BR" ? "pt" : "en");
-      window.__ipCallback = null;
-    };
-
-    var s = document.createElement("script");
-    s.src = "https://ip-api.com/json/?callback=__ipCallback&fields=countryCode";
-    document.head.appendChild(s);
-
-    // Clean up script after response
-    var cleanup = function () {
-      if (s.parentNode) s.parentNode.removeChild(s);
-    };
-    s.onload = cleanup;
-    s.onerror = function () {
-      if (fallbackTimer) {
-        clearTimeout(fallbackTimer);
-        fallbackTimer = null;
-      }
-      applyLang("en");
-      cleanup();
-    };
-  }
-
-  // Expose for manual toggle — clears fallback so IP timer doesn't override user
   window.switchLang = function (l) {
-    if (fallbackTimer) {
-      clearTimeout(fallbackTimer);
-      fallbackTimer = null;
-    }
     applyLang(l);
   };
-  window.getCurrentLang = function () {
-    return currentLang;
-  };
 
-  // Init
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", detectLang);
-  } else {
-    detectLang();
-  }
+  window.getCurrentLang = function () {
+    var saved = getSaved();
+    return saved === "pt" || saved === "en" ? saved : "en";
+  };
 })();
