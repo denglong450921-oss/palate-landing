@@ -3,7 +3,7 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
     <nav id="site-header_nav">
         <a href="index.html" class="logo-link" id="site-header_logo-link">
-            <img class="logo" src="images/logo.png" alt="THE PALATE" id="site-header_logo-img">
+            <img class="logo" src="images/logo.png" alt="Flavory Global" id="site-header_logo-img">
         </a>
         <div class="menu-toggle" id="mobile-menu-toggle">
             <span id="site-header_menu-bar-1"></span>
@@ -11,11 +11,11 @@ class SiteHeader extends HTMLElement {
             <span id="site-header_menu-bar-3"></span>
         </div>
         <ul class="nav-links" id="nav-links">
-            <li id="site-header_nav-home"><a href="index.html" id="site-header_link-home">Home</a></li>
-            <li id="site-header_nav-about"><a href="aboutUs.html" id="site-header_link-about">About Us</a></li>
-            <li id="site-header_nav-brands"><a href="brands.html" id="site-header_link-brands">For Brands</a></li>
-            <li id="site-header_nav-gastronomy"><a href="gastronomy.html" id="site-header_link-gastronomy">For Gastronomy</a></li>
-            <li id="site-header_nav-inquiry"><a href="inquiry.html" id="site-header_link-inquiry">Inquiry</a></li>
+            <li id="site-header_nav-home"><a href="index.html" id="site-header_link-home"><span class="lang-en">Home</span><span class="lang-pt" hidden>Início</span></a></li>
+            <li id="site-header_nav-about"><a href="aboutUs.html" id="site-header_link-about"><span class="lang-en">About Us</span><span class="lang-pt" hidden>Sobre Nós</span></a></li>
+            <li id="site-header_nav-brands"><a href="brands.html" id="site-header_link-brands"><span class="lang-en">For Brands</span><span class="lang-pt" hidden>Para Marcas</span></a></li>
+            <li id="site-header_nav-gastronomy"><a href="gastronomy.html" id="site-header_link-gastronomy"><span class="lang-en">For Gastronomy</span><span class="lang-pt" hidden>Para Gastronomia</span></a></li>
+            <li id="site-header_nav-inquiry"><a href="inquiry.html" id="site-header_link-inquiry"><span class="lang-en">Inquiry</span><span class="lang-pt" hidden>Consulta</span></a></li>
             <li class="lang-switcher" id="site-header_lang-switcher">
                 <button class="lang-toggle active" data-lang="en" onclick="switchLang('en')" id="site-header_lang-en">EN</button>
                 <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')" id="site-header_lang-pt">PT</button>
@@ -62,7 +62,7 @@ class SiteFooter extends HTMLElement {
     <footer id="site-footer_footer">
         <div class="footer-main" id="site-footer_footer-main">
             <div class="footer-desc" id="site-footer_footer-desc">
-                <img class="logo-footer" src="images/logo-white.png" alt="THE PALATE" id="site-footer_logo-white">
+                <img class="logo-footer" src="images/logo-white.png" alt="Flavory Global" id="site-footer_logo-white">
                 <p id="site-footer_desc-text">
                     <span class="lang-en" id="site-footer_desc-en">Curating global excellence with uncompromising taste. We are more than a bridge — we define the next generation of luxury dining standards alongside the world's culinary pioneers.</span>
                     <span class="lang-pt" hidden id="site-footer_desc-pt">Curando a excelencia global com gosto implacavel. Somos mais que uma ponte — definimos a proxima geracao de padroes de gastronomia de luxo junto com os pioneiros culinarios do mundo.</span>
@@ -72,20 +72,20 @@ class SiteFooter extends HTMLElement {
                 <div class="footer-col" id="site-footer_col-nav">
                     <h4 id="site-footer_heading-nav"><span class="lang-en">Navigation</span><span class="lang-pt" hidden>Navegacao</span></h4>
                     <ul id="site-footer_nav-list">
-                        <li id="site-footer_li-home"><a href="index.html" id="site-footer_link-home">Home</a></li>
-                        <li id="site-footer_li-brands"><a href="brands.html" id="site-footer_link-brands">For Brands</a></li>
-                        <li id="site-footer_li-gastronomy"><a href="gastronomy.html" id="site-footer_link-gastronomy">For Gastronomy</a></li>
-                        <li id="site-footer_li-inquiry"><a href="inquiry.html" id="site-footer_link-inquiry">Inquiry</a></li>
-                        <li id="site-footer_li-about"><a href="aboutUs.html" id="site-footer_link-about" style="color:#E5BA73;">About Us</a></li>
+                        <li id="site-footer_li-home"><a href="index.html" id="site-footer_link-home"><span class="lang-en">Home</span><span class="lang-pt" hidden>Início</span></a></li>
+                        <li id="site-footer_li-brands"><a href="brands.html" id="site-footer_link-brands"><span class="lang-en">For Brands</span><span class="lang-pt" hidden>Para Marcas</span></a></li>
+                        <li id="site-footer_li-gastronomy"><a href="gastronomy.html" id="site-footer_link-gastronomy"><span class="lang-en">For Gastronomy</span><span class="lang-pt" hidden>Para Gastronomia</span></a></li>
+                        <li id="site-footer_li-inquiry"><a href="inquiry.html" id="site-footer_link-inquiry"><span class="lang-en">Inquiry</span><span class="lang-pt" hidden>Consulta</span></a></li>
+                        <li id="site-footer_li-about"><a href="privacy.html" id="site-footer_link-about" style="color:#E5BA73;"><span class="lang-en">Privacy &amp; Terms</span><span class="lang-pt" hidden>Privacidade e Termos</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-col" id="site-footer_col-email">
                     <h4 id="site-footer_heading-email"><span class="lang-en">EMAIL US</span><span class="lang-pt" hidden>ENVIE-NOS EMAIL</span></h4>
                     <ul id="site-footer_email-list">
-                        <li id="site-footer_li-hello"><a href="mailto:HELLO@THEPALATE.COM" id="site-footer_email-hello">HELLO@THEPALATE.COM</a></li>
-                        <li id="site-footer_li-jobs"><a href="mailto:JOBS@THEPALATE.COM" id="site-footer_email-jobs">JOBS@THEPALATE.COM</a></li>
-                        <li id="site-footer_li-business"><a href="mailto:BUSINESS@THEPALATE.COM" id="site-footer_email-business">BUSINESS@THEPALATE.COM</a></li>
-                        <li id="site-footer_li-legal"><a href="mailto:LEGAL@THEPALATE.COM" id="site-footer_email-legal">LEGAL@THEPALATE.COM</a></li>
+                        <li id="site-footer_li-hello"><a href="mailto:HELLO@FG-MR.COM" id="site-footer_email-hello">HELLO@FG-MR.COM</a></li>
+                        <li id="site-footer_li-jobs"><a href="mailto:JOBS@FG-MR.COM" id="site-footer_email-jobs">JOBS@FG-MR.COM</a></li>
+                        <li id="site-footer_li-business"><a href="mailto:BUSINESS@FG-MR.COM" id="site-footer_email-business">BUSINESS@FG-MR.COM</a></li>
+                        <li id="site-footer_li-legal"><a href="mailto:LEGAL@FG-MR.COM" id="site-footer_email-legal">LEGAL@FG-MR.COM</a></li>
                     </ul>
                 </div>
                 <div class="footer-col" id="site-footer_col-address" style="max-width:300px;">
