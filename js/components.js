@@ -53,12 +53,6 @@ class SiteHeader extends HTMLElement {
     ) {
       window.switchLang(window.getCurrentLang());
     }
-
-    document.addEventListener("langchange", () => {
-      if (typeof window.switchLang === "function") {
-        window.switchLang(window.getCurrentLang());
-      }
-    });
   }
 }
 
@@ -120,12 +114,6 @@ class SiteFooter extends HTMLElement {
     ) {
       window.switchLang(window.getCurrentLang());
     }
-
-    document.addEventListener("langchange", () => {
-      if (typeof window.switchLang === "function") {
-        window.switchLang(window.getCurrentLang());
-      }
-    });
   }
 }
 
