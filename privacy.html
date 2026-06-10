@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy & Terms | Flavory Global</title>
     <link rel="icon" type="image/png" href="images/badge.png">
+    <link rel="stylesheet" href="css/components.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-        
-        /* ===== 沿用主页固定导航栏 ===== */
-        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #f0f0f0; }
-        .logo { height: 40px; display: block; }
-        .logo-footer { height: 28px; display: block; }
-        .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
-        .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        .nav-links a:hover, .nav-links a.active { color: #149C3D; border-bottom: 2px solid #E5BA73; padding-bottom: 4px; }
-        .lang-toggle { font-size: 12px; letter-spacing: 1px; font-weight: 700; cursor: pointer; padding: 4px 10px; border: 1px solid #ddd; border-radius: 3px; background: transparent; text-transform: uppercase; }
-        .lang-toggle.active { background: #149C3D; color: #fff; border-color: #149C3D; }
-        .lang-toggle:hover { border-color: #149C3D; }
 
-        /* ===== 双栏法律文档布局 ===== */
         .policy-container { display: flex; max-width: 1400px; margin: 120px auto 0 auto; padding: 0 8%; gap: 60px; position: relative; }
-        
-        /* 左侧固定目录结构 */
         .policy-sidebar { width: 260px; position: sticky; top: 140px; height: calc(100vh - 180px); overflow-y: auto; padding-right: 20px; border-right: 1px solid #eeeeee; }
         .sidebar-group { margin-bottom: 30px; }
         .sidebar-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #149C3D; margin-bottom: 15px; }
@@ -32,31 +19,16 @@
         .sidebar-links a { font-size: 14px; color: #666666; font-weight: 400; display: block; }
         .sidebar-links a:hover { color: #111111; padding-left: 4px; }
 
-        /* 右侧核心内容区 */
         .policy-content { flex: 1; max-width: 800px; padding-bottom: 120px; }
         .doc-meta { font-size: 13px; color: #888888; margin-bottom: 10px; letter-spacing: 0.5px; }
-        
         h1 { font-size: 36px; font-weight: 700; color: #111111; margin-bottom: 30px; letter-spacing: -0.5px; }
         h1 span { border-bottom: 3px solid #E5BA73; padding-bottom: 5px; }
-        
         h2 { font-size: 20px; font-weight: 700; color: #111111; margin-top: 45px; margin-bottom: 20px; border-left: 3px solid #149C3D; padding-left: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
         p { font-size: 15px; color: #333333; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
         p strong { color: #111111; font-weight: 600; }
-        
         ol { padding-left: 20px; margin-bottom: 25px; list-style-type: decimal; }
         li { font-size: 15px; color: #333333; line-height: 1.8; margin-bottom: 12px; }
         li strong { color: #111111; }
-
-        /* ===== 沿用主页页脚 ===== */
-        footer { background-color: #111111; color: #ffffff; padding: 90px 8% 40px 8%; display: flex; flex-direction: column; gap: 60px; border-top: 1px solid #222222; }
-        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-desc { max-width: 380px; color: #aaaaaa; font-size: 14px; line-height: 1.8; }
-        .footer-desc .logo-footer { margin-bottom: 20px; }
-        .footer-links { display: flex; gap: 80px; }
-        .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #149C3D; margin-bottom: 25px; font-weight: 700; }
-        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 14px; color: #cccccc; }
-        .footer-col ul a:hover { color: #E5BA73; padding-left: 5px; }
-        .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: #777777; border-top: 1px solid #222222; padding-top: 30px; letter-spacing: 1px; }
 
         @media (max-width: 992px) {
             .policy-sidebar { display: none; }
@@ -66,21 +38,7 @@
 </head>
 <body>
 
-    <!-- 顶通导航栏 (与主页一致) -->
-    <nav>
-        <img class="logo" src="images/logo.png" alt="Flavory Global">
-        <ul class="nav-links">
-            <li><a href="index.html" class="active"><span class="lang-en">Home</span><span class="lang-pt" hidden>Início</span></a></li>
-            <li><a href="brands.html"><span class="lang-en">For Brands</span><span class="lang-pt" hidden>Para Marcas</span></a></li>
-            <li><a href="gastronomy.html"><span class="lang-en">For Gastronomy</span><span class="lang-pt" hidden>Para Gastronomia</span></a></li>
-            <li><a href="inquiry.html"><span class="lang-en">Inquiry</span><span class="lang-pt" hidden>Consulta</span></a></li>
-            <li><a href="aboutUs.html"><span class="lang-en">About Us</span><span class="lang-pt" hidden>Sobre Nós</span></a></li>
-            <li>
-                <button class="lang-toggle active" data-lang="en" onclick="switchLang('en')">EN</button>
-                <button class="lang-toggle" data-lang="pt" onclick="switchLang('pt')">PT</button>
-            </li>
-        </ul>
-    </nav>
+    <site-header id="privacy_site-header"></site-header>
 
     <!-- 双栏法律文档主体 -->
     <div class="policy-container">
@@ -179,70 +137,9 @@
         </main>
     </div>
 
-    <!-- 底部页脚 (与主页一致) -->
-    <footer>
-        <div class="footer-main">
-            <!-- 品牌愿景叙事 -->
-            <div class="footer-desc">
-                <img class="logo-footer" src="images/logo-white.png" alt="Flavory Global">
-                <p>
-                    <span class="lang-en">Curating global excellence with uncompromising taste. We are more than a bridge — we define the next generation of luxury dining standards alongside the world's culinary pioneers.</span>
-                    <span class="lang-pt" hidden>Curando a excelência global com gosto implacável. Somos mais que uma ponte — definimos a próxima geração de padrões de gastronomia de luxo junto com os pioneiros culinários do mundo.</span>
-                </p>
-            </div>
-            
-            <!-- 统一后的三大矩阵列 -->
-            <div class="footer-links">
-                <!-- 站点导航 -->
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-pt" hidden>Início</span></a></li>
-                        <li><a href="brands.html"><span class="lang-en">For Brands</span><span class="lang-pt" hidden>Para Marcas</span></a></li>
-                        <li><a href="gastronomy.html"><span class="lang-en">For Gastronomy</span><span class="lang-pt" hidden>Para Gastronomia</span></a></li>
-                        <li><a href="inquiry.html"><span class="lang-en">Inquiry</span><span class="lang-pt" hidden>Consulta</span></a></li>
-                        <li><a href="privacy.html" style="color: #E5BA73;"><span class="lang-en">Privacy &amp; Terms</span><span class="lang-pt" hidden>Privacidade e Termos</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- 新增：电子通讯分流 -->
-                <div class="footer-col">
-                    <h4>EMAIL US</h4>
-                    <ul>
-                        <li><a href="mailto:HELLO@FG-MR.COM">HELLO@FG-MR.COM</a></li>
-                        <li><a href="mailto:JOBS@FG-MR.COM">JOBS@FG-MR.COM</a></li>
-                        <li><a href="mailto:BUSINESS@FG-MR.COM">BUSINESS@FG-MR.COM</a></li>
-                        <li><a href="mailto:LEGAL@FG-MR.COM">LEGAL@FG-MR.COM</a></li>
-                    </ul>
-                </div>
-                
-                <!-- 新增：全球实体驻地 -->
-                <div class="footer-col" style="max-width: 300px;">
-                    <h4>FIND US</h4>
-                    <ul class="address-list" style="gap: 18px;">
-                        <li>
-                            <small style="color: #149C3D; font-weight: 700; font-size: 11px; letter-spacing: 0.5px; display: block; margin-bottom: 2px;">US HEADQUARTERS ADDRESS:</small>
-                            <span style="font-size: 13px; line-height: 1.5; color: #cccccc; display: block;">1500 N GRANT ST STE R, DENVER, CO 80203, UNITED STATES</span>
-                        </li>
-                        <li>
-                            <small style="color: #149C3D; font-weight: 700; font-size: 11px; letter-spacing: 0.5px; display: block; margin-bottom: 2px;">UK BRANCH ADDRESS:</small>
-                            <span style="font-size: 13px; line-height: 1.5; color: #cccccc; display: block;">Tower 42, 25 Old Broad St, London EC2N 1HN, UNITED KINGDOM</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 底部版权和法务微调 -->
-        <div class="footer-bottom">
-            <p>&copy; 2026 FLAVORY GLOBAL. All Rights Reserved. &nbsp;|&nbsp; © Privacy Policy and Cookie Notice</p>
-            <p>
-                <span class="lang-en">Designed for Global Culinary Excellence</span>
-                <span class="lang-pt" hidden>Projetado para a Excellence Culinária Global</span>
-            </p>
-        </div>
-    </footer>
+    <site-footer id="privacy_site-footer"></site-footer>
 
     <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
 </body>
 </html>
