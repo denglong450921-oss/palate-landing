@@ -1,18 +1,18 @@
 /**
- * i18n.js — IP geolocation language switching
- * Brazil IP → Portuguese, other regions → English
+ * i18n.js — IP geolocation language switching with localStorage persistence
  *
  * System: wrap translatable text in:
  *   <span class="lang-en">English</span>
  *   <span class="lang-pt" hidden>Português</span>
  *
  * Add manual toggle in nav:
- *   <a href="#" onclick="switchLang('pt');return false">PT</a>
- *   <a href="#" onclick="switchLang('en');return false">EN</a>
+ *   <button onclick="switchLang('pt')">PT</button>
+ *   <button onclick="switchLang('en')">EN</button>
  */
 (function () {
   var STORAGE_KEY = "palate_lang";
   var currentLang = "en";
+  var fallbackTimer = null;
 
   function getSaved() {
     try {
@@ -61,13 +61,17 @@
     }
 
     // Fallback: English always works
-    var fallbackTimer = setTimeout(function () {
+    fallbackTimer = setTimeout(function () {
       applyLang("en");
+      fallbackTimer = null;
     }, 4000);
 
     // IP detection via ip-api.com (JSONP, works from file://)
     window.__ipCallback = function (data) {
-      clearTimeout(fallbackTimer);
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+      }
       applyLang(data && data.countryCode === "BR" ? "pt" : "en");
       window.__ipCallback = null;
     };
@@ -82,14 +86,21 @@
     };
     s.onload = cleanup;
     s.onerror = function () {
-      clearTimeout(fallbackTimer);
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+      }
       applyLang("en");
       cleanup();
     };
   }
 
-  // Expose for manual toggle
+  // Expose for manual toggle — clears fallback so IP timer doesn't override user
   window.switchLang = function (l) {
+    if (fallbackTimer) {
+      clearTimeout(fallbackTimer);
+      fallbackTimer = null;
+    }
     applyLang(l);
   };
   window.getCurrentLang = function () {
