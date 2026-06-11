@@ -140,14 +140,12 @@
 <div class="form-group" id="inquiry_field-name">
 <label for="name" id="inquiry_label">Full Name / Nome Completo</label>
 <input id="inquiry_input-name" placeholder="e.g., Alexander Mercer" required="" type="text"/>
-<span class="error-msg lang-en">Please enter your full name.</span>
-<span class="error-msg lang-pt" hidden>Por favor, insira seu nome completo.</span>
+<span class="error-msg" id="inquiry_error-name"></span>
 </div>
 <div class="form-group" id="inquiry_field-email">
 <label for="email" id="inquiry_label_2">Corporate Email / E-mail Corporativo</label>
 <input id="inquiry_input-email" placeholder="name@company.com" required="" type="email"/>
-<span class="error-msg lang-en">Please enter a valid email address.</span>
-<span class="error-msg lang-pt" hidden>Por favor, insira um e-mail válido.</span>
+<span class="error-msg" id="inquiry_error-email"></span>
 </div>
 <div class="form-group" id="inquiry_field-company">
 <label for="company" id="inquiry_label_3">Organization / Organizacao</label>
@@ -165,8 +163,7 @@
 <div class="form-group full-width" id="inquiry_field-message">
 <label for="message" id="inquiry_label_5">Collaboration Dossier Brief / Resumo do Dossier de Colaboracao</label>
 <textarea id="inquiry_input-message" placeholder="Please describe your current project, menu vision, or market scalability requirements..." required="" rows="6"></textarea>
-<span class="error-msg lang-en">Please describe your collaboration needs.</span>
-<span class="error-msg lang-pt" hidden>Por favor, descreva suas necessidades de colaboração.</span>
+<span class="error-msg" id="inquiry_error-message"></span>
 </div>
 </div>
 <button class="submit-btn" id="inquiry_submit-btn" type="submit">
@@ -205,17 +202,24 @@
         var email = document.getElementById('inquiry_input-email').value.trim();
         var message = document.getElementById('inquiry_input-message').value.trim();
         var valid = true;
+        var lang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'en';
 
         if (!name) {
             document.getElementById('inquiry_field-name').classList.add('has-error');
+            document.getElementById('inquiry_error-name').textContent =
+                lang === 'pt' ? 'Por favor, insira seu nome completo.' : 'Please enter your full name.';
             valid = false;
         }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             document.getElementById('inquiry_field-email').classList.add('has-error');
+            document.getElementById('inquiry_error-email').textContent =
+                lang === 'pt' ? 'Por favor, insira um e-mail válido.' : 'Please enter a valid email address.';
             valid = false;
         }
         if (!message) {
             document.getElementById('inquiry_field-message').classList.add('has-error');
+            document.getElementById('inquiry_error-message').textContent =
+                lang === 'pt' ? 'Por favor, descreva suas necessidades de colaboração.' : 'Please describe your collaboration needs.';
             valid = false;
         }
 
