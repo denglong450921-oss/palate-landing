@@ -75,10 +75,7 @@
             animation: toastIn 0.3s ease;
         }
         .toast-box .icon { font-size: 48px; margin-bottom: 16px; }
-        .toast-box p { font-size: 16px; color: #333333; line-height: 1.7; margin-bottom: 8px; }
-        .toast-box .toast-en { color: #111111; font-weight: 600; }
-        .toast-box .toast-pt { color: #666666; font-size: 14px; }
-        .toast-box .toast-cn { color: #149C3D; font-size: 14px; margin-bottom: 20px; }
+        .toast-box p { font-size: 16px; color: #333333; line-height: 1.7; margin: 0; }
         .toast-close {
             margin-top: 24px; padding: 10px 32px; background: #149C3D;
             color: #fff; border: none; border-radius: 4px;
@@ -185,9 +182,7 @@
 <div class="toast-overlay" id="inquiry_toast">
     <div class="toast-box">
         <div class="icon">✓</div>
-        <p class="toast-cn">您的信息已提交，我们将尽快与您取得联系。</p>
-        <p class="toast-en">Your information has been submitted. We will contact you shortly.</p>
-        <p class="toast-pt">Suas informações foram enviadas. Entraremos em contato em breve.</p>
+        <p id="inquiry_toast-msg"></p>
         <button class="toast-close" onclick="document.getElementById('inquiry_toast').classList.remove('show')">OK</button>
     </div>
 </div>
@@ -248,7 +243,16 @@
             window.location.href = mailto;
         }
 
-        // Show toast
+        // Show toast with current language
+        var msg = document.getElementById('inquiry_toast-msg');
+        var lang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'en';
+        if (lang === 'pt') {
+            msg.textContent = 'Suas informações foram enviadas. Entraremos em contato em breve.';
+        } else if (lang === 'en') {
+            msg.textContent = 'Your information has been submitted. We will contact you shortly.';
+        } else {
+            msg.textContent = '您的信息已提交，我们将尽快与您取得联系。';
+        }
         document.getElementById('inquiry_toast').classList.add('show');
     });
 })();
