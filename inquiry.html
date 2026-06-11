@@ -60,6 +60,42 @@
             .form-group.full-width { grid-column: span 1; }
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Toast notification */
+        .toast-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); z-index: 9999;
+            display: none; align-items: center; justify-content: center;
+        }
+        .toast-overlay.show { display: flex; }
+        .toast-box {
+            background: #ffffff; border-radius: 8px; padding: 40px 48px;
+            max-width: 480px; width: 90%; text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            animation: toastIn 0.3s ease;
+        }
+        .toast-box .icon { font-size: 48px; margin-bottom: 16px; }
+        .toast-box p { font-size: 16px; color: #333333; line-height: 1.7; margin-bottom: 8px; }
+        .toast-box .toast-en { color: #111111; font-weight: 600; }
+        .toast-box .toast-pt { color: #666666; font-size: 14px; }
+        .toast-box .toast-cn { color: #149C3D; font-size: 14px; margin-bottom: 20px; }
+        .toast-close {
+            margin-top: 24px; padding: 10px 32px; background: #149C3D;
+            color: #fff; border: none; border-radius: 4px;
+            font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 1px;
+        }
+        .toast-close:hover { background: #111111; }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Validation error */
+        .form-group .error-msg { font-size: 12px; color: #d32f2f; display: none; margin-top: 4px; }
+        .form-group.has-error input,
+        .form-group.has-error textarea,
+        .form-group.has-error select { border-color: #d32f2f; }
+        .form-group.has-error .error-msg { display: block; }
     </style>
 <link href="css/components.css" rel="stylesheet"/>
 </head>
@@ -107,10 +143,14 @@
 <div class="form-group" id="inquiry_field-name">
 <label for="name" id="inquiry_label">Full Name / Nome Completo</label>
 <input id="inquiry_input-name" placeholder="e.g., Alexander Mercer" required="" type="text"/>
+<span class="error-msg lang-en">Please enter your full name.</span>
+<span class="error-msg lang-pt" hidden>Por favor, insira seu nome completo.</span>
 </div>
 <div class="form-group" id="inquiry_field-email">
 <label for="email" id="inquiry_label_2">Corporate Email / E-mail Corporativo</label>
 <input id="inquiry_input-email" placeholder="name@company.com" required="" type="email"/>
+<span class="error-msg lang-en">Please enter a valid email address.</span>
+<span class="error-msg lang-pt" hidden>Por favor, insira um e-mail válido.</span>
 </div>
 <div class="form-group" id="inquiry_field-company">
 <label for="company" id="inquiry_label_3">Organization / Organizacao</label>
@@ -128,6 +168,8 @@
 <div class="form-group full-width" id="inquiry_field-message">
 <label for="message" id="inquiry_label_5">Collaboration Dossier Brief / Resumo do Dossier de Colaboracao</label>
 <textarea id="inquiry_input-message" placeholder="Please describe your current project, menu vision, or market scalability requirements..." required="" rows="6"></textarea>
+<span class="error-msg lang-en">Please describe your collaboration needs.</span>
+<span class="error-msg lang-pt" hidden>Por favor, descreva suas necessidades de colaboração.</span>
 </div>
 </div>
 <button class="submit-btn" id="inquiry_submit-btn" type="submit">
@@ -138,7 +180,78 @@
 </div>
 </section>
 <site-footer id="inquiry_site-footer"></site-footer>
+
+<!-- Toast overlay -->
+<div class="toast-overlay" id="inquiry_toast">
+    <div class="toast-box">
+        <div class="icon">✓</div>
+        <p class="toast-cn">您的信息已提交，我们将尽快与您取得联系。</p>
+        <p class="toast-en">Your information has been submitted. We will contact you shortly.</p>
+        <p class="toast-pt">Suas informações foram enviadas. Entraremos em contato em breve.</p>
+        <button class="toast-close" onclick="document.getElementById('inquiry_toast').classList.remove('show')">OK</button>
+    </div>
+</div>
+
 <script src="js/i18n.js"></script>
 <script src="js/components.js"></script>
+<script>
+(function() {
+    var form = document.getElementById('inquiry_form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        var groups = form.querySelectorAll('.form-group');
+        for (var i = 0; i < groups.length; i++) groups[i].classList.remove('has-error');
+
+        var name = document.getElementById('inquiry_input-name').value.trim();
+        var email = document.getElementById('inquiry_input-email').value.trim();
+        var message = document.getElementById('inquiry_input-message').value.trim();
+        var valid = true;
+
+        if (!name) {
+            document.getElementById('inquiry_field-name').classList.add('has-error');
+            valid = false;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            document.getElementById('inquiry_field-email').classList.add('has-error');
+            valid = false;
+        }
+        if (!message) {
+            document.getElementById('inquiry_field-message').classList.add('has-error');
+            valid = false;
+        }
+
+        if (!valid) return;
+
+        // Build mailto
+        var company = document.getElementById('inquiry_input-company').value.trim();
+        var partnership = document.getElementById('inquiry_input-partnership').value;
+
+        var body = 'Name: ' + name + '%0D%0A' +
+                   'Email: ' + email + '%0D%0A' +
+                   (company ? 'Organization: ' + company + '%0D%0A' : '') +
+                   (partnership ? 'Partnership Type: ' + partnership + '%0D%0A' : '') +
+                   '%0D%0A--- Message ---%0D%0A' + message;
+
+        var mailto = 'mailto:HELLO@FG-MR.COM' +
+                     '?cc=JOBS@FG-MR.COM,BUSINESS@FG-MR.COM,LEGAL@FG-MR.COM' +
+                     '&subject=' + encodeURIComponent('Inquiry from ' + name) +
+                     '&body=' + body;
+
+        // Try to open email client
+        var w = window.open(mailto, '_blank');
+        if (!w || w.closed || typeof w.closed === 'undefined') {
+            // popup blocked — fallback: redirect
+            window.location.href = mailto;
+        }
+
+        // Show toast
+        document.getElementById('inquiry_toast').classList.add('show');
+    });
+})();
+</script>
 </body>
 </html>
