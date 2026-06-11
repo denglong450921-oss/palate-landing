@@ -248,10 +248,8 @@
         var lang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'en';
         if (lang === 'pt') {
             msg.textContent = 'Suas informações foram enviadas. Entraremos em contato em breve.';
-        } else if (lang === 'en') {
-            msg.textContent = 'Your information has been submitted. We will contact you shortly.';
         } else {
-            msg.textContent = '您的信息已提交，我们将尽快与您取得联系。';
+            msg.textContent = 'Your information has been submitted. We will contact you shortly.';
         }
         document.getElementById('inquiry_toast').classList.add('show');
     });
