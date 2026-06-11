@@ -248,25 +248,6 @@
 
         if (!valid) return;
 
-        // Build mailto
-        var body = 'Name: ' + name + '%0D%0A' +
-                   'Email: ' + email + '%0D%0A' +
-                   (company ? 'Organization: ' + company + '%0D%0A' : '') +
-                   (partnership ? 'Partnership Type: ' + partnership + '%0D%0A' : '') +
-                   '%0D%0A--- Message ---%0D%0A' + message;
-
-        var mailto = 'mailto:HELLO@FG-MR.COM' +
-                     '?cc=JOBS@FG-MR.COM,BUSINESS@FG-MR.COM,LEGAL@FG-MR.COM' +
-                     '&subject=' + encodeURIComponent('Inquiry from ' + name) +
-                     '&body=' + body;
-
-        // Try to open email client
-        var w = window.open(mailto, '_blank');
-        if (!w || w.closed || typeof w.closed === 'undefined') {
-            // popup blocked — fallback: redirect
-            window.location.href = mailto;
-        }
-
         // Show toast with current language
         var msg = document.getElementById('inquiry_toast-msg');
         var lang = window.currentLang || 'en';
