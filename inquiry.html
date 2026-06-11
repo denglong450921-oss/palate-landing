@@ -135,7 +135,7 @@
 </div>
 </div>
 <div class="inquiry-form" id="inquiry_form-container">
-<form action="#" id="inquiry_form" method="POST">
+<form action="#" id="inquiry_form" method="POST" novalidate>
 <div class="form-grid" id="inquiry_form-grid">
 <div class="form-group" id="inquiry_field-name">
 <label for="name" id="inquiry_label"><span class="lang-en">Full Name</span><span class="lang-pt" hidden>Nome Completo</span></label>
@@ -150,6 +150,7 @@
 <div class="form-group" id="inquiry_field-company">
 <label for="company" id="inquiry_label_3"><span class="lang-en">Organization</span><span class="lang-pt" hidden>Organização</span></label>
 <input id="inquiry_input-company" placeholder="e.g., Luxury Gastronomy Group" required="" type="text"/>
+<span class="error-msg" id="inquiry_error-company"></span>
 </div>
 <div class="form-group" id="inquiry_field-partnership">
 <label for="partnership-type" id="inquiry_label_4"><span class="lang-en">Partnership Type</span><span class="lang-pt" hidden>Tipo de Parceria</span></label>
@@ -163,6 +164,7 @@
 <option class="lang-en" id="inquiry_option_4" value="other">Other Bespoke Collaboration</option>
 <option class="lang-pt" hidden id="inquiry_option_4_pt" value="other">Outra Colaboração Sob Medida</option>
 </select>
+<span class="error-msg" id="inquiry_error-partnership"></span>
 </div>
 <div class="form-group full-width" id="inquiry_field-message">
 <label for="message" id="inquiry_label_5"><span class="lang-en">Collaboration Dossier Brief</span><span class="lang-pt" hidden>Resumo do Dossiê de Colaboração</span></label>
@@ -184,7 +186,10 @@
     <div class="toast-box">
         <div class="icon">✓</div>
         <p id="inquiry_toast-msg"></p>
-        <button class="toast-close" onclick="document.getElementById('inquiry_toast').classList.remove('show')">OK</button>
+        <button class="toast-close" onclick="document.getElementById('inquiry_toast').classList.remove('show')">
+            <span class="lang-en">OK</span>
+            <span class="lang-pt" hidden>Fechar</span>
+        </button>
     </div>
 </div>
 
@@ -204,6 +209,8 @@
 
         var name = document.getElementById('inquiry_input-name').value.trim();
         var email = document.getElementById('inquiry_input-email').value.trim();
+        var company = document.getElementById('inquiry_input-company').value.trim();
+        var partnership = document.getElementById('inquiry_input-partnership').value;
         var message = document.getElementById('inquiry_input-message').value.trim();
         var valid = true;
         var lang = window.currentLang || 'en';
@@ -220,6 +227,18 @@
                 lang === 'pt' ? 'Por favor, insira um e-mail válido.' : 'Please enter a valid email address.';
             valid = false;
         }
+        if (!company) {
+            document.getElementById('inquiry_field-company').classList.add('has-error');
+            document.getElementById('inquiry_error-company').textContent =
+                lang === 'pt' ? 'Por favor, insira o nome da organização.' : 'Please enter your organization.';
+            valid = false;
+        }
+        if (!partnership) {
+            document.getElementById('inquiry_field-partnership').classList.add('has-error');
+            document.getElementById('inquiry_error-partnership').textContent =
+                lang === 'pt' ? 'Por favor, selecione um tipo de parceria.' : 'Please select a partnership type.';
+            valid = false;
+        }
         if (!message) {
             document.getElementById('inquiry_field-message').classList.add('has-error');
             document.getElementById('inquiry_error-message').textContent =
@@ -230,9 +249,6 @@
         if (!valid) return;
 
         // Build mailto
-        var company = document.getElementById('inquiry_input-company').value.trim();
-        var partnership = document.getElementById('inquiry_input-partnership').value;
-
         var body = 'Name: ' + name + '%0D%0A' +
                    'Email: ' + email + '%0D%0A' +
                    (company ? 'Organization: ' + company + '%0D%0A' : '') +
@@ -251,7 +267,6 @@
             window.location.href = mailto;
         }
 
-        // Show toast with current language
         // Show toast with current language
         var msg = document.getElementById('inquiry_toast-msg');
         var lang = window.currentLang || 'en';
