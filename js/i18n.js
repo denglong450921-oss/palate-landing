@@ -25,6 +25,7 @@
     if (lang !== "pt" && lang !== "en") lang = "en";
 
     document.documentElement.lang = lang;
+    window.currentLang = lang;
 
     // Show/hide content
     var els = document.querySelectorAll(".lang-en, .lang-pt");
