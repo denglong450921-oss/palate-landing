@@ -138,30 +138,34 @@
 <form action="#" id="inquiry_form" method="POST">
 <div class="form-grid" id="inquiry_form-grid">
 <div class="form-group" id="inquiry_field-name">
-<label for="name" id="inquiry_label">Full Name / Nome Completo</label>
+<label for="name" id="inquiry_label"><span class="lang-en">Full Name</span><span class="lang-pt" hidden>Nome Completo</span></label>
 <input id="inquiry_input-name" placeholder="e.g., Alexander Mercer" required="" type="text"/>
 <span class="error-msg" id="inquiry_error-name"></span>
 </div>
 <div class="form-group" id="inquiry_field-email">
-<label for="email" id="inquiry_label_2">Corporate Email / E-mail Corporativo</label>
+<label for="email" id="inquiry_label_2"><span class="lang-en">Corporate Email</span><span class="lang-pt" hidden>E-mail Corporativo</span></label>
 <input id="inquiry_input-email" placeholder="name@company.com" required="" type="email"/>
 <span class="error-msg" id="inquiry_error-email"></span>
 </div>
 <div class="form-group" id="inquiry_field-company">
-<label for="company" id="inquiry_label_3">Organization / Organizacao</label>
+<label for="company" id="inquiry_label_3"><span class="lang-en">Organization</span><span class="lang-pt" hidden>Organização</span></label>
 <input id="inquiry_input-company" placeholder="e.g., Luxury Gastronomy Group" required="" type="text"/>
 </div>
 <div class="form-group" id="inquiry_field-partnership">
-<label for="partnership-type" id="inquiry_label_4">Partnership Type / Tipo de Parceria</label>
+<label for="partnership-type" id="inquiry_label_4"><span class="lang-en">Partnership Type</span><span class="lang-pt" hidden>Tipo de Parceria</span></label>
 <select id="inquiry_input-partnership" required="">
-<option disabled="" id="inquiry_option" selected="" value="">Select an option...</option>
-<option id="inquiry_option_2" value="brand">For Brands (Global Growth)</option>
-<option id="inquiry_option_3" value="gastronomy">For Gastronomy (Michelin Sourcing)</option>
-<option id="inquiry_option_4" value="other">Other Bespoke Collaboration</option>
+<option class="lang-en" disabled="" id="inquiry_option" selected="" value="">Select an option...</option>
+<option class="lang-pt" disabled="" hidden id="inquiry_option_pt" selected="" value="">Selecione uma opção...</option>
+<option class="lang-en" id="inquiry_option_2" value="brand">For Brands (Global Growth)</option>
+<option class="lang-pt" hidden id="inquiry_option_2_pt" value="brand">Para Marcas (Crescimento Global)</option>
+<option class="lang-en" id="inquiry_option_3" value="gastronomy">For Gastronomy (Michelin Sourcing)</option>
+<option class="lang-pt" hidden id="inquiry_option_3_pt" value="gastronomy">Para Gastronomia (Fornecimento Michelin)</option>
+<option class="lang-en" id="inquiry_option_4" value="other">Other Bespoke Collaboration</option>
+<option class="lang-pt" hidden id="inquiry_option_4_pt" value="other">Outra Colaboração Sob Medida</option>
 </select>
 </div>
 <div class="form-group full-width" id="inquiry_field-message">
-<label for="message" id="inquiry_label_5">Collaboration Dossier Brief / Resumo do Dossier de Colaboracao</label>
+<label for="message" id="inquiry_label_5"><span class="lang-en">Collaboration Dossier Brief</span><span class="lang-pt" hidden>Resumo do Dossiê de Colaboração</span></label>
 <textarea id="inquiry_input-message" placeholder="Please describe your current project, menu vision, or market scalability requirements..." required="" rows="6"></textarea>
 <span class="error-msg" id="inquiry_error-message"></span>
 </div>
