@@ -206,9 +206,7 @@
         var email = document.getElementById('inquiry_input-email').value.trim();
         var message = document.getElementById('inquiry_input-message').value.trim();
         var valid = true;
-        var lang = 'en';
-        var activeToggle = document.querySelector('.lang-toggle.active');
-        if (activeToggle) lang = activeToggle.getAttribute('data-lang');
+        var lang = document.documentElement.lang || 'en';
 
         if (!name) {
             document.getElementById('inquiry_field-name').classList.add('has-error');
@@ -255,9 +253,7 @@
 
         // Show toast with current language
         var msg = document.getElementById('inquiry_toast-msg');
-        var lang = 'en';
-        var activeToggle = document.querySelector('.lang-toggle.active');
-        if (activeToggle) lang = activeToggle.getAttribute('data-lang');
+        var lang = document.documentElement.lang || 'en';
         if (lang === 'pt') {
             msg.textContent = 'Suas informações foram enviadas. Entraremos em contato em breve.';
         } else {
